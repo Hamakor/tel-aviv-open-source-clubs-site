@@ -1,0 +1,101 @@
+#include '../template.wml'
+
+<div dir="rtl">
+
+<h1>הרצאות למתחילים של מועדון הלינוקס באוניברסיטת ת"א</h1>
+
+<h2>הערה</h2>
+<p>
+החל מה-3 בנובמבר תתחיל סדרה חדשה!
+</p>
+
+<h2>כל ההרצאות יחלו בשעה <em class="ul">18:30</em> בחדר <em class="ul">007</em>, בניין שרייבר</h2>
+ההרצאות למתחילים נועדו להכיר את עולם הלינוקס (מערכת הפעלה חופשית) לקהל הרחב.
+ההרצאות ללא תשלום. &nbsp;
+
+<h2>ההרצאות של 2004</h2>
+
+<table cellpadding="2" cellspacing="2" border="1" width="100%">
+<tbody>
+    <tr>
+      <td valign="top" align="center">קישור<br /> </td>
+      <td valign="top" align="center">שם המרצה<br /></td>
+      <td valign="top" align="center">תאריך<br /></td>
+      <td valign="top" align="center">נושא<br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="http://www.shlomifish.org/lecture/W2L/Blitz/slides/">הרצאת הבזק</a></td>
+      <td valign="top" align="center">אדי אהרונוביץ'</td>
+      <td valign="top" align="center">3 בנובמבר, 2004</td>
+      <td valign="top" align="right">כל מה שצריך לדעת כדי להתחיל בלינוקס</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="./lecture-notes/foss_lecture.pdf">פילוסופיית התוכנה החופשית והקוד הפתוח</a></td>
+      <td valign="top" align="center">אורי עידן</td>
+      <td valign="top" align="center">7 בנובמבר, 2004</td>
+      <td valign="top" align="right">מה מייחד לינוקס מתוכנות אחרות?</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="http://8ln.org/multimedia-new/">מולטימדיה בלינוקס</a></td>
+      <td valign="top" align="center">אלון אלטמן</td>
+      <td valign="top" align="center">14 בנובמבר, 2004</td>
+      <td valign="top" align="right">כיצד לנגן פורמטים פופולריים, לצרוב תקליטורים וכדומה.</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="lin-club_files/W2Ldevtools.pdf">כלי פיתוח בלינוקס</a></td>
+      <td valign="top" align="center">שחר שמש</td>
+      <td valign="top" align="center">21 בנובמבר, 2004</td>
+      <td valign="top" align="right">כלי פיתוח תוכנה ותכנות פופולריים ושימושיים ללינוקס</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="./instaparty.html">מסיבת התקנה</a></td>
+      <td valign="top" align="center">צוות הסיסטם ומתנדבים</td>
+      <td valign="top" align="center">28 בנובמבר, 2004</td>
+      <td valign="top" align="right">מסיבת התקנה - נא להביא המחשב מהבית</td>
+    </tr>
+</tbody>
+</table>
+
+
+<h2>ההרצאות של הסדרה הקודמת של שנת 2003</h2>
+<table cellpadding="2" cellspacing="2" border="1" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top" align="center">קישור<br /> </td>
+      <td valign="top" align="center">שם המרצה<br /></td>
+      <td valign="top" align="center">תאריך<br /></td>
+      <td valign="top" align="center">נושא<br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="http://www.cs.tau.ac.il/lin-club/instaparty.html">מסיבת התקנה</a></td>
+      <td valign="top" align="center">צוות הסיסטם ומתנדבים</td>
+      <td valign="top" align="center">23 בנובמבר<br />2003</td>
+      <td valign="top" align="right">מסיבת התקנה - נא להביא המחשב מהבית</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="http://www.haifux.org/newcomers/lectures/1/linux-intro.pdf">שקפים של ההרצאה הראשונה</a></td>
+      <td valign="top" align="center">אדי אהרונוביץ</td>
+      <td valign="top" align="center">7 בדצמבר<br />2003</td>
+      <td valign="top" align="right">מבוא ללינוקס - הכל למי שטרם עבד בלינוקס</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><a href="lin-club_files/TeluxDevTools.sxi">Slides (sxi)&lrm;</a></td>
+      <td valign="top" align="center">שחר שמש</td>
+      <td valign="top" align="center">21 בדצמבר<br />2003</td>
+      <td valign="top" align="right">כלי פיתוח בלינוקס - על סביבת פיתוח ואופן השימוש בכלים</td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><br /></td>
+      <td valign="top" align="center">אורי עידן</td>
+      <td valign="top" align="center">4 בינואר<br />2003</td>
+      <td valign="top" align="right"><a href="http://www.haifux.org/newcomers/lectures/4/">התקנות - כיצד להתקין תוכנה חדשה</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="center"><br /></td>
+      <td valign="top" align="center">יפורסם</td>
+      <td valign="top" align="center">18 בינואר<br />2003</td>
+      <td valign="top" align="right">עברית - פונטים ותמיכה בתכנות השונות</td>
+    </tr>
+  </tbody>
+</table>
+</div>

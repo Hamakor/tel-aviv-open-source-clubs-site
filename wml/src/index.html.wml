@@ -1,0 +1,29 @@
+#include '../template.wml'
+
+<subject "Tel Aviv Linux Club" />
+
+<div align="center">
+<h1 align=center style='text-align:center'><a href="http://www.cs.tau.ac.il/telux/newbies.html">לוח ההרצאות למתחילים באוניברסיטת ת"א</a> </h1>
+<h1 style="text-align: right;">כללי</h1>
+</div>
+<div style="text-align: right;">
+מועדון הלינוקס התל-אביבי הוקם כדי לאפשר שיתוף מידע בין משתמשי לינוקס ומי שמעוניין להשמיע דברו בנושא.
+המועדון פועל על בסיס התנדבותי ואינו ממומן ע"י שום גורם שהוא. 
+בשנה שעברה הועברו הרצאות למתחילים והשנה יועברו הרצאות למתחילים ולמתקדמים.
+במהלך חודש נובמבר נקיים מסיבת התקנה בה נסייע בהתקנה לכל מי שמעוניין להכיר את מערכת ההפעלה לינוקס.
+<br />
+לכל הפעילויות של מועדון הלינוקס נשמח לצרף קבוצות מאורגנות - ניתן לבקש דרך האתר.
+</div>
+<br />
+<h1  style="text-align: left;">General</h1> 
+<div style="text-align: left;" dir="LTR" >
+The Tel-Aviv University Linux Club was established to allow student, users, developers and system administrators to share and exchange information. 
+All the activities are voluntary and are not sponsored in any meaning. 
+Lectures are given bi-weekly  all around the year.
+Once a year we have our annual "Linux Installation Party" when the TAU-CS team and volunteers help new users (newbies) to install Linux on their personal computer.
+During the period (before and after) the installation party we offer introduction lectures about the basic usage of Linux.
+</div>
+<br />
+<br />
+<br />
+

@@ -1,0 +1,112 @@
+#include '../template.wml'
+<h1>Tel-Aviv University - Linux Club</h1>
+<h2>CS Forum and Computation Center</h2>
+<h2>All lectures will be at <em class="ul">18:00</em> in room <em class="ul">006</em>, Schreiber Building</h2>
+
+<p>
+The Tel-Aviv Linux club was founded by volunteer Linux users and sys admins from Tel-Aviv University. 
+We believe that knowledge is something that should be spread around. 
+That is why we encourage usage of open source software. 
+We invite whoever is interested to come and hear (or talk).
+</p>
+
+<table cellpadding="2" cellspacing="2" border="1" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top" align="center">Subject<br /></td>
+      <td valign="top" align="center">Date<br /></td>
+      <td valign="top" align="center">Name<br /></td>
+      <td valign="top" align="center">Link<br /> </td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">What is it all about - Newbies introduction and demonstrations</td>
+      <td valign="top" align="center">Dec 16, 2002</td>
+      <td valign="top" align="center">Eddie Aronovich (CS) &amp; Yedidia Bar-David (CS)</td>
+      <td valign="top" align="center"><a href="http://www.cs.tau.ac.il/~eddiea/lin-club/intro">introduction</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">Intro to networking (including internet connectivity)</td>
+      <td valign="top" align="center">Dec 30,2002</td>
+      <td valign="top" align="center"><a href="http://www.mulix.org">Muli Ben-Yehuda</a><a href="http://www.haifux.org">(Haifux)</a></td>
+      <td valign="top" align="center"><a href="http://www.mulix.org/intro-networking/">intro-networking</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">Personal web services - Make your own Web server </td>
+      <td valign="top" align="center">Jan 13,2003 </td>
+      <td valign="top" align="center">Eddie Aronovich (CS)</td>
+      <td valign="top" align="center"><a href="http://www.cs.tau.ac.il/lin-club/apache_config-lec-2003-01-12">Configure Apace server - part 1</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">Development tools<br /> </td>
+      <td valign="top" align="center">Jan 27, 2003</td>
+      <td valign="top" align="center">Yedidia Bar-David (CS)</td>
+      <td valign="top" align="center"><a href="http://www.cs.tau.ac.il/~didi/Linux-dev-lecture-notes">Lecture notes</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">Intrussion Detection Systems &amp; Log scanners</td>
+      <td valign="top" align="center">Feb 10, 2003</td>
+      <td valign="top" align="center">Eddie Aronovich(CS)</td>
+      <td valign="top" align="center"><br /><a href="http://www.cs.tau.ac.il/lin-club/lin-club_files/ids.ps">ids.ps</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">X configuration</td>
+      <td valign="top" align="center">Feb 24,2003 </td>
+      <td valign="top" align="center">Yedidia Bar-David (CS)</td>
+      <td valign="top" align="center"><br /> </td>
+    </tr>
+    <tr>
+      <td valign="top">Hardware configuration (how to install hardware and be alive)</td>
+      <td valign="top" align="center">Mar 10,2003</td>
+      <td valign="top" align="center">Danny Shaked (CC)</td>
+      <td valign="top"><a href="./lecture-notes/boot-process/hardware.kpr">hardware.kpr</a> <a href="lecture-notes/hardware_config-2003-02-10/index.html">hardware configuration(html)</a></td>
+    </tr>
+    <tr>
+      <td valign="top">Boot Process (inc. loaders)</td>
+      <td valign="top" align="center">Mar 24,2003</td>
+      <td valign="top" align="center">Orr Dunkelman (Technion)</td>
+      <td valign="top"><a href="./lecture-notes/boot-process/boot.ps">boot.ps</a> <a href="./lecture-notes/boot-process/mbr.txt">mbr.txt</a> <a href="./lecture-notes/boot-process/mbr-disassembly.txt">mbr-disassembly.txt</a></td>
+    </tr>
+    <tr>
+      <td valign="top"><a href="http://www.cs.tau.ac.il/lin-club/poster-dekel-tsur.pdf">Hebrew in LyX</a></td>
+      <td valign="top" align="center">Apr 7,2003</td>
+      <td valign="top" align="center">Dekel Tzur (CS)</td>
+      <td valign="top"><a href="http://www.math.tau.ac.il/~dekelts/tmp/lyx.pdf">lyx.pdf</a></td>
+    </tr>
+    <tr>
+      <td valign="top">Linux on Main Frame</td>
+      <td valign="top" align="center">May 5, 2003</td>
+      <td valign="top" align="center">Gil Peleg</td>
+      <td valign="top"><a href="http://www.cs.tau.ac.il/lin-club/lecture-notes/linux_for_mf.ps">Lecture notes</a></td>
+    </tr>
+    <tr>
+      <td valign="top">Security tools: snort &amp; nmap</td>
+      <td valign="top" align="center">May 19, 2003</td>
+      <td valign="top" align="center">Ariel Biner(CC)</td>
+      <td valign="top"><a href="http://www.tau.ac.il/~ariel/tau-lug">Secure your PC (snort &amp; nmap)</a></td>
+    </tr>
+    <tr>
+      <td valign="top">Shell scripting</td>
+      <td valign="top" align="center">June 2, 2003</td>
+      <td valign="top" align="center">Udi Mottelo (eng@tau)</td>
+      <td valign="top"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top">How to recover a damaged disk ?</td>
+      <td valign="top" align="center">June 16, 2003</td>
+      <td valign="top" align="center">Didi (CS)</td>
+      <td valign="top"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top">Working with MySQL</td>
+      <td valign="top" align="center">June 30, 2003</td>
+      <td valign="top" align="center">Alon (CS)</td>
+      <td valign="top"><br /></td>
+    </tr>
+  </tbody>
+</table>
+<define-tag old_stuff>
+<div align="left">We are looking for volunteers to give lectures - eddiea@cs.tau.ac.il Tel: 03-640-6915</div>
+<br />
+If you want to register to our list, use the <a href="http://listserv.tau.ac.il/cgi-bin/wa?SUBED1=TAU-LINUX-CLUB">list serv server</a> and choose the TAU-LINUX-CLUB mailing list. Or mail to: tau-linux-club-subscibe [AT] listserv.tau.ac.il (no need of subject neither body).
+</div>
+</define-tag>

@@ -1,0 +1,189 @@
+#include '../template.wml'
+<h1>Note</h1>
+<p>
+After the 24-October lecture, we will take a break from the advanced lectures
+to hold the <a href="newbies.html">Beginners' series</a>.
+</p>
+
+<div dir="rtl">
+<h1>הרצאות בנושאים מתקדמים</h1>
+<h2>כל ההרצאות יחלו בשעה <em class="ul">18:30</em> בחדר <em class="ul">007</em>, בבניין שרייבר</h2>
+</div>
+
+<h2>Lectures in Advanced Topics</h2>
+
+<p style="font-size: 120%">
+All lectures will start at 18:30 in room 007,
+in the Schreiber building.
+</p>
+<table cellpadding="2" cellspacing="2" border="1" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top" align="center">Subject<br /></td>
+      <td valign="top" align="center">Date<br /></td>
+      <td valign="top" align="center">Name<br /></td>
+      <td valign="top" align="center">Link<br /> </td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/1/slides/">gimp</a></td>
+      <td valign="top" align="center">Sep 21</td>
+      <td valign="top" align="center"><a href="http://www.shlomifish.org/">Shlomi Fish (Technion)</a></td>
+      <td valign="top" align="center">(lec. part 1 / 2)</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/1/slides/">gimp</a></td>
+      <td valign="top" align="center">Oct 19</td>
+      <td valign="top" align="center"><a href="http://www.shlomifish.org/">Shlomi Fish (Technion)</a></td>
+      <td valign="top" align="center">(lec. part 2 / 2)</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.cs.tau.ac.il/~eddiea/docs/From_rpc_to_web_services.pdf">From RPC to web services</a></td>
+      <td valign="top" align="center">Nov 2</td>
+      <td valign="top" align="center"><a href="mailto:eddiea@cs.tau.ac.il?Subject:FROM_RPC_TO_WEB_SERVICES">Eddie Aronovich</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href='http://www.haifux.org/lectures/43/'>Intro to PHP</a></td>
+      <td valign="top" align="center">Nov 16</td>
+      <td valign="top" align="center"><a href="mailto:webmaster@guides.co.il">Lior Kaplan</a></td>
+      <td valign="top" align="center">(lec 1 / 2)</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">Wine</td>
+      <td valign="top" align="center">Nov 30</td>
+      <td valign="top" align="center"><a href="http://www.shemesh.biz/">Shachar Shemesh</a></td>
+      <td valign="top" align="center"><a href="http://www.hamakor.org.il/">Hamakor</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.haifux.org/lectures/43/">Intro. to PHP</a></td>
+      <td valign="top" align="center">Dec 14</td>
+      <td valign="top" align="center"><a href="mailto:webmaster@guides.co.il">Lior Kaplan</a></td>
+      <td valign="top" align="center">(lec 2 / 2)</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.cs.tau.ac.il/lin-club/lin-club_files/Full_Disclosure.sxi">Full disclosure</a></td>
+      <td valign="top" align="center">Dec 28</td>
+      <td valign="top" align="center">Aviram Jenik</td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.cs.tau.ac.il/lin-club/lin-club_files/ embedded_telux.sxi">Embedded Linux</a></td>
+      <td valign="top" align="center">Jan 11</td>
+      <td valign="top" align="center"><a href="mailto:gilad@benyossef.com">Gilad Ben-Yossef</a></td>
+      <td valign="top" align="center">Embedded lecture</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">OSCAR - tool for grid implementation</td>
+      <td valign="top" align="center">Jan 25</td>
+      <td valign="top" align="center"><a href="mailto:alex.landsberg@ligad.com">Alex Landsberg(Ligad)</a></td>
+      <td valign="top" align="center"><a href="http://oscar.openclustergroup.org/tiki-list_file_gallery.php?galleryId=4">oscar-mit (Jeremy Enos@MIT)</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://moshe.i-com-it.com/p/pres2/show.php?file=extending-php">Extending PHP</a></td>
+      <td valign="top" align="center">Feb 8</td>
+      <td valign="top" align="center"><a href="mailto:mosdoron@netvision.net.il">Moshe Doron</a></td>
+      <td valign="top" align="center">Hacking the core of PHP</td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.cs.tau.ac.il/lin-club/lin-club_files/non-prog-oss.sxi">Open Source development model and How can you contribute?</a></td>
+      <td valign="top" align="center">Feb 22</td>
+      <td valign="top" align="center">Ori Idan &amp;<br /> Shoshana Forbes</td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.cs.tau.ac.il/lin-club/lin-club_files/securing_linux.sxi.zip">Securing Linux</a></td>
+      <td valign="top" align="center">Mar 14</td>
+      <td valign="top" align="center"><a href="mailto:absint@netvision.net.il">Ohad Ben-Cohen</a></td>
+      <td valign="top" align="center"><a href="http://www.cs.tau.ac.il/lin-club/lin-club_files/securing_linux.ppt">securing Linux Plan</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://haifux.org/lectures/72/">Portable Programming</a></td>
+      <td valign="top" align="center">Mar 28</td>
+      <td valign="top" align="center"><a href="http://vipe.technion.ac.il/~ladypine/">Orna Agmon</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://www.cs.tau.ac.il/~eddiea/docs/apache-into-telux-2004-04.ps">Apache 2 - intro</a></td>
+      <td valign="top" align="center">Apr 18</td>
+      <td valign="top" align="center"><a href="http://www.cs.tau.ac.il/docs">Eddie Aronovich</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/gtk.sxi">GTK+</a></td>
+      <td valign="top" align="center">May 2</td>
+      <td valign="top" align="center"><a href="mailto:ori.at.helicontech.co.il">Ori Idan</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/linux-webhosting.pdf">Web hosting (1/2)</a></td>
+      <td valign="top" align="center">May 16</td>
+      <td valign="top" align="center"><a href="mailto:mike.at.lizard.co.il">Mike Almogy</a></td>
+      <td valign="top" align="center"><a href="./lin-club_files/linux-webhosting.sxi">sxi version</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/mandrake-club.sxi">Mandrake distribution</a></td>
+      <td valign="top" align="center">May 30</td>
+      <td valign="top" align="center"><a href="mailto:liberzon.at.eng.tau.ac.il">Dan Liberzon</a></td>
+      <td valign="top" align="center"><a href="./lin-club_files/mandrake-club.pdf">mandrake lecture (pdf format)</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://vipe.technion.ac.il/~shlomif/lecture/Autotools/">Autoconf</a></td>
+      <td valign="top" align="center">July 4</td>
+      <td valign="top" align="center"><a href="http://www.shlomifish.org/">Shlomi Fish</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/linux-webhosting.pdf">Web hosting (2/2)</a></td>
+      <td valign="top" align="center">July 18</td>
+      <td valign="top" align="center"><a href="mailto:mike.at.lizard.co.il">Mike Almogy</a></td>
+      <td valign="top" align="center"><a href="./lin-club_files/linux-webhosting.sxi">sxi version</a></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/bugzilla_for_end_uses.pdf">Bugzilla</a></td>
+      <td valign="top" align="center">August 1st</td>
+      <td valign="top" align="center"><a href="mailto:xslf@netvision.net.il">Shoshannah Forbes</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/linux-boot">Linux bootloaders</a></td>
+      <td valign="top" align="center">August 15</td>
+      <td valign="top" align="center"><a href="mailto:ori.at.helicontech.co.il">Ori Idan</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">Asterisk, the Open-Source PABX System</td>
+      <td valign="top" align="center">August 29</td>
+      <td valign="top" align="center"><a href="http://www.benyossef.com/">Gilad Ben-Yossef</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="">Latest Kernel Developments (impressions from OLS2004)</a></td>
+      <td valign="top" align="center">Sep 5</td>
+      <td valign="top" align="center"><a href="http://vipe.technion.ac.il/~ladypine">Orna Agmon</a> &amp; <a href="http://www.mulix.org">Muli Ben-Yehuda</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="http://vipe.technion.ac.il/~shlomif/lecture/Freecell-Solver/">Freecell Solver - Evolution of a C Program</a></td>
+      <td valign="top" align="center">19 September 2004</td>
+      <td valign="top" align="center"><a href="http://www.shlomifish.org/">Shlomi Fish</a></td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left">
+	<a href="http://www.iglu.org.il/IGLU/modules.php?op=modload&amp;name=News&amp;file=article&amp;sid=64&amp;mode=thread&amp;order=0&amp;thold=0">Lightning Talks by Various People</a>
+      </td>
+      <td valign="top" align="center">10 October 2004</td>
+      <td valign="top" align="center">Telux Members</td>
+      <td valign="top" align="center"><br /></td>
+    </tr>
+    <tr>
+      <td valign="top" align="left"><a href="./lin-club_files/linux-boot">Linux bootloaders</a></td>
+      <td valign="top" align="center">24 October 2004</td>
+      <td valign="top" align="center"><a href="mailto:ori.at.helicontech.co.il">Ori Idan</a></td>
+      <td valign="top" align="center">Rerun of previous lecture</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
