@@ -521,7 +521,7 @@ sub explicit_url_subject_render
             's' => "Wine",
             'd' => "30/11",
             't' => [qw(prog system)],
-            'subject_render' => "no_url",
+            'url' => "lin-club_files/TeluxWine05.sxi",
         },
         {
             l => "lior_kaplan",
@@ -687,7 +687,7 @@ sub explicit_url_subject_render
             s => "Bourne Shell Programming",
             d => "23/1",
             t => ["system"],
-            'subject_render' => "no_url",
+            'url' => "lin-club_files/bash.sxi",
         },
         {
             l => "omer_zak_and_ori_idan",
