@@ -711,6 +711,21 @@ sub explicit_url_subject_render
             url => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
             t => "utils",
         },
+        {
+            l => "ori_idan",
+            d => "17/4",
+            s => "Embedded Linux Bring-Up - A Short War Story",
+            url => "http://www.helicontech.co.il/whitepapers/LinuxBringUp.html",
+            t => ["kernel", "system"],
+        },
+        {
+            l => "eddie",
+            d => "1/5",
+            s => "Condor",
+            url => "",
+            t => ["net", "system"],
+        },
+        
     ],
 );
 
