@@ -36,7 +36,7 @@ LIBRARY_FILES = template.wml lib/lectures_dest/2003.html lib/MyNavData.pm
 # to inovcation of this makefile. Useful for synchronizing uploads.
 UNCHANGED_FILE = unchanged
 
-all: dest $(SUBDIRS_DEST) $(DESTS) $(RAW_FILES_DEST)
+all: dest $(SUBDIRS_DEST) $(DESTS) $(RAW_FILES_DEST) dest/Default.html
 
 $(UNCHANGED_FILE):
 	touch $@
@@ -62,6 +62,9 @@ $(PODS_DESTS_HTMLS) :: $(TARGET)/%.html : src/%.pod
 lib/lectures_dest/2003.html: lib/render_lectures.pl lib/LecturesData.pm
 	(cd lib && perl render_lectures.pl)
 
+dest/Default.html: dest/index.html
+	cp -f $< $@
+
 # $(PACKAGES_DESTS) :: $(PACKAGES_DIR)/% : ./temp/lk-module-compiler-final/%
 # 	cp -f $< $@
 
@@ -70,7 +73,7 @@ upload: upload_telux
 upload_telux_new: all
 	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/New-Site/)
 
-upload_telux:
+upload_telux: all
 	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/)
 	
 .PHONY:
