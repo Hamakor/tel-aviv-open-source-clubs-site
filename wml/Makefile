@@ -64,9 +64,9 @@ $(PODS_DESTS_HTMLS) :: $(TARGET)/%.html : src/%.pod
 # $(PACKAGES_DESTS) :: $(PACKAGES_DIR)/% : ./temp/lk-module-compiler-final/%
 # 	cp -f $< $@
 
-upload: upload_iglu
+upload: upload_telux_new
 
-upload_iglu: all
-	(cd dest && $(RSYNC) -r * shlomif@iglu.org.il:/iglu/Hackers-IL/html)
+upload_telux_new: all
+	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/New-Site/)
 
 .PHONY:
