@@ -312,6 +312,14 @@ foreach $lecture (@lectures_flat)
 
     my $lecturer_record = $lecturers{$lecturer_id};
 
+    if (!exists($lecturer_record->{'subject_render'}))
+    {
+        my $d = Data::Dumper->new([$lecturer_record], ["\$lecturer_record"]);
+        my $lecturer_dump = $d->Dump();
+        
+        die "No subject_render for lecturer. Dump Follows:\n$lecturer_dump";
+    }
+
     my $subject_render_text = 
         (exists($lecture->{'subject_render'}) ? 
             $lecture->{'subject_render'} :

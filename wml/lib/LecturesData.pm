@@ -64,6 +64,13 @@ sub explicit_url_subject_render
 
 %lecturers = 
 (
+    'alex_landsberg' =>
+    {
+        'name' => "Alex Landsberg",
+        'name_render_type' => "email",
+        'email' => "alex.landsberg\@ligad.com",
+        'subject_render' => "no_url",
+    },
     'aviram' =>
     {
         'name' => "Aviram Jenik",
@@ -96,11 +103,25 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'dan_liberzon' => 
+    {
+        'name' => "Dan Liberzon",
+        'name_render_type' => "email",
+        'email' => "liberzon.at.eng.tau.ac.il",
+        'subject_render' => "explicit_url",
+    },
     'dani_arbel' =>
     {
         'name' => "Dani Arbel",
         'name_render_type' => "plain",
         'subject_render' => "no_url",
+    },
+    'eddie' => 
+    {
+        'name' => "Eddie Aronovich",
+        'name_render_type' => "email",
+        'subject_render' => "explicit_url",
+        'email' => "eddiea\@cs.tau.ac.il",
     },
     'eli' =>
     {
@@ -123,7 +144,8 @@ sub explicit_url_subject_render
     'gby' =>
     {
         'name' => "Gilad Ben Yossef",
-        'name_render_type' => "plain",
+        'name_render_type' => "homepage",
+        'homepage' => "http://www.benyossef.com/",
         'subject_render' => "explicit_url",
     },
     'guykeren' =>
@@ -145,6 +167,13 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'lior_kaplan' =>
+    {
+        'name' => "Lior Kaplan",
+        'name_render_type' => "email",
+        'email' => "webmaster\@guides.co.il",
+        'subject_render' => "explicit_url",
+    },
     'mark_silberstein' =>
     {
         'name' => "Mark Silberstein",
@@ -157,6 +186,20 @@ sub explicit_url_subject_render
         'name' => "Meir Maor",
         'name_render_type' => "plain",
         'subject_render' => "series_idx",
+    },
+    'mike_almogy' =>
+    {
+        'name' => "Mike Almogy",
+        'name_render_type' => "email",
+        'email' => "mike.at.lizard.co.il",
+        'subject_render' => "explicit_url",
+    },
+    'moshe_doron' =>
+    {
+        'name' => "Moshe Doron",
+        'name_render_type' => "email",
+        'email' => "mosdoron\@netvision.net.il",
+        'subject_render' => "explicit_url",
     },
     'moshez' =>
     {
@@ -193,6 +236,13 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'ohad_bencohen' =>
+    {
+        name => "Ohad Ben-Cohen",
+        'name_render_type' => "email",
+        'email' => "absint\@netvision.net.il",
+        'subject_render' => "explicit_url",
+    },
     'oleg' =>
     {
         'name' => "Oleg Goldshmidt",
@@ -200,12 +250,31 @@ sub explicit_url_subject_render
         'email' => "pub\@goldshmidt.org",
         'subject_render' => "series_idx",
     },
+    'ori_idan' =>
+    {
+        'name' => "Ori Idan",
+        'name_render_type' => "email",
+        'email' => "ori.at.helicontech.co.il",
+        'subject_render' => "explicit_url",
+    },
+    'ori_idan_and_sforbes' =>
+    {
+        'name' => "Ori Idan &amp; Shoshannah Forbes",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'orna' =>
     {
         'name' => "Orna Agmon",
         'name_render_type' => "homepage",
         'subject_render' => "series_idx",
         'homepage' => "http://tx.technion.ac.il/~agmon/",
+    },
+    'orna_and_mulix' =>
+    {
+        'name' => "Orna Agmon and Muli Ben-Yehuda",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
     },
     'orrd' =>
     {
@@ -221,6 +290,14 @@ sub explicit_url_subject_render
         'homepage' => "http://www.cs.technion.ac.il/~artstein/",
         'subject_render' => "series_idx",
     },
+    'sforbes' =>
+    {
+        'name' => "Shoshannah Forbes",
+        'name_render_type' => "email",
+        'homepage' => "http://www.xslf.com/",
+        'email' => "xslf\@netvision.net.il",
+        'subject_render' => "explicit_url",
+    },
     'shimon_panfil' =>
     {
         'name' => "Shimon Panfil, Ph.D.",
@@ -230,8 +307,8 @@ sub explicit_url_subject_render
     'shlomif' =>
     {
         'name' => "Shlomi Fish",
-        'name_render_type' => "email",
-        'email' => "shlomif\@vipe.technion.ac.il",
+        'name_render_type' => "homepage",
+        'homepage' => "http://www.shlomifish.org/",
         'subject_render' => "shlomif",
     },
     'shlomi_loubaton' =>
@@ -246,6 +323,12 @@ sub explicit_url_subject_render
         'name_render_type' => "email",
         'email' => "haifux\@shemesh.biz",
         'subject_render' => "series_idx",
+    },
+    'telux_members' =>
+    {
+        'name' => "Telux Members",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
     },
     'tzafrir' =>
     {
@@ -379,796 +462,204 @@ sub explicit_url_subject_render
 (
     (map { $_ => 'utils' } (qw(util tools tool))),
     'networking' => "network",
+    'net' => "network",
     'advo' => "advocacy",
 );
 
-%lectures = 
+%lectures =
 (
-    '1999' =>
-    [
-        {
-            'l' => "choo",
-            's' => "Introduction to Linux",
-            'd' => "19/8",
-            't' => [],
-        },
-        {
-            'l' => "choo",
-            's' => "Robust Programming",
-            'd' => "9/9",
-            't' => "prog",
-        },
-        {
-            'l' => "choo",
-            's' => "PAM (Pluggable Authentication Management)",
-            'd' => "23/9",
-            't' => [qw(security utils system)],
-        },
-        {
-            'l' => "orrd",
-            's' => "Linux Security",
-            'd' => "21/10",
-            't' => "security",
-        },
-        {
-            'l' => "choo",
-            's' => "PAM (Pluggable Authentication Management) - Writing PAM Modules",
-            'd' => "4/11",
-            't' => [qw(security utils system)],
-            'comments' => qq{<ul>
-	 <li><a href="http://www.csn.ul.ie/~airlied/pam_smb">A PAM Module
-for NT Connectivity</a></li>
-	 <li><a href="http://us1.samba.org/samba/ftp/pam_ntdom">A Samba
-Based PAM</a></li>
-      </ul>},      
-        },
-        {
-            'l' => "asaf_arbely",
-            's' => "Universal Servers - Architecture, Availability and Usage. The plaftorm is... Informix",
-            'd' => "18/11",
-            't' => "utils",
-            'comments' => <<'EOF',
-        <ul>
-	 <li><a href="http://www.informix.com/iif2000/">Informix Internet
-Foundation 2000</a></li>
-         <li><a
-href="http://www.informix.com/informix/products/linux/">Informix on
-Linux</a></li>
-         <li><a href="http://www.informix.com/idn">Informix Developers
-Network</a></li>
-	 <li><a
-href="http://www.informix.com/informix/press/1999/nov99/redhat.htm">Informix
-and RedHat</a></li>
-       </ul>
-EOF
-                ,
-        },
-        {
-            'l' => "choo",
-            's' => "Introduction to Sockets Programming",
-            'd' => "28/11",
-            't' => [qw(prog network system)],
-            'comments' => qq{Based on <a href="http://www.actcom.co.il/~choo/lupg/tutorials/internetworking/internet-theory.html">LUPG's internet programming tutorial</a>},
-        },
-        {
-            'l' => "oded_koren",
-            's' => "Introducing the Linux World to Outsiders",
-            'd' => "12/12",
-            't' => "advocacy",
-        },
-        {
-            'l' => "choo",
-            's' => "Advanced Socket Programming",
-            'd' => "26/12",
-            't' => [qw(prog network system)],
-            'comments' => qq{Based on <a href="http://www.actcom.co.il/~choo/lupg/tutorials/internetworking/internet-theory.html">LUPG's internet programming tutorial</a><br />
-    <ul>
-	<li><a href="http://www.acme.com/software/mini_httpd/">Mini-httpd,
-httpd using the fork model</a></li>
-	<li><a href="http://mathop.diva.nl">Mathopd, single process,
-single thread, httpd</a></li>
-    </ul>
-            },
-        },  
-    ],
-    '2000' =>
-    [
-        {
-            'l' => "orrd",
-            's' => "Kerberos Authentication Protocol",
-            'd' => "9/1",
-            't' => [qw(security network)],
-            'comments' => qq{
-<ul>
-	<li><a href="ftp://ftp.isi.edu/in-notes/rfc1411.txt">RFC 1411
-(Kerberos 4)</a></li>
-	<li><a href="ftp://ftp.isi.edu/in-notes/rfc1510.txt">RFC 1510
-(Kerberos 5)</a></li>
-	<li><a href="http://ptolemy.eecs.berkeley.edu/~cxh/krb/">Kerberos
-Data (User, Administrator, etc.)</a></li>
-	<li><a href="http://www.cs.technion.ac.il/~cs236350">Computer
-Security Course at the Technion</a></li>
-	<li><a href="lecture/10/kerberos.ps">Kerberos Version 4 short
-explanation (NOT an RFC)</a></li>
-       </ul>
-    },
-        },
-        {
-            'l' => "shimon_panfil",
-            's' => "High Performance Computing on Linux",
-            'd' => "23/1",
-            't' => [],
-            'comments' => qq{
-                <ul>
-	<li><a href="http://www.cs.huji.ac.il/labs/mosix">MOSIX (Made in
-Israel)</a></li>
-	<li><a href="http://www.pobox.com/~kragen/beowulf-faq.txt">
-BeoWulf FAQ</a></li>
-       </ul>
-            },
-            'url' => "11/hpcl.ps",
-        },
-        {
-            'l' => "choo",
-            's' => "Linux Startup Process - from Boot till SysV Init",
-            'd' => "6/2",
-            't' => [qw(kernel system)],
-            'comments' => qq{<a href="http://193.6.40.1/~cellux/pc-guide/mbr_asm_eng.html">Contents of a Master Boot Record</a>},            
-        },
-        {
-            'l' => "choo",
-            's' => "Linux Runtime Environment",
-            'd' => "5/3",
-            't' => [qw(prog system)],
-            'comments' => qq{<ul>
-	<li><a
-href="http://gazette.euskal-linux.org/issue23/flower/page1.html">Processes
-on Linux and Windows NT</a></li>
-	<li><a
-href="http://www.erlenstar.demon.co.uk/unix/faq_2.html">Unix Programming
-FAQ - Process control</a></li>
-       </ul>},
-        },
-        {
-            'l' => "shlomif",
-            's' => "The PostgreSQL Relational Database Server",
-            'd' => "2/4",
-            't' => [qw(utils prog)],
-            'url' => "PostgreSQL-Lecture/",
-        },
-        {
-            'l' => "orrd",
-            's' => "The Page Daemon",
-            'd' => "16/4",
-            't' => [qw(kernel system)],
-            'comments' => qq{
-      <ul>
-	<li><a href =
-"http://www.cs.technion.ac.il/Courses/Operating-Systems-Structure">Operating
-systems structure course</a></li>
-	<li>Kernel Code - shm.*, mem*.[c,h], ptable*.[c,h,asm] :)</li>
-	<li><a href=
-"http://www.bell-labs.com/topic/books/os-book/slide-dir/slide-ps.html">Operating
-System Concepts</a> chapters 21, 22.</li>
-       </ul>
-            },
-            'subject_render' => "no_url",
-        },
-        {
-            'l' => "choo",
-            's' => "Network Protocols (routing, etc)",
-            'd' => "7/5",
-            't' => "network",
-            'url' => "16+18/index.html",
-        },
-        {
-            'l' => "shlomif",
-            's' => "The Scheme Programming Language and Lambda Calculus",
-            'd' => "28/5",
-            't' => "prog",
-            'url' => "Lambda-Calculus/",
-        },
-        {
-            'l' => "choo",
-            's' => "Network Protocols pt. II - Routing and Higher Level Protocols",
-            'd' => "11/6",
-            't' => "network",
-            'url' => "16+18/index2.html",
-            'comments' => qq{<a href="http://rfc.roxen.com/rfc/rfc1771.html">RFC 1771 - BGP 4 protocol</a>},
-        },
-        {
-            'l' => "choo",
-            's' => "Advnaced Networking Administration",
-            'd' => "25/6",
-            't' => "network",
-        },
-        {
-            'l' => "orrd",
-            's' => "Introduction to Real Life Administration",
-            'd' => "9/7",
-            't' => "security",
-        },
-        {
-            'l' => "orrd",
-            's' => "Advanced Real Life Administration",
-            'd' => "24/7",
-            't' => "security",
-            'url' => "21/2nd-admin.ps",
-        },
-        {
-            'l' => "choo",
-            's' => "Kernel Hacking",
-            'd' => "7/8",
-            't' => [qw(kernel prog)],
-        },
-        {
-            'l' => "choo",
-            's' => "CORBA - Theory before Practice",
-            'd' => "24/8",
-            't' => [qw(prog network)],
-            'comments' => qq{
-<ul>
-	<li><a href="http://www.cs.wustl.edu/~schmidt/TAO.html">TAO - The
-ACE Orb</a></li>
-	<li><a href="http://www.icsi.berkeley.edu/~mico">MICO - Mico Is
-COrba</a></li>
-      </ul>
-            },            
-        },
-        {
-            'l' => "orrd",
-            's' => "SED - The Stream Editor",
-            'd' => "11/9",
-            't' => "utils",
-            'comments' => qq{<a href ="http://www.dbnet.ece.ntua.gr/~george/sed/sedtut_1.html">Do it with SED</a>},
-        },
-        {
-            'l' => "choo",
-            's' => "CORBA Programming - Simple Clients and Servers",
-            'd' => "25/9",
-            't' => [qw(prog network)],
-            'comments' => qq{<a href="http://www.cuj.com/experts/1811/vinoski.html">_var and _ptr</a>},
-        },
-    ],
-    '2001' =>
-    [
-        {
-            'l' => "eli",
-            's' => "Demistifying Boot Diskettes",
-            'd' => "8/1",
-            't' => ["system"],
-        },
-        {
-            'l' => "mulix",
-            's' => "Daemons and Other Monsters",
-            'd' => "22/1",
-            't' => [qw(prog system)],
-            'comments' => qq{<a href="http://www.mulix.org/">Mulix' Site</a>},
-        },
-        {
-            'l' => "choo",
-            's' => "Development Tools for Linux",
-            'd' => "12/2",
-            't' => [qw(prog utils)],
-        },
-        {
-            'l' => "orrd",
-            's' => "All you need is LaTeX",
-            'd' => "19/2",
-            't' => "utils",
-        },
-        {
-            'l' => "alon",
-            's' => "Burning CDs under Linux",
-            'd' => "5/3",
-            't' => "utils",
-        },
-        {
-            'l' => "tzafrir",
-            's' => "RPMs - Meaning of the Package",
-            'd' => "19/3",
-            't' => [qw(utils system)],
-        },
-        {
-            'l' => "shlomif",
-            's' => "Intro to Programming in Perl",
-            'd' => "26/3",
-            'series' => "perl",
-            't' => "prog",
-            'url' => "Perl/Newbies/lecture1/",
-        },
-        {
-            'l' => "choo",
-            's' => "Development Tools for Linux - Part II",
-            'd' => "2/4",
-            't' => [qw(prog utils)], 
-            'url' => "28/",
-        },
-        {
-            'l' => "shlomif",
-            's' => "Intro to Programming in Perl",
-            'd' => "16/4",
-            'series' => "perl",
-            't' => "prog",
-            'url' => "Perl/Newbies/lecture2/",
-        },
-        {
-            'l' => "alon",
-            's' => "Multimedia in Linux",
-            'd' => "23/4",
-            't' => "utils",
-            'comments' => qq{<a href="lectures/33/shlomif_remarks.txt">Shlomi Fish's errata and comments</a>},
-        },
-        {
-            'l' => "choo",
-            's' => "Gtk+ (part I)",
-            'd' => "7/5",
-            't' => "prog",
-            'url' => "34+35/",
-        },
-        {
-            'l' => "choo",
-            's' => "Gtk+ (part II)",
-            'd' => "21/5",
-            't' => "prog",
-            'url' => "34+35/",
-        },
-        {
-            'l' => "choo",
-            's' => "GUI design (Gtk+ part III)",
-            'd' => "4/6",
-            't' => "prog",
-            'url' => "36/",
-        },
-        {
-            'l' => "choo_and_eli",
-            's' => "GUI part IV - Gtk+ and Perl",
-            'd' => "18/6",
-            't' => "prog",
-            'url' => "34+35/",
-            'comments' => qq{<a href="http://www.geocities.com/eli_billauer/ptk.html">Examples for Perl GUI</a>},
-        },
-        {
-            'l' => "shlomif",
-            's' => "GIMP",
-            'd' => "16/7",
-            't' => "utils",
-            'url' => "Gimp/",
-        },
-        {
-            'l' => "shlomif",
-            's' => "GIMP (part II)",
-            'd' => "13/8",
-            't' => "utils",
-            'url' => "Gimp/",
-        },
-        {
-            'l' => "mulix",
-            's' => "ADSL for Linux - War Story",
-            'd' => "27/8",
-            't' => "network",
-            'comments' => qq{<a href="http://www.mulix.org/">The ADSL-HOWTO and patched pptps</a>},
-        },
-        {
-            'l' => "ez-aton",
-            's' => "KickStart and Mass Linux Production",
-            'd' => "10/9",
-            't' => "utils",
-        },
-        {
-            'l' => "orrd",
-            's' => "SSL - the Protocol, the Package and the CA",
-            'd' => "24/9",
-            't' => [qw(security network)],
-        },
-        {
-            'l' => "shlomi_loubaton",
-            's' => "PHP",
-            'd' => "15/10",
-            't' => "prog",
-        },
-        {
-            'l' => "mulix_and_choo",
-            's' => "Syscalltrack - Design and Implementation",
-            'd' => "24/12",
-            't' => [qw(kernel prog)],
-            'comments' => qq{<a href="http://syscalltrack.sf.net/">Syscalltrack Homepage</a><br />
-       <a href="lectures/22/">Kernel hacking lecture (#22)</a>},
-        },
-    ],
-    '2002' =>
-    [
-        {
-            'l' => "dani_arbel",
-            's' => "Advanced Networking - IP Tables",
-            'd' => "8/1",
-            't' => [qw(network security)],
-        },
-        {
-            'l' => "dani_arbel",
-            's' => "Advanced Networking - Routing and VPNs",
-            'd' => "22/1",
-            't' => [qw(network security)],
-            'comment' => qq{<a href="http://damyen.technion.ac.il/~dani">Dani Arbel's Lectures and Examples</a>},
-        },
-        {
-            'l' => "shlomif",
-            's' => "The Scheme Programming Language and Lambda Calculus - Rerun (Lecture #17)",
-            'd' => "4/2",
-            't' => "prog",
-            'url' => "Lambda-Calculus/",
-        },
-        {
-            'l' => "orrd",
-            's' => "The new Anti-Linux US Laws (DMCA, UCITA)",
-            'd' => "18/2",
-            't' => "advocacy",
-            'comments' => qq{<a href="lectures/48/dmca_song">The DMCA song</a>},
-        },
-        {
-            'l' => "alon",
-            's' => "Using Linux in a Windows World",
-            'd' => "4/3",
-            't' => [qw(utils system)],
-        },
-        {
-            'l' => "mulix",
-            's' => "Python",
-            'd' => "18/3",
-            't' => "prog",
-        },
-        {
-            'l' => "choo",
-            's' => "POSIX Threads - Primitives (part I)",
-            'd' => "8/4",
-            't' => "prog",
-        },
-        {
-            'l' => "choo",
-            's' => "POSIX Threads - Threading Modules (part II)",
-            'd' => "22/4",
-            't' => "prog",
-            'url' => "52+53/",
-        },
-        {
-            'l' => "choo",
-            's' => "POSIX Threads - Threading Modules (part III)",
-            'd' => "20/5",
-            't' => "prog",
-            'url' => "52+53/",
-        },
-        {
-            'l' => "shlomif",
-            's' => "Freecell Solver",
-            'd' => "3/6",
-            't' => "prog",
-            'url' => "Freecell-Solver/",
-            'comments' => qq{<ul>
-         <li><a href="http://www.advogato.com/person/shlomif/diary.html?start=44">Shlomi's thoughts about the lecture</a></li>
-	 <li><a href="http://vipe.technion.ac.il/~shlomif/freecell-solver/">Freecell Solver's Homepage</a></li>
-       </ul>},
-        },
-        {
-            'l' => "alon",
-            's' => "How to Burn CDs in Linux and Remain Sane",
-            'd' => "8/7",
-            't' => "utils",
-            'comments' => qq{<a href="lectures/30">Rerun lecture (30)</a>},
-        },
-        {
-            'l' => "shlomif",
-            's' => "Intro to Programming in Perl",
-            'd' => "22/7",
-            'series' => "perl",
-            't' => "prog",
-            'url' => "Perl/Newbies/lecture3/",
-        },
-        {
-            'l' => "shlomif",
-            's' => "Intro to the GNU Autoutils",
-            'd' => "5/8",
-            't' => "prog",
-            'url' => "Autoutils/slides/",
-        },
-        {
-            'l' => "orrd",
-            's' => "Promoting Linux - The Marketing Approach",
-            'd' => "19/8",
-            't' => "advocacy",
-        },
-        {
-            'l' => "choo",
-            's' => "Strace and Ltrace Behaviour",
-            'd' => "30/9",
-            't' => [qw(utils system)],
-        },
-        {
-            'l' => "nadav_rotem",
-            's' => "The GNOME-2 Desktop + Developing GTK Applications with GLADE2",
-            'd' => "14/10",
-            't' => [qw(prog utils)],
-            'comments' => qq{<ul>
-<li><a href="http://gaia.ecs.csus.edu/~rotemn/GPMM/GPMM.html">GPMM2
-for GNOME2</a></li>
-<li><a href=
-"http://gaia.ecs.csus.edu/~rotemn/shop/shop.html">Example of
-application to GNOME2</a></li>
-</ul>},
-        },
-        {
-            'l' => "mark_silberstein",
-            's' => "High Performance Computing in Linux",
-            'd' => "9/12",
-            't' => "network",
-        },
-        {
-            'l' => "gby",
-            's' => "The Dynamic Linker",
-            'd' => "23/12",
-            't' => [qw(prog system)],
-            'url' => "http://www.benyossef.com/presentations/dlink/",
-        },
-    ],
     '2003' =>
     [
         {
-            'l' => "dan_kenigsberg",
-            's' => "Hspell - The First GPLed Hebrew Spell Checker",
-            'd' => "6/1",
-            't' => [qw(prog utils)],
-            'url' => "http://www.cs.technion.ac.il/~danken/hspell/lecture.html",
-            
+            l => "shlomif",
+            s => "GIMP (Part 1/2)",
+            d => "21/9",
+            t => "utils",
+            url => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
         },
         {
-            'l' => "mulix",
-            's' => "Kernel Hacking",
-            'd' => "20/1",
-            't' => [qw(kernel prog)],
+            l => "shlomif",
+            s => "GIMP (Part 2/2)",
+            d => "19/10",
+            t => "utils",
+            'url' => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
         },
         {
-            'l' => "meir_maor",
-            's' => "Emacs Power Usage",
-            'd' => "3/2",
-            't' => "utils",
+            l => "eddie",
+            s => "From RPC to Web Services",
+            d => "2/11",
+            t => "utils",
+            'url' => "http://www.cs.tau.ac.il/~eddiea/docs/From_rpc_to_web_services.pdf",
         },
         {
-            'l' => "sun",
-            's' => "Secure Programming (Part I)",
-            'd' => "17/2",
-            't' => [qw(prog security)],
-            'subject_render' => "no_url",
-        },
-        {
-            'l' => "sun",
-            's' => "Secure Programming (Part II)",
-            'd' => "3/3",
-            't' => [qw(prog security)],
-            'subject_render' => "no_url",
-        },
-        {
-            'l' => "orrd",
-            's' => "Boot Loaders for All!",
-            'd' => "17/3",
-            't' => [qw(system)],
-            'comments' => <<EOF,
-<ul>
-<li>
-<a href="http://www.haifux.org/lectures/67/mbr.txt">Contents of Master Boot Record</a>
-</li>
-<li>
-<a href="http://www.haifux.org/lectures/67/mbr-disassembly.txt">Contents of MBR
-in Assembly</a>
-</li>
-</ul>
-EOF
-        },
-        {
-            'l' => "choo",
-            's' => "Linux Memory Allocators",
-            'd' => "31/3",
-            't' => [qw(kernel prog)],
-        },
-        {
-            'l' => "aviram",
-            's' => "Security Auditing",
-            'd' => "14/4",
-            't' => [qw(security)],
-        },
-        {
-            'l' => "eli",
-            's' => "IP Masquerading using IP-Tables",
-            'd' => "28/4",
-            't' => [qw(network)],
-        },
-        {
-            'l' => "oleg",
-            's' => "Scaling *Way* Up",
-            'd' => "12/5",
-            't' => [qw(prog)],
-        },
-        {
-            'l' => "orna",
-            's' => "Portability Programming",
-            'd' => "26/5",
-            't' => [qw(prog)],
-        },
-        {
-            'l' => "eli",
-            's' => "The Eobj Perl Environment",
-            'd' => "9/6",
-            't' => [qw(prog)],
+            l => "lior_kaplan",
+            s => "Intro to PHP (Part 1/2)",
+            d => "16/11",
+            'url' => "http://www.haifux.org/lectures/43/",
+            t => "prog",
         },
         {
             'l' => "sun",
-            's' => "WINE",
-            'd' => "23/6",
+            's' => "Wine",
+            'd' => "30/11",
             't' => [qw(prog system)],
-            'subject_render' => "no_url",
         },
         {
-            'l' => "mulix",
-            's' => "From Python Import Lecture",
-            'd' => "7/7",
-            't' => [qw(prog util)],
-            'comments' => <<EOF,
-Re-run of <a href="./lectures/50/">lecture #50</a>
-EOF
+            l => "lior_kaplan",
+            s => "Intro to PHP (Part 2/2)",
+            d => "14/12",
+            'url' => "http://www.haifux.org/lectures/43/",
+            t => "prog",
         },
         {
-            'l' => "moshez",
-            's' => "Python and Twisted",
-            'd' => "21/7",
-            't' => [qw(prog util)],
-            'url' => "http://twistedmatrix.com/~moshez/haifux.html",
-        },
-        {
-            'l' => "mulix",
-            's' => "OLS 2003",
-            'd' => "4/8",
-            't' => [qw(kernel)],
-            'subject_render' => "explicit_url",
-            'url' => "http://www.linuxsymposium.org/",
-        },
-        {
-            'l' => "iftach_hyams",
-            's' => "Real Time in Linux",
-            'd' => "18/8",
-            't' => [qw(system kernel)],
-        },
-        {
-            'l' => "haifux_members",
-            's' => "Arranging the W2L and InstaParty",
-            'd' => "25/8",
-            'series' => "none",
-            't' => [],
-        },
-        {
-            'l' => "oleg",
-            's' => "Pseudo-, Quasi-, and Real Random Numbers",
-            'd' => "1/9",
-            't' => [qw(prog)],
-        },
-        {
-            'l' => "shimon_panfil",
-            's' => "Tcl/Tk",
-            'd' => "15/9",
-            't' => [qw(prog util)],
-        },
-        {
-            'l' => "ron_art",
-            's' => "Mulitilingual Typesetting",
-            'd' => "29/9",
-            't' => [qw(util)],
-        },
-        {
-            'l' => "aviram",
-            's' => "SPAM - Everyone's Favorite Food",
-            'd' => "15/12",
-            't' => [qw(network)],
-            'subject_render' => "no_url",
-        },
-        {
-            'l' => "orrd",
-            's' => "SMTP and qmail",
-            'd' => "29/12",
-            't' => [qw(network util)],
-            'subject_render' => "no_url",
+            l => "aviram",
+            s => "Full Disclosure",
+            d => "28/12",
+            url => "lin-club_files/Full_Disclosure.sxi",
+            t => [qw(prog system)],
         },
     ],
     '2004' =>
     [
         {
-            'l' => "choo",
-            's' => "UNIX's basics: Users, Processes, Permissions and What's Between Them",
-            'd' => "5/1",
-            't' => [qw(system)],
-            'comments' => "<p>In Two Parts</p>",
-            'sub-series' => "SiL",
-            'url' => "084-sil/",
+            l => "gby",
+            s => "Embedded Linux",
+            d => "11/1",
+            url => "lin-club_files/embedded_telux.sxi",
+            t => "prog",
         },
         {
-            'l' => "alon",
-            's' => "Proxying - why and how",
-            'd' => "12/1",
-            't' => [qw(network)],
+            l => "alex_landsberg",
+            s => "OSCAR - a Tool for Grid Implementation",
+            d => "25/1",
+            'comments' => q{<a href="http://oscar.openclustergroup.org/tiki-list_file_gallery.php?galleryId=4">oscar-mit (Jeremy Enos@MIT)</a>},
+            t => [qw(prog system net)],
         },
         {
-            'l' => "choo",
-            's' => "Kernel, Modules, Drivers",
-            'd' => "19/1",
-            't' => [qw(system kernel)],
-            'comments' => "In two parts",
-            'url' => "86-sil/",
+            l => "moshe_doron",
+            s => "Extending PHP",
+            d => "8/2",
+            url => "http://moshe.i-com-it.com/p/pres2/show.php?file=extending-php",
+            t => "prog",
         },
         {
-            'l' => "eran_sandler",
-            's' => "The mono Project",
-            'd' => "26/1",
-            't' => [qw(system prog)],
-            'comments' => qq{<p>See <a href="http://www.go-mono.com/">Mono</a></p>},
+            l => "ori_idan_and_sforbes",
+            s => "The Open Source Development Model and How you can Contribute",
+            d => "22/2",
+            url => "lin-club_files/non-prog-oss.sxi",
+            t => ["prog","advocacy",],
         },
         {
-            'l' => "choo",
-            's' => "Kernel, Modules, Drivers - Part II",
-            'd' => "2/2",
-            't' => [qw(kernel system)],
-            'url' => "88-sil/",
-            'sub-series' => "SiL",
+            l => "ohad_bencohen",
+            s => "Securing Linux",
+            d => "14/3",
+            url => "lin-club_files/securing_linux.sxi.zip",
+            t => "system",
         },
         {
-            'l' => "mulix",
-            's' => "Linux Device Drivers",
-            'd' => "9/2",
-            'url' => "http://www.mulix.org/klife.html",
-            't' => [qw(kernel)],
-            'subject_render' => "explicit_url",
+            l => "orna",
+            s => "Portable Programming",
+            d => "28/3",
+            url => "http://haifux.org/lectures/72/",
+            t => "prog",
         },
         {
-            'l' => "alon",
-            's' => "Multimedia in Linux",
-            'd' => "16/2",
-            'sub-series' => "SiL",
+            l => "eddie",
+            s => "Intro to Apache 2",
+            d => "18/4",
+            url => "http://www.cs.tau.ac.il/~eddiea/docs/apache-into-telux-2004-04.ps",
+            t => "system",
+        },
+        {
+            l => "ori_idan",
+            s => "Gtk+",
+            d => "2/5",
+            url => "lin-club_files/gtk.sxi",
+            t => "prog",
+        },
+        {
+            l => "mike_almogy",
+            s => "Web Hosting (Part 1/2)",
+            d => "16/5",
+            url => "lin-club_files/linux-webhosting.pdf",
+            comments => q{<a href="lin-club_files/linux-webhosting.sxi">Lecture
+            in SXI Format</a>},
+            t => [qw(system net)],
+        },
+        {
+            l => "dan_liberzon",
+            s => "The Mandrake Distribution",
+            d => "30/5",
+            url => "lin-club_files/mandrake-club.sxi",
+            comments => q{<a href="lin-club_files/mandrake-club.pdf">Lecture in PDF Format},
+            t => [qw(system advocacy)],
+        },
+        {
+            l => "shlomif",
+            s => "Autoconf",
+            d => "4/7",
+            url => "http://vipe.technion.ac.il/~shlomif/lecture/Autotools/",
+            t => "prog",
+        },
+        {
+            l => "mike_almogy",
+            s => "Web Hosting (Part 2/2)",
+            d => "18/7",
+            url => "lin-club_files/linux-webhosting.pdf",
+            comments => q{<a href="lin-club_files/linux-webhosting.sxi">Lecture
+            in SXI Format</a>},
+            t => [qw(system net)],            
+        },
+        {
+            l => "sforbes",
+            s => "Bugzilla",
+            d => "1/8",
+            url => "lin-club_files/bugzilla_for_end_users.pdf",
+            t => "prog",
+        },
+        {
+            l => "ori_idan",
+            s => "Linux Bootloaders",
+            d => "15/8",
+            url => "lin-club_files/linux-boot/",
+            t => ["prog","system"],
+        },
+        {
+            l => "gby",
+            s => "Asterisk - the Open-Source PABX System",
+            d => "29/8",
+            t => [qw(system net)],
             'subject_render' => "no_url",
-            't' => [qw(util system)],
         },
         {
-            'l' => "ron_art",
-            's' => "Multilingual TeX",
-            'd' => "23/2",
-            't' => [qw(util)],
-            'comments' => qq{A sequel to <a href="./lectures/81/">Multilingual Typesetting</a>},
-            'subject_render' => "no_url",
+            l => "orna_and_mulix",
+            s => "Latest Kernel Developments (Impressions from OLS 2004)",
+            d => "5/9",
+            url => "http://www.haifux.org/lectures/109/OLS2004.html",
+            t => [qw(prog advocacy)],
         },
         {
-            'l' => "orna",
-            's' => "Working with the UNIX Shell",
-            'd' => "1/3",
-            't' => [qw(system)],
-            'subject_render' => "no_url",
-            'sub-series' => "SiL",
+            l => "shlomif",
+            s => "Freecell Solver - Evolution of a C Program",
+            d => "19/9",
+            url => "http://vipe.technion.ac.il/~shlomif/lecture/Freecell-Solver/",
+            t => "prog",
         },
         {
-            'l' => "you",
-            's' => "Open Slot",
-            'd' => "8/3",
-            't' => [],
-            'subject_render' => "no_url",
+            l => "telux_members",
+            s => "Lightning Talks by Various People",
+            d => "10/10",
+            url => "http://www.iglu.org.il/IGLU/modules.php?op=modload&name=News&file=article&sid=64&mode=thread&order=0&thold=0",
+            t => [],
         },
         {
-            'l' => "tzahi_fadida",
-            's' => "CVS",
-            'd' => "15/3",
-            't' => [qw(prog util)],
-            'sub-series' => "SiL",
-            'url' => "94-sil/",
+            l => "ori_idan",
+            s => "Linux Bootloaders",
+            d => "24/10",
+            url => "lin-club_files/linux-boot/",
+            'comments' => q{Rerurn of previous lecture},
+            t => ["prog","system"],
         },
-        #{
-        #    'l' => "mulix",
-        #    's' => "UML - User Mode Linux",
-        #    'd' => "21/6",
-        #    't' => [qw(kernel system prog)],
-        #    'subject_render' => "no_url",
-        #}
     ],
 );
 
