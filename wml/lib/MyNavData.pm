@@ -20,6 +20,10 @@ my $tree_contents =
             'url' => "",
         },
         {
+            'text' => "Mailing List",
+            'url' => "mailing-lists/",
+        },
+        {
             'text' => "Beginners' Series",
             'url' => "newbies.html",
             'subs' =>

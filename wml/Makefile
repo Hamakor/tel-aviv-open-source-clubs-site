@@ -65,9 +65,12 @@ lib/lectures_dest/2003.html: lib/render_lectures.pl lib/LecturesData.pm
 # $(PACKAGES_DESTS) :: $(PACKAGES_DIR)/% : ./temp/lk-module-compiler-final/%
 # 	cp -f $< $@
 
-upload: upload_telux_new
+upload: upload_telux
 
 upload_telux_new: all
 	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/New-Site/)
 
+upload_telux:
+	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/)
+	
 .PHONY:

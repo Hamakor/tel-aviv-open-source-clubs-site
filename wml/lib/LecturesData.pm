@@ -76,7 +76,7 @@ sub explicit_url_subject_render
         'name' => "Aviram Jenik",
         'name_render_type' => "email",
         'email' => "aviram\@beyondsecurity.com",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
     },
     'alon' =>
     {

@@ -1,0 +1,12 @@
+#include '../template.wml'
+
+<subject "Mailing List" />
+
+<h1>Mailing List</h1>
+
+<p>
+Here's some
+<a href="http://www.iglu.org.il/mailing-lists/telaviv-linux-club.html">information
+about our mailing list</a>. Note that it is dedicated mainly to announcements.
+</p>
+
