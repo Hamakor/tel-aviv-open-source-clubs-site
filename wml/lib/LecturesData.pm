@@ -675,7 +675,7 @@ sub explicit_url_subject_render
             s => "Linux Bootloaders",
             d => "24/10",
             url => "lin-club_files/linux-boot/",
-            'comments' => q{Rerurn of previous lecture},
+            'comments' => q{Rerun of previous lecture},
             t => ["prog","system"],
         },
     ],
