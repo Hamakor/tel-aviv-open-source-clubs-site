@@ -1,6 +1,5 @@
-* Add attribution to the Sinorca 2.0 style somewhere. (and Open-source 
-web-designs).
+* Add an RSS feed. (see the Haifux code)
 
-* Fix the fact that the body after the text of message appears gray
-instead of white.
+* Add a Hebrew nav-menu + Layout + Translation.
+    - Translate to English the remaining Hebrew texts.
 
