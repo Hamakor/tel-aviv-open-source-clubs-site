@@ -2,11 +2,11 @@
 
 <subject "Tel Aviv Linux Club" />
 
-<div align="center">
-<h1 align=center style='text-align:center'><a href="http://www.cs.tau.ac.il/telux/newbies.html">לוח ההרצאות למתחילים באוניברסיטת ת"א</a> </h1>
+<h1 align="center" style='text-align:center'><a href="advanced.html">לוח ההרצאות הרגילות באוניברסיטת ת"א</a> </h1>
+
 <h1 style="text-align: right;">כללי</h1>
-</div>
-<div style="text-align: right;">
+
+<div style="text-align: right;" dir="rtl">
 מועדון הלינוקס התל-אביבי הוקם כדי לאפשר שיתוף מידע בין משתמשי לינוקס ומי שמעוניין להשמיע דברו בנושא.
 המועדון פועל על בסיס התנדבותי ואינו ממומן ע"י שום גורם שהוא. 
 בשנה שעברה הועברו הרצאות למתחילים והשנה יועברו הרצאות למתחילים ולמתקדמים.
@@ -16,7 +16,7 @@
 </div>
 <br />
 <h1  style="text-align: left;">General</h1> 
-<div style="text-align: left;" dir="LTR" >
+<div style="text-align: left;" dir="ltr" >
 The Tel-Aviv University Linux Club was established to allow student, users, developers and system administrators to share and exchange information. 
 All the activities are voluntary and are not sponsored in any meaning. 
 Lectures are given bi-weekly  all around the year.
