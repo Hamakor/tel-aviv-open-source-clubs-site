@@ -339,7 +339,7 @@ sub explicit_url_subject_render
     {
         'name' => "Shachar Shemesh",
         'name_render_type' => "homepage",
-        'homepage' => "http://www.shemesh.biz/",
+        'homepage' => "http://www.lingnu.com/",
         'subject_render' => "explicit_url",
     },
     'telux_members' =>
