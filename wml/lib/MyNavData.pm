@@ -25,6 +25,17 @@ my $tree_contents =
             'url' => "mailing-lists/",
         },
         {
+            'text' => "Regular Lectures",
+            'url' => "advanced.html",
+            'subs' => 
+            [
+                {
+                    'text' => "2003-2004 Lectures Archive",
+                    'url' => "advanced-2004.html",
+                },
+            ],
+        },
+        {
             'text' => "Beginners' Series",
             'url' => "newbies.html",
             'subs' =>
@@ -45,17 +56,6 @@ my $tree_contents =
                             'url' => "instaparty-2003-pictures.html",
                         },
                     ],
-                },
-            ],
-        },
-        {
-            'text' => "Advanced Lectures",
-            'url' => "advanced.html",
-            'subs' => 
-            [
-                {
-                    'text' => "2004 Lectures Archive",
-                    'url' => "advanced-2004.html",
                 },
             ],
         },
