@@ -443,13 +443,13 @@ foreach $lecture (@lectures_flat)
 }
 continue
 {
-    if (defined($grouped_file_idx))
+    my $series = $lecture->{'series'};
+    my $lecture_idx = ($series_indexes{$series}++);
+    if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
     {
-        my $series = $lecture->{'series'};
-        my $lecture_idx = ($series_indexes{$series}++);
-        if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
+        $group_id++;
+        if (defined($grouped_file_idx))
         {
-            $group_id++;
             my $f = $files[$grouped_file_idx];
             my $buffer = $f->{'buffer'};
             $buffer .= $page_footer;

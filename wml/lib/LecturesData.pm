@@ -285,7 +285,7 @@ sub explicit_url_subject_render
     {
         'name' => "Orna Agmon",
         'name_render_type' => "homepage",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
         'homepage' => "http://tx.technion.ac.il/~agmon/",
     },
     'orna_and_mulix' =>
@@ -327,7 +327,7 @@ sub explicit_url_subject_render
         'name' => "Shlomi Fish",
         'name_render_type' => "homepage",
         'homepage' => "http://www.shlomifish.org/",
-        'subject_render' => "shlomif",
+        'subject_render' => "explicit_url",
     },
     'shlomi_loubaton' =>
     {
@@ -340,7 +340,7 @@ sub explicit_url_subject_render
         'name' => "Shachar Shemesh",
         'name_render_type' => "email",
         'email' => "haifux\@shemesh.biz",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
     },
     'telux_members' =>
     {
@@ -521,6 +521,7 @@ sub explicit_url_subject_render
             's' => "Wine",
             'd' => "30/11",
             't' => [qw(prog system)],
+            'subject_render' => "no_url",
         },
         {
             l => "lior_kaplan",
@@ -609,7 +610,7 @@ sub explicit_url_subject_render
             s => "The Mandrake Distribution",
             d => "30/5",
             url => "lin-club_files/mandrake-club.sxi",
-            comments => q{<a href="lin-club_files/mandrake-club.pdf">Lecture in PDF Format},
+            comments => q{<a href="lin-club_files/mandrake-club.pdf">Lecture in PDF Format</a>},
             t => [qw(system advocacy)],
         },
         {
@@ -686,6 +687,7 @@ sub explicit_url_subject_render
             s => "Bourne Shell Programming",
             d => "23/1",
             t => ["system"],
+            'subject_render' => "no_url",
         },
         {
             l => "omer_zak_and_ori_idan",
@@ -693,7 +695,7 @@ sub explicit_url_subject_render
             d => "6/2",
             url => "lecture-notes/Lecture112zak-A-2005jan09.pdf",
             t => ["system","util"],
-            comments => q{<a href="lecture-notes/Lecture112zak-A-2005jan09.sxi">>SXI Format</a><br /><a href="http://www.haifux.org/lectures/112/">Second Part of the Lecture</a>},
+            comments => q{<a href="lecture-notes/Lecture112zak-A-2005jan09.sxi">SXI Format</a><br /><a href="http://www.haifux.org/lectures/112/">Second Part of the Lecture</a>},
         },
         {
             l => "nir_simionovich",

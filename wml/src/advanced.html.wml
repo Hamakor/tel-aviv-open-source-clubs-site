@@ -15,36 +15,11 @@
 במהלך חופשות באוניברסיטה הכניסה תתאפשר דרך שערים 4 ו-8 בלבד. 
 </p>
 
-<table cellpadding="2" cellspacing="2" border="1" width="100%">
-  <tbody>
-    <tr>
-      <td valign="top" align="center">שם המרצה</td>
-      <td valign="top" align="center">תאריך</td>
-      <td valign="top" align="center">נושא ההרצאה</td>
-    </tr>
-    <tr>
-      <td valign="top" align="right">שחר שמש (מנכ"ל <a href="http://www.lingnu.com/">לינגנו</a>) </td>
-      <td valign="top" align="center">23 בינואר 2005</td>
-      <td valign="top" align="right">תכנות ב-Bourne Shell  (<a href="./abstracts/abstract-shachar-2005-23-01.txt">תקציר</a>)</td>
-    </tr>
-    <tr>
-      <td valign="top" align="right">עומר זק ואורי עידן</td>
-      <td valign="top" align="center">6 בפברואר 2005</td>
-      <td valign="top" align="right"><a href="lecture-notes/Lecture112zak-A-2005jan09.pdf ">נגישות בלינוקס</a> (<a href="lecture-notes/Lecture112zak-A-2005jan09.sxi">פורמט SXI</a>)
-	<a href="http://www.haifux.org/lectures/112/">חלק שני של ההרצאה</a></td>
-    </tr>
-    <tr>
-      <td valign="top" align="right">ניר סמיונוביץ'</td>
-      <td valign="top" align="center">27 בפברואר 2005</td>
-      <td valign="top" align="right"><a href="lecture-notes/Asterisk_Open_Source_PBX-Telux_Presentation.pdf">נושאים מתקדמים ב-Asterisk</a></td>
-    </tr>
-    <tr>
-      <td valign="top" align="right">חרות מעוז</td>
-      <td valign="top" align="center">20 במרץ 2005</td>
-      <td valign="top" align="right"><a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/1/2.2-slides/">Gimp 2.2</a></td>
-    </tr>
-  </tbody>
+<div dir="ltr">
+<table border="1">
+#include '../lib/lectures_dest/2005.html'
 </table>
+</div>
 
 <h2>הרצאות נוספות</h2>
 <ul>

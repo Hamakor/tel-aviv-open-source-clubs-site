@@ -30,7 +30,7 @@ WML_FLAGS += --passoption=2,-X --passoption=3,-I../lib/ --passoption=7,"-S imgsi
 
 RSYNC = rsync --progress --verbose --rsh=ssh 
 
-LIBRARY_FILES = template.wml lib/MyNavData.pm
+LIBRARY_FILES = template.wml lib/lectures_dest/2003.html lib/MyNavData.pm 
 
 # This is a file that does not change or is timestamped from invocation
 # to inovcation of this makefile. Useful for synchronizing uploads.
@@ -53,13 +53,14 @@ $(RAW_FILES_DEST) :: $(TARGET)/% : src/%
 $(SUBDIRS_DEST) :: % : $(UNCHANGED_FILE)
 	if [ ! -e $@ ] ; then mkdir $@ ; fi
 
-
-
 $(PODS_DESTS) :: $(TARGET)/% : src/%
 	cp -f $< $@
 
 $(PODS_DESTS_HTMLS) :: $(TARGET)/%.html : src/%.pod
 	pod2html $< > $@
+
+lib/lectures_dest/2003.html: lib/render_lectures.pl lib/LecturesData.pm
+	(cd lib && perl render_lectures.pl)
 
 # $(PACKAGES_DESTS) :: $(PACKAGES_DIR)/% : ./temp/lk-module-compiler-final/%
 # 	cp -f $< $@
