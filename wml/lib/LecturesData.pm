@@ -161,6 +161,12 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'herouth_maoz' =>
+    {
+        'name' => "Herouth Maoz",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'iftach_hyams' =>
     {
         'name' => "Iftach Hyams",
@@ -230,6 +236,12 @@ sub explicit_url_subject_render
         'email' => "nadav256\@hotmail.com",
         'subject_render' => "no_url",
     },
+    'nir_simionovich' =>
+    {
+        'name' => "Nir Simionovich",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'oded_koren' =>
     {
         'name' => "Oded Koren",
@@ -249,6 +261,12 @@ sub explicit_url_subject_render
         'name_render_type' => "email",
         'email' => "pub\@goldshmidt.org",
         'subject_render' => "series_idx",
+    },
+    'omer_zak_and_ori_idan' =>
+    {
+        'name' => "Omer Zak and Ori Idan",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
     },
     'ori_idan' =>
     {
@@ -659,6 +677,37 @@ sub explicit_url_subject_render
             url => "lin-club_files/linux-boot/",
             'comments' => q{Rerurn of previous lecture},
             t => ["prog","system"],
+        },
+    ],
+    '2005' =>
+    [
+        {
+            l => "sun",
+            s => "Bourne Shell Programming",
+            d => "23/1",
+            t => ["system"],
+        },
+        {
+            l => "omer_zak_and_ori_idan",
+            s => "Accessibility in Linux", 
+            d => "6/2",
+            url => "lecture-notes/Lecture112zak-A-2005jan09.pdf",
+            t => ["system","util"],
+            comments => q{<a href="lecture-notes/Lecture112zak-A-2005jan09.sxi">>SXI Format</a><br /><a href="http://www.haifux.org/lectures/112/">Second Part of the Lecture</a>},
+        },
+        {
+            l => "nir_simionovich",
+            d => "27/2",
+            s => "Advanced Topics in Asterisk",
+            url => "lecture-notes/Asterisk_Open_Source_PBX-Telux_Presentation.pdf",
+            t => ["system", "net"],
+        },
+        {
+            l => "herouth_maoz",
+            d => "20/3",
+            s => "GIMP 2.2",
+            url => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
+            t => "utils",
         },
     ],
 );
