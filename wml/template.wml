@@ -41,6 +41,7 @@ $nav_html = $rendered_results->{html};
 <title>{#SUBJECT_LOC#}</title>
 <link rel="stylesheet" type="text/css" href="$(ROOT)/style.css" />
 <link rel="icon" href="http://www.tau.ac.il/images/tau.ico" />
+<link rel="alternate" title="Telux Events RSS" HREF="$(ROOT)/rss.xml" type="application/rss+xml" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="author" content="Eddie Aronovich" />
 <meta name="description" content="Telux" />
@@ -97,6 +98,11 @@ nd the main page" border="0" width="99%">
 <:{ print join("\n", @$nav_html); }:>        
 <define-tag validhtml>
 <p>
+<a href="$(ROOT)/rss.xml" title="RSS Feed for Telux Events"><img 
+    src="$(ROOT)/images/rss.png" alt="RSS Feed" style="border:0;"
+    /></a>
+</p>
+<p>
 <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=70"><img 
    style="margin-top:1em; border:0;" alt="Get Firefox!" 
    title="Get Firefox! A safer, faster, better web-browser." 
@@ -112,8 +118,6 @@ nd the main page" border="0" width="99%">
  <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%%3A//perl-begin.berlios.de/$(FILENAME)"><img style="border:0"
        src="$(ROOT)/images/vcss.gif" 
        alt="Valid CSS!" /></a>
-</p>
-<p>
 </p>
 </define-tag>
 

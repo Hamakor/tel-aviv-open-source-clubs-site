@@ -36,7 +36,7 @@ LIBRARY_FILES = template.wml lib/lectures_dest/2003.html lib/MyNavData.pm
 # to inovcation of this makefile. Useful for synchronizing uploads.
 UNCHANGED_FILE = unchanged
 
-all: dest $(SUBDIRS_DEST) $(DESTS) $(RAW_FILES_DEST) dest/Default.html
+all: dest $(SUBDIRS_DEST) $(DESTS) $(RAW_FILES_DEST) dest/Default.html dest/rss.xml
 
 $(UNCHANGED_FILE):
 	touch $@
@@ -63,6 +63,9 @@ lib/lectures_dest/2003.html: lib/render_lectures.pl lib/LecturesData.pm
 	(cd lib && perl render_lectures.pl)
 
 dest/Default.html: dest/index.html
+	cp -f $< $@
+
+dest/rss.xml: lib/lectures_dest/rss.xml
 	cp -f $< $@
 
 # $(PACKAGES_DESTS) :: $(PACKAGES_DIR)/% : ./temp/lk-module-compiler-final/%

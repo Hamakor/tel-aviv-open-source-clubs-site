@@ -3,14 +3,11 @@
 use strict;
 
 use FileHandle;
-
 use Data::Dumper;
+use POSIX qw(mktime strftime);
+use XML::RSS;
 
 use LecturesData;
-
-use POSIX;
-
-
 
 my @lectures_flat;
 
@@ -294,6 +291,26 @@ my $page_footer = "</table>\n<hr />\n" .
     "</ul>\n" .
     "<p><a href=\"./\">Back to the club's site</a></p>\n</body>\n</html>\n";
 
+my $base_url = "http://www.cs.tau.ac.il/telux/";
+my $webmaster_email = "taux\@cs.tau.ac.il";
+my $rss_feed = XML::RSS->new('version' => "2.0");
+$rss_feed->channel(
+    'title' => "Future Telux Lectures",
+    'link' => $base_url,
+    'language' => "en-us",
+    'description' => "Tel Aviv Linux Club (Telux) Future Lectures",
+    'rating' => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
+    'copyright' => "Copyright 2005, Tel Aviv Linux Club",
+    'pubDate' => (scalar(localtime())),
+    'lastBuildDate' => (scalar(localtime())),
+    'docs' => "http://blogs.law.harvard.edu/tech/rss",
+    (map { 
+        $_ => $webmaster_email
+    } (qw(managingEditor webMaster))),
+    'ttl' => "360",
+    'generator' => "Perl and XML::RSS",
+);
+
 foreach $lecture (@lectures_flat)
 {
     my @fields;
@@ -410,10 +427,32 @@ foreach $lecture (@lectures_flat)
             $is_future = 1;
         }
     }
+
+    if ($is_future)
+    {
+        my $lecture_url = $lecture->{'url'};
+        if ($lecture_url !~ /^http:/)
+        {
+            $lecture_url = "$base_url/$lecture_url";
+        }
+
+        # assuming meetings start at 18:30
+        my $date_time = 
+            mktime(0, 30, 18, $date_day, $date_month-1, $date_year-1900);
         
-    
+        $rss_feed->add_item(
+            'title' => $lecture->{'s'},
+            (map { $_ => $base_url } (qw(permaLink link))),
+            'enclosure' => { 'url' => $lecture_url, },
+            'description' => $lecture->{'comments'},
+            'author' => $lecturer_record->{'name'},
+            'pubDate' => scalar(localtime($date_time)),
+            'category' => "Meetings",
+        );
+    }
+
     # $date =~ s{^(\d+)/(\d+)/\d{2}(\d{2})$}{$1/$2/$3};
-    
+
     push @fields, $date;
 
     # Generate the comments field
@@ -462,6 +501,8 @@ continue
         }
     }
 }
+
+$rss_feed->save($dest_dir."rss.xml");
 
 &print_headers($page_footer);
 
