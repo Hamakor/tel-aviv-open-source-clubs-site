@@ -338,8 +338,8 @@ sub explicit_url_subject_render
     'sun' =>
     {
         'name' => "Shachar Shemesh",
-        'name_render_type' => "email",
-        'email' => "haifux\@shemesh.biz",
+        'name_render_type' => "homepage",
+        'homepage' => "http://www.shemesh.biz/",
         'subject_render' => "explicit_url",
     },
     'telux_members' =>
