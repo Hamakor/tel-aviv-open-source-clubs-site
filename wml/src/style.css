@@ -50,29 +50,6 @@ h1 a, h2 a, h3 a
 {
     font-family : sans-serif;
 }
-
-
-div.bookinfo h3
-{
-    border : none;
-    margin-top : 0em;
-    color : green;
-    padding-left : 0em;
-    background-color : transparent;
-}
-
-div.bookinfo 
-{ 
-    border-style : dotted;
-    border-width : thin;
-    /* LightYellow */
-    background-color : #FFFFE0;
-    margin-left : 1em;
-    margin-right : 1em;
-    padding-left : 1em;
-    padding-bottom : 0.3em;
-    padding-top : 0.3em;
-}
 tt { color : #8A2BE2 /* The BlueViolet Color */ }
 .news
 {
