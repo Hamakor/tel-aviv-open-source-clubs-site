@@ -16,9 +16,9 @@
 </p>
 
 <div dir="ltr">
-<table border="1">
+<lectures_table>
 #include '../lib/lectures_dest/2005.html'
-</table>
+</lectures_table>
 </div>
 
 <h2>הרצאות נוספות</h2>

@@ -17,10 +17,10 @@ All lectures will start at 18:30 in room 007,
 in the Schreiber building.
 </p>
 
-<table border="1">
+<lectures_table>
 #include '../lib/lectures_dest/2003.html'
 #include '../lib/lectures_dest/2004.html'
-</table>
+</lectures_table>
 <br />
 
 

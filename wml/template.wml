@@ -152,6 +152,19 @@ shlomif@iglu.org.il</a>
 {#SUBJECT_LOC#:%0:##}
 </define-tag>
 
+<define-tag lectures_table endtag="required">
+<table border="1" summary="Table of the Lectures: first column is the lecture number; second column is the subject; third is the lecturer; fourth is the date; fifth is for comments or links.">
+<tr>
+<td>Lecture Number</td>
+<td>Subject</td>
+<td>Lecturer</td>
+<td>Date</td>
+<td>Comments or Links</td>
+</tr>
+%body
+</table>
+</define-tag>
+
 #   per default we are in body
 {#BODY#:
 
