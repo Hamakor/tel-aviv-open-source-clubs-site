@@ -81,7 +81,7 @@ foreach my $year (sort { $a <=> $b } keys(%lectures))
     }
 }
 
-my $dest_dir = "./dest/";
+my $dest_dir = "./lectures_dest/";
 if (! -d $dest_dir)
 {
     mkdir($dest_dir);
