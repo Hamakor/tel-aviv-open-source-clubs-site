@@ -13,6 +13,7 @@ my $tree_contents =
     'host' => "telux",
     'text' => "Tel Aviv Linux Club",
     'title' => "Tel Aviv Linux Club (Telux)",
+    'show_always' => 1,
     'subs' =>
     [
         {
