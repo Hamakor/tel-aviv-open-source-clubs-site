@@ -148,6 +148,19 @@ while (my ($id, $topic) = each(%topics_map))
         };
 }
 
+@files = 
+(
+    map {
+        +{
+            'id' => $_,
+            'url' => "$_.html",
+            't_match' => ".*",
+            'no_header' => 1,
+            'year' => $_,
+        },
+    } (2003 .. 2005)
+);
+
 my ($grouped_file_idx) = (grep { $files[$_]->{'id'} eq "grouped" } (0 .. $#files));
 
 foreach my $f (@files)
@@ -178,7 +191,8 @@ my $print_files = sub
         my $pattern = $file->{'t_match'};
         if ((grep { ($_ eq "all") || ($_ =~ m/^$pattern$/) } @$topics) &&
             (! ($is_header && $file->{'no_header'})) &&
-            (! ($is_past && $file->{'future_only'}))
+            (! ($is_past && $file->{'future_only'})) &&
+            (exists($file->{'year'}) ? ($file->{'year'} == $spec->{'year'}) : 1)
            )
         {
             $file->{'buffer'} .= join("", (map { (ref($_) eq "CODE" ? $_->($file) : $_) } @_));
@@ -377,13 +391,12 @@ foreach $lecture (@lectures_flat)
     # Generate the date field
     
     my $date = $lecture->{'d'};
+    my ($date_day, $date_month, $date_year) = split(m!/!, $date);
 
     if (! $is_future )
     {
-        my ($date_day, $date_month, $date_year) = split(m!/!, $date);
-
-        my $cmp_val = 
-            (($date_year <=> $this_year) || 
+        my $cmp_val =
+            (($date_year <=> $this_year) ||
             ($date_month <=> $this_month) ||
             ($date_day <=> $this_day));
 
@@ -423,26 +436,30 @@ foreach $lecture (@lectures_flat)
         { 
             'topics' => $lecture->{'t'},
             'past' => (! $is_future),
+            'year' => $date_year,
         },
         $rendered_lecture
     );
 }
 continue
 {
-    my $series = $lecture->{'series'};
-    my $lecture_idx = ($series_indexes{$series}++);
-    if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
+    if (defined($grouped_file_idx))
     {
-        $group_id++;
-        my $f = $files[$grouped_file_idx];
-        my $buffer = $f->{'buffer'};
-        $buffer .= $page_footer;
-        open O, ">$dest_dir/$f->{'url'}";
-        print O $buffer;
-        close(O);
-        $f = $files[$grouped_file_idx] = $get_grouped_file->();
-        $f->{'buffer'} .= join("", $get_header->($f));
-        $f->{'buffer'} .= $table_headers;
+        my $series = $lecture->{'series'};
+        my $lecture_idx = ($series_indexes{$series}++);
+        if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
+        {
+            $group_id++;
+            my $f = $files[$grouped_file_idx];
+            my $buffer = $f->{'buffer'};
+            $buffer .= $page_footer;
+            open O, ">$dest_dir/$f->{'url'}";
+            print O $buffer;
+            close(O);
+            $f = $files[$grouped_file_idx] = $get_grouped_file->();
+            $f->{'buffer'} .= join("", $get_header->($f));
+            $f->{'buffer'} .= $table_headers;
+        }
     }
 }
 
