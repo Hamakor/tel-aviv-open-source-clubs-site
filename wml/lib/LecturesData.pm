@@ -725,6 +725,13 @@ sub explicit_url_subject_render
             url => "",
             t => ["net", "system"],
         },
+        {
+            l => "sun",
+            d => "15/5",
+            s => "The Debian GNU/Linux QA System",
+            url => "",
+            t => ["advocacy", "prog"],
+        },
         
     ],
 );
