@@ -1,60 +1,66 @@
-# #use wml::des::navbar
+<set-var latemp_with_favicon="1" />
+<set-var latemp_favicon_url="http://www.tau.ac.il/images/tau.ico" />
+<set-var latemp_supress_default_h1="1" />
+#include "latemp/latemp-main.wml"
 
-<:{
-use MyNavData;
-use HTML::Widgets::NavMenu;
+<latemp_lang "en-US" />
+<latemp_encoding "utf-8" />
+<latemp_author "Eddie Aronovich" />
+<latemp_meta_desc "Telux" />
 
-my $filename = "$(FILENAME)";
-$filename =~ s!index\.html$!!;
-$filename = "/$filename";
 
-my $nav_bar = HTML::Widgets::NavMenu->new(
-    'path_info' => $filename,
-    'current_host' => "telux",
-    MyNavData::get_params(),
-    'ul_classes' => ["m", (("n") x 10)],
-    );
+<latemp_affiliations_buttons>
+<p>
+<a href="$(ROOT)/rss.xml" title="RSS Feed for Telux Events"><img 
+    src="$(ROOT)/images/rss.png" alt="RSS Feed" style="border:0;"
+    /></a>
+</p>
+<p>
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=70"><img 
+   style="margin-top:1em; border:0;" alt="Get Firefox!" 
+   title="Get Firefox! A safer, faster, better web-browser." 
+   src="$(ROOT)/images/get-firefox.gif" /></a>
+</p>
+<p>
+<a href="http://validator.w3.org/check/referer"><img 
+    style="border:0" src="$(ROOT)/images/valid-xhtml10.png" 
+         alt="Valid XHTML 1.0!"
+         /></a>
+</p>
+<p>
+ <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A//www.cs.tau.ac.il/telux/$(FILENAME)"><img style="border:0"
+       src="$(ROOT)/images/vcss.gif" 
+       alt="Valid CSS!" /></a>
+</p>
+</latemp_affiliations_buttons>
 
-my $rendered_results = $nav_bar->render();
+# <ifeq "$(FILENAME)" "index.html" "<validhtml />" "" />
 
-use vars qw($nav_links);
+<latemp_webmaster>
+<p>
+<b>Webmaster:</b> <a href="mailto:taux@cs.tau.ac.il">The Telux Operators -
+taux@cs.tau.ac.il</a>
+</p>
+</latemp_webmaster>
 
-$nav_links = $rendered_results->{nav_links};
 
-use vars qw($nav_html);
-
-$nav_html = $rendered_results->{html};
-
-}:>
+<define-tag lectures_table endtag="required">
+<table border="1" summary="Table of the Lectures: first column is the lecture number; second column is the subject; third is the lecturer; fourth is the date; fifth is for comments or links.">
+<tr>
+<td>Lecture Number</td>
+<td>Subject</td>
+<td>Lecturer</td>
+<td>Date</td>
+<td>Comments or Links</td>
+</tr>
+%body
+</table>
+</define-tag>
 
 <define-tag email:link>
 <a href="mailto:%0">%0</a>
 </define-tag>
 
-# The Definition of the page itself
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<head>
-<title>{#SUBJECT_LOC#}</title>
-<link rel="stylesheet" type="text/css" href="$(ROOT)/style.css" />
-<link rel="icon" href="http://www.tau.ac.il/images/tau.ico" />
-<link rel="alternate" title="Telux Events RSS" HREF="$(ROOT)/rss.xml" type="application/rss+xml" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="author" content="Eddie Aronovich" />
-<meta name="description" content="Telux" />
-<:{
-use CGI qw();
-
-while (my ($key, $url) = each(%$nav_links))
-{
-    print "<link rel=\"$key\" href=\"" . CGI::escapeHTML($url) . "\" />\n"
-}
-}:>
-</head>
-<body>
 
 
 <define-tag rellink whitespace="delete">
@@ -91,72 +97,3 @@ http://developer.berlios.de/forum/forum.php?forum_id=2341
 </define-tag>
 
 <define-tag nothing></define-tag>
-<table summary="Layout Table: The first cell contains a navigation bar, the seco
-nd the main page" border="0" width="99%">
-<tr>
-<td valign="top" class="navbar" style="width:20%">
-<:{ print join("\n", @$nav_html); }:>        
-<define-tag validhtml>
-<p>
-<a href="$(ROOT)/rss.xml" title="RSS Feed for Telux Events"><img 
-    src="$(ROOT)/images/rss.png" alt="RSS Feed" style="border:0;"
-    /></a>
-</p>
-<p>
-<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=70"><img 
-   style="margin-top:1em; border:0;" alt="Get Firefox!" 
-   title="Get Firefox! A safer, faster, better web-browser." 
-   src="$(ROOT)/images/get-firefox.gif" /></a>
-</p>
-<p>
-<a href="http://validator.w3.org/check/referer"><img 
-    style="border:0" src="$(ROOT)/images/valid-xhtml10.png" 
-         alt="Valid XHTML 1.0!"
-         /></a>
-</p>
-<p>
- <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%%3A//perl-begin.berlios.de/$(FILENAME)"><img style="border:0"
-       src="$(ROOT)/images/vcss.gif" 
-       alt="Valid CSS!" /></a>
-</p>
-</define-tag>
-
-# <ifeq "$(FILENAME)" "index.html" "<validhtml />" "" />
-
-<validhtml />
-</td>
-<td valign="top" class="main">
-{#BODY#}
-
-</td>
-</tr>
-</table>
-<hr />
-<p>
-<b>Webmaster:</b> <a href="mailto:taux@cs.tau.ac.il">The Telux Operators -
-taux@cs.tau.ac.il</a>
-</p>
-
-</body>
-</html>
-
-<define-tag subject>
-{#SUBJECT_LOC#:%0:##}
-</define-tag>
-
-<define-tag lectures_table endtag="required">
-<table border="1" summary="Table of the Lectures: first column is the lecture number; second column is the subject; third is the lecturer; fourth is the date; fifth is for comments or links.">
-<tr>
-<td>Lecture Number</td>
-<td>Subject</td>
-<td>Lecturer</td>
-<td>Date</td>
-<td>Comments or Links</td>
-</tr>
-%body
-</table>
-</define-tag>
-
-#   per default we are in body
-{#BODY#:
-
