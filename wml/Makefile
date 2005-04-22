@@ -13,9 +13,26 @@ RSYNC = rsync --progress --verbose --rsh=ssh
 
 DOCS_COMMON_DEPS = template.wml
 
-all: latemp_targets
+all: latemp_targets dest/Default.html dest/rss.xml
+
+lib/lectures_dest/2003.html: lib/render_lectures.pl lib/LecturesData.pm
+	(cd lib && perl render_lectures.pl)
+
+dest/Default.html: dest/index.html
+	cp -f $< $@
+
+dest/rss.xml: lib/lectures_dest/rss.xml
+	cp -f $< $@
 
 include include.mak
 include rules.mak
 
-upload: upload_berlios
+upload: upload_telux
+
+upload_telux_new: all
+	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/New-Site/)
+
+upload_telux: all
+	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/)
+
+
