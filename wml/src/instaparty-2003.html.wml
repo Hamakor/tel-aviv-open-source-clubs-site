@@ -1,6 +1,6 @@
 #include '../template.wml'
 
-<subject "Linux Installation Party in Tel Aviv University" />
+<latemp_subject "Linux Installation Party in Tel Aviv University" />
 
 <div dir="rtl">
 <h1>מסיבת התקנת לינוקס באוניברסיטת ת"א</h1>

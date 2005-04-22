@@ -19,9 +19,9 @@ td.navbar
 td.navbar h2 { color: black ; border : none ; font-size : large ; margin-left : 0.5em ; background-color : transparent }
 p.desc { margin-left : 3em }
 /* ul.m == ul.main (of NavMenu) */
-ul.m { padding-left : 1em ; margin-left : 1em ; font-size : 90%}
+ul.navbarmain { padding-left : 1em ; margin-left : 1em ; font-size : 90%}
 /* ul.n == ul.nested (of NavMenu) */
-ul.n { padding-left : 0em ; margin-left : 2em }
+ul.navbarnested { padding-left : 0em ; margin-left : 2em }
 h3.newsitem { text-indent: 3em }
 p.newsitem { margin-left : 6em }
 div.indent { margin-left : 3em }

@@ -1,6 +1,6 @@
 #include '../template.wml'
 
-<subject "Tel Aviv Linux Club" />
+<latemp_subject "Tel Aviv Linux Club" />
 
 <h1 align="center" style='text-align:center'><a href="advanced.html">לוח ההרצאות הרגילות באוניברסיטת ת"א</a> </h1>
 
