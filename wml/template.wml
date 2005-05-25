@@ -1,6 +1,7 @@
 <set-var latemp_with_favicon="1" />
 <set-var latemp_favicon_url="http://www.tau.ac.il/images/tau.ico" />
 <set-var latemp_supress_default_h1="1" />
+<set-var latemp_with_head_meta_tags="1" />
 #include "latemp/latemp-main.wml"
 
 <latemp_lang "en-US" />

@@ -3,10 +3,10 @@ TARGET = dest
 
 WML_FLAGS += -DLATEMP_THEME=perl-begin-1 -DLATEMP_SERVER=berlios
 
-LATEMP_WML_INCLUDE_PATH =$(shell latemp-config --wml-include-path)
+LATEMP_WML_INCLUDE_PATH =$(shell latemp-config --wml-flags)
 
 WML_FLAGS += --passoption=2,-X3074 --passoption=3,-I../lib/ \
-	--passoption=3,-w -I$(LATEMP_WML_INCLUDE_PATH) -I../ -DROOT~. \
+	--passoption=3,-w $(LATEMP_WML_INCLUDE_PATH) -I../ -DROOT~. \
 	-I../lib/ --passoption=7,"-S imgsize"
 
 RSYNC = rsync --progress --verbose --rsh=ssh 
@@ -15,8 +15,14 @@ DOCS_COMMON_DEPS = template.wml
 
 all: latemp_targets dest/Default.html dest/rss.xml
 
-lib/lectures_dest/2003.html: lib/render_lectures.pl lib/LecturesData.pm
+lib/lectures_dest/rss.xml: lib/render_lectures.pl lib/LecturesData.pm
 	(cd lib && perl render_lectures.pl)
+
+src/advanced-2004.html.wml: lib/lectures_dest/2003.html lib/lectures_dest/2004.html
+	touch $@
+
+src/advanced.html.wml: lib/lectures_dest/2005.html
+	touch $@
 
 dest/Default.html: dest/index.html
 	cp -f $< $@

@@ -722,7 +722,7 @@ sub explicit_url_subject_render
             l => "eddie",
             d => "1/5",
             s => "Condor",
-            url => "",
+            url => "lecture-notes/condor-introduction-long-version.pdf",
             t => ["net", "system"],
         },
         {
@@ -732,7 +732,13 @@ sub explicit_url_subject_render
             url => "",
             t => ["advocacy", "prog"],
         },
-        
+        {
+            l => "eddie",
+            d => "29/5",
+            s => "Network Programming",
+            url => "",
+            t => ["net", "system"],
+        },
     ],
 );
 
