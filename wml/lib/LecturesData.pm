@@ -742,10 +742,25 @@ sub explicit_url_subject_render
         {
             l => "telux_members",
             s => "Code Review",
-            d => "19/6",            
+            d => "19/6",
             t => ["prog"],
             url => "",
         },
+        {
+            l => "telux_members",
+            d => "3/6",
+            s => "TBD",
+            url => "",
+            t => [],
+        },
+        {
+            l => "ori_idan",
+            d => "17/6",
+            s => "Kernel Compilation - Why and How",
+            url => "",
+            t => ["kernel", "system"],
+        },
+        
     ],
 );
 
