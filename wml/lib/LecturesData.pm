@@ -366,6 +366,13 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'yuval_shavitt' =>
+    {
+        'name' => "Yuval Shavitt",
+        'name_render_type' => "homepage",
+        'homepage' => "http://www.eng.tau.ac.il/~shavitt/",
+        'subject_render' => "explicit_url",
+    },
 );
 
 %series_map =
@@ -733,34 +740,26 @@ sub explicit_url_subject_render
             t => ["advocacy", "prog"],
         },
         {
-            l => "eddie",
-            d => "29/5",
-            s => "Network Programming",
-            url => "",
-            t => ["net", "system"],
-        },
-        {
-            l => "telux_members",
-            s => "Code Review",
-            d => "19/6",
-            t => ["prog"],
+            l => "yuval_shavitt",
+            s => "DIMES - Mapping the Internet",
+            d => "26/6",
+            t => ["prog", "net"],
             url => "",
         },
         {
             l => "telux_members",
-            d => "3/6",
-            s => "TBD",
+            d => "10/7",
+            s => "Lightning Talks",
             url => "",
             t => [],
         },
         {
-            l => "ori_idan",
-            d => "17/6",
-            s => "Kernel Compilation - Why and How",
+            l => "eddie",
+            d => "24/7",
+            s => "Network Programming",
             url => "",
-            t => ["kernel", "system"],
+            t => ["prog", "net"],
         },
-        
     ],
 );
 
