@@ -736,7 +736,7 @@ sub explicit_url_subject_render
             l => "sun",
             d => "15/5",
             s => "The Debian GNU/Linux QA System",
-            url => "",
+            url => "lecture-notes/Debian_QA.sxi",
             t => ["advocacy", "prog"],
         },
         {
@@ -759,6 +759,13 @@ sub explicit_url_subject_render
             s => "Network Programming",
             url => "",
             t => ["prog", "net"],
+        },
+        {
+            l => "ori_idan",
+            d => "7/8",
+            s => "Kernel Building",
+            url => "",
+            t => ["kernel", "system"],
         },
     ],
 );
