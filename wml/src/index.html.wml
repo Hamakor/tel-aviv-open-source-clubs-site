@@ -23,7 +23,12 @@ Lectures are given bi-weekly  all around the year.
 Once a year we have our annual "Linux Installation Party" when the TAU-CS team and volunteers help new users (newbies) to install Linux on their personal computer.
 During the period (before and after) the installation party we offer introduction lectures about the basic usage of Linux.
 </div>
-<br />
-<br />
-<br />
+
+<h1>Future Presentations</h1>
+
+<div dir="ltr">
+<lectures_table>
+#include '../lib/lectures_dest/future.html'
+</lectures_table>
+</div>
 

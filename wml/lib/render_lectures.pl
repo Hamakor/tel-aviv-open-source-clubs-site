@@ -147,6 +147,13 @@ while (my ($id, $topic) = each(%topics_map))
 
 @files = 
 (
+    {
+        'id' => "future",
+        'url' => "future.html",
+        't_match' => ".*",
+        'no_header' => 1,
+        'future_only' => 1,
+    },
     map {
         +{
             'id' => $_,
