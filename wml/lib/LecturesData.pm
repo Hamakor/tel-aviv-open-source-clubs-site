@@ -294,6 +294,12 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'oron_peled' =>
+    {
+        'name' => "Oron Peled",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'orrd' =>
     {
         'name' => "Orr Dunkelman",
@@ -754,11 +760,11 @@ sub explicit_url_subject_render
             t => [],
         },
         {
-            l => "eddie",
+            l => "oron_peled",
             d => "24/7",
-            s => "Network Programming",
-            url => "",
-            t => ["prog", "net"],
+            s => "SELinux",
+            t => ["security", "system"],
+            url => "http://www.haifux.org/lectures/128",
         },
         {
             l => "ori_idan",
@@ -767,6 +773,32 @@ sub explicit_url_subject_render
             url => "",
             t => ["kernel", "system"],
         },
+        {
+            l => "eddie",
+            d => "21/8",
+            s => "Network Programming",
+            url => "",
+            t => ["prog", "net"],
+        },
+        {
+            l => "eddie",
+            d => "11/9",
+            s => "Network Programming - Part 2",
+            url => "",
+            t => ["prog", "net"],
+        },
     ],
 );
 
+=for Nothing
+This is NirS' presentation that was postponed due to his inavailability
+and Eddie's other parts of the Net Programming presentations.
+
+        {
+            l => "nir_simionovich",
+            d => "4/9",
+            s => "GnuGK - The GNU GateKeeper Implementation",
+            url => "",
+            t => ["system", "net"],
+        },
+=cut
