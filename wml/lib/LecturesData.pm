@@ -721,8 +721,9 @@ sub explicit_url_subject_render
             l => "herouth_maoz",
             d => "20/3",
             s => "GIMP 2.2",
-            url => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
+            url => "lecture-notes/gimp-herouth-slides/",
             t => "utils",
+            'comments' => q{<a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
         },
         {
             l => "ori_idan",
