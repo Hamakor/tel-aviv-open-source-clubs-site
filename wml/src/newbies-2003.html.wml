@@ -1,5 +1,10 @@
 #include '../template.wml'
-<h1>Tel-Aviv University - Linux Club</h1>
+
+<latemp_subject "Tel Aviv Linux Club 2003 Beginner's Lectures" />
+
+<h1>Tel Aviv Linux Club 2003 Beginner's Lectures</h1>
+
+
 <h2>CS Forum and Computation Center</h2>
 <h2>All lectures will be at <em class="ul">18:00</em> in room <em class="ul">006</em>, Schreiber Building</h2>
 

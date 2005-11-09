@@ -1,5 +1,7 @@
 #include '../template.wml'
 
+<latemp_subject "Tel Aviv Linux Club - Old Advanced Lectures" />
+
 <h1>Note</h1>
 <p>
 After the 24-October lecture, we will take a break from the advanced lectures

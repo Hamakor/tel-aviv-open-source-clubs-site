@@ -1,5 +1,7 @@
 #include '../template.wml'
 
+<latemp_subject "Tel Aviv Linux Club Beginner's Lectures" />
+
 <div dir="rtl">
 
 <h1>הרצאות למתחילים של מועדון הלינוקס באוניברסיטת ת"א</h1>
@@ -13,7 +15,7 @@
 ההרצאות למתחילים נועדו להכיר את עולם הלינוקס (מערכת הפעלה חופשית) לקהל הרחב.
 ההרצאות ללא תשלום. &nbsp;
 
-<h2>ההרצאות של 2004</h2>
+<h2>ההרצאות של הסדרה הקודמת של שנת 2004</h2>
 
 <table cellpadding="2" cellspacing="2" border="1" width="100%">
 <tbody>

@@ -51,7 +51,7 @@ taux@cs.tau.ac.il</a>
 
 
 <define-tag lectures_table endtag="required">
-<table border="1" summary="Table of the Lectures: first column is the lecture number; second column is the subject; third is the lecturer; fourth is the date; fifth is for comments or links.">
+<table border="1" summary="Table of the Lectures: first column is the lecture number; second column is the subject; third is the lecturer; fourth is the date; fifth is for comments or links." class="lect_tab">
 <tr>
 <td>Lecture Number</td>
 <td>Subject</td>

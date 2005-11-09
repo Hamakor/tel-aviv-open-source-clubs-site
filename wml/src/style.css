@@ -82,3 +82,12 @@ tt { color : #8A2BE2 /* The BlueViolet Color */ }
 {
     text-align: center;
 }
+.lect_tab td
+{
+    vertical-align: top;
+}
+.lect_tab p
+{
+    margin-top: 0;
+    padding-top: 0;
+}

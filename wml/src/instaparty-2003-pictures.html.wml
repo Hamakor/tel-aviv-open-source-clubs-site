@@ -1,5 +1,9 @@
 #include '../template.wml'
 
+<latemp_subject "Tel Aviv Linux Club Instaparty Pictures" />
+
+<h1>Tel Aviv Linux Club Instaparty Pictures</h1>
+
 <h2><a href="$(ROOT)/telux-instaparty-2003-11-23/">The Pictures (taken
 by Gilad Ben-Yossef)</a></h2>
 

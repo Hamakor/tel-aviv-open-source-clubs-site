@@ -24,6 +24,9 @@ src/advanced-2004.html.wml: lib/lectures_dest/2003.html lib/lectures_dest/2004.h
 src/advanced.html.wml: lib/lectures_dest/2005.html
 	touch $@
 
+src/index.html.wml: lib/lectures_dest/future.html
+	touch $@
+
 dest/Default.html: dest/index.html
 	cp -f $< $@
 

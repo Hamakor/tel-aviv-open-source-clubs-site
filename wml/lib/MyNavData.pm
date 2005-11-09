@@ -30,7 +30,7 @@ my $tree_contents =
             'subs' => 
             [
                 {
-                    'text' => "2003-2004 Lectures Archive",
+                    'text' => "Old",
                     'url' => "advanced-2004.html",
                 },
             ],

@@ -314,6 +314,12 @@ sub explicit_url_subject_render
         'homepage' => "http://www.cs.technion.ac.il/~artstein/",
         'subject_render' => "series_idx",
     },
+    'sagiv_barhoom' =>
+    {
+        'name' => "Sagiv Barhoom",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'sforbes' =>
     {
         'name' => "Shoshannah Forbes",
@@ -423,6 +429,26 @@ sub explicit_url_subject_render
             },
             },
         },
+    },
+    'w2l-2005' =>
+    {
+        'lecture_num_template' => 
+            sub {
+                my $lecture_num = shift;
+                my %flags = (@_);
+                if ($flags{'strict'})
+                {
+                    return 
+                        {
+                            'td-params' => " class=\"c\"",
+                            'text' => "<a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num",
+                        };
+                }
+                else
+                {
+                    return "<div align=\"center\"><a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num</div>\n"
+                }
+            },
     },
     'perl' =>
     {
@@ -788,10 +814,67 @@ sub explicit_url_subject_render
             url => "",
             t => ["prog", "net"],
         },
+        {
+            l => "eddie",
+            d => "13/11",
+            s => "Blitz Lecture",
+            url => "http://www.shlomifish.org/lecture/W2L/Blitz/slides/",
+            t => [],
+            'series' => "w2l-2005",
+            'comments' => q{
+                <p>
+                Everything one needs to know to start with Linux - 
+                applications, interfaces, working in the command shell,
+                getting help, configuration tools, package installation
+                and a little on the philosophy of open-source.
+                </p>
+            },
+        },
+        {
+            l => "sagiv_barhoom",
+            d => "20/11",
+            s => "Linux for the Student",
+            url => "",
+            t => [],
+            'series' => "w2l-2005",
+            'comments' => q{Using OpenOffice.org and other useful tools
+            for the school and the university},
+        },
+        {
+            l => "meir_maor",
+            d => "27/11",
+            s => "Living in the Community",
+            url => "",
+            t => [],
+            'series' => "w2l-2005",
+            'comments' => q{How to live and get help from the Linux community.
+                Terms, resources, and etiquette.},
+        },
+        {
+            l => "gby",
+            d => "4/12",
+            s => "Development Tools in Linux",
+            url => "",
+            t => [],
+            'series' => "w2l-2005",
+            'comments' => q{Popular and useful software development tools
+                for Linux},
+        },
+        {
+            l => "ori_idan",
+            d => "4/12",
+            s => "The Linux Installation Process",
+            url => "",
+            t => [],
+            'series' => "w2l-2005",
+            'comments' => q{How to install Linux, and what one should be
+                aware of},
+        },
     ],
 );
 
-=for Nothing
+=begin Nothing
+
 This is NirS' presentation that was postponed due to his inavailability
 and Eddie's other parts of the Net Programming presentations.
 
@@ -802,4 +885,7 @@ and Eddie's other parts of the Net Programming presentations.
             url => "",
             t => ["system", "net"],
         },
+
+=end Nothing
+
 =cut

@@ -392,6 +392,10 @@ foreach $lecture (@lectures_flat)
     my $name_render_type = $lecturer_record->{'name_render_type'};
     if ($name_render_type eq "email")
     {
+        if (!defined($lecturer_record->{'email'}))
+        {
+            die "Unknown email for lecturer '$lecturer_id'";
+        }
         $lecturer_field = "<a href=\"mailto:" . $lecturer_record->{'email'} . 
         "\">" . $lecturer_record->{'name'} . "</a>";
     }
@@ -406,7 +410,7 @@ foreach $lecture (@lectures_flat)
     }
     else
     {
-        die ("Uknown lecturer's name_render_type field for " . 
+        die ("Unknown lecturer's name_render_type field for " . 
             "lecturer '$lecturer_id'");
     }
 
