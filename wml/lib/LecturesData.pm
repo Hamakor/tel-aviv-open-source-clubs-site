@@ -191,7 +191,7 @@ sub explicit_url_subject_render
     {
         'name' => "Meir Maor",
         'name_render_type' => "plain",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
     },
     'mike_almogy' =>
     {
@@ -834,7 +834,7 @@ sub explicit_url_subject_render
             l => "sagiv_barhoom",
             d => "20/11",
             s => "Linux for the Student",
-            url => "",
+            url => "lin-club_files/w2l-linux_for_student1.sxi",
             t => [],
             'series' => "w2l-2005",
             'comments' => q{Using OpenOffice.org and other useful tools
@@ -844,7 +844,7 @@ sub explicit_url_subject_render
             l => "meir_maor",
             d => "27/11",
             s => "Living in the Community",
-            url => "",
+            url => "http://linux.israel.net/pdf/lecture_linux_resources.pdf",
             t => [],
             'series' => "w2l-2005",
             'comments' => q{How to live and get help from the Linux community.
@@ -854,7 +854,7 @@ sub explicit_url_subject_render
             l => "gby",
             d => "4/12",
             s => "Development Tools in Linux",
-            url => "",
+            url => "http://www.shlomifish.org/lecture/W2L/Development/",
             t => [],
             'series' => "w2l-2005",
             'comments' => q{Popular and useful software development tools
@@ -862,9 +862,9 @@ sub explicit_url_subject_render
         },
         {
             l => "ori_idan",
-            d => "4/12",
+            d => "11/12",
             s => "The Linux Installation Process",
-            url => "",
+            url => "http://vipe.technion.ac.il/~adir/lectures/MandrakeInstLect.pdf",
             t => [],
             'series' => "w2l-2005",
             'comments' => q{How to install Linux, and what one should be
