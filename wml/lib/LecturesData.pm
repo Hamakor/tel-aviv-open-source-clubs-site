@@ -844,7 +844,7 @@ sub explicit_url_subject_render
             l => "meir_maor",
             d => "27/11",
             s => "Living in the Community",
-            url => "http://linux.israel.net/pdf/lecture_linux_resources.pdf",
+            url => "lecture-notes/how-to-ask-questions-the-smart-way.sxi",
             t => [],
             'series' => "w2l-2005",
             'comments' => q{How to live and get help from the Linux community.
