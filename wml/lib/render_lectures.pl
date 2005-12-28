@@ -162,7 +162,7 @@ while (my ($id, $topic) = each(%topics_map))
             'no_header' => 1,
             'year' => $_,
         },
-    } (2003 .. 2005)
+    } (2003 .. 2006)
 );
 
 my ($grouped_file_idx) = (grep { $files[$_]->{'id'} eq "grouped" } (0 .. $#files));

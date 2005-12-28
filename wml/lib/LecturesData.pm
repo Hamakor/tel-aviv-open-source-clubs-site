@@ -871,6 +871,16 @@ sub explicit_url_subject_render
                 aware of},
         },
     ],
+    '2006' =>
+    [
+        {
+            l => "sagiv_barhoom",
+            d => "8/1",
+            s => "The Vim Editor for Beginners",
+            url => "http://www.shlomifish.org/lecture/Vim/beginners/",
+            t => ["prog", "utils"],
+        },
+    ],
 );
 
 =begin Nothing
