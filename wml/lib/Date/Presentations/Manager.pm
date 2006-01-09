@@ -8,6 +8,7 @@ __PACKAGE__->mk_accessors(qw(
     dest_dir
     group_id
     lectures_flat
+    num_lectures_in_group
     series_indexes
     this_day
     this_month
@@ -45,6 +46,10 @@ sub _initialize
 {
     my $self = shift;
 
+    $self->series_indexes({});
+    $self->group_id(1);
+    $self->num_lectures_in_group(20);
+
     return 0;
 }
 
@@ -55,7 +60,7 @@ sub calc_lectures_flat
     my @lectures_flat;
 
     $self->calc_this_time();
-    $self->series_indexes({});
+    
     foreach my $year (sort { $a <=> $b } keys(%lectures))
     {
         my $lect_idx = 0;
@@ -131,9 +136,7 @@ if (! -d $date_pres_man->dest_dir)
     mkdir($date_pres_man->dest_dir);
 }
 
-$date_pres_man->group_id(1);
 
-my $num_lectures_in_group = 20;
 
 my $last_idx_in_group = 20;
 
@@ -141,15 +144,16 @@ my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lecture
 
 sub get_group_indexes
 {
+    my $self = shift;
     my $group_id = shift;
-    my $first_idx = $num_lectures_in_group*($group_id-1)+1;
-    my $last_idx = $first_idx+19;
+    my $first_idx = $self->num_lectures_in_group()*($group_id-1)+1;
+    my $last_idx = $first_idx+$self->num_lectures_in_group()-1;
 
     return ($first_idx, $last_idx);
 }
 
 my $get_grouped_file = sub {
-    my ($first_idx, $last_idx) = get_group_indexes($date_pres_man->group_id());
+    my ($first_idx, $last_idx) = $date_pres_man->get_group_indexes($date_pres_man->group_id());
     $last_idx_in_group = $last_idx;
     return {
         'id' => "grouped",
@@ -290,7 +294,7 @@ my $page_footer = "</table>\n<hr />\n" .
         join("", 
             (map 
                 { 
-                    my ($f, $l) = get_group_indexes($_); 
+                    my ($f, $l) = $date_pres_man->get_group_indexes($_); 
                     "<li><a href=\"lectures$_.html\">Lectures $f-$l</a></li>\n"
                 }
                 (1 .. POSIX::ceil($num_default_lectures/20))
