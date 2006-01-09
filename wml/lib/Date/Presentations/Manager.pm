@@ -13,7 +13,6 @@ __PACKAGE__->mk_accessors(qw(
 use strict;
 use warnings;
 
-use FileHandle;
 use Data::Dumper;
 use POSIX qw(mktime strftime);
 use XML::RSS;
