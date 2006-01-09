@@ -53,6 +53,63 @@ sub _initialize
     return 0;
 }
 
+sub get_lecture_struct
+{
+    my $self = shift;
+    my ($lecture, $lect_idx, $year) = (@_);
+
+    my %lecture_copy = %$lecture;
+    foreach my $field (qw(d t l s))
+    {
+        if (!exists($lecture_copy{$field}))
+        {
+            my $d = Data::Dumper->new([$lecture], ["\$lecture"]);
+            my $lect_dump = $d->Dump();
+            
+            die "Field '${field}' is not present in lecture No. " . 
+                "$lect_idx of the year $year. Dump Follows:\n$lect_dump";
+
+        }
+    }
+    
+    my $topics = ((ref($lecture->{'t'}) eq "ARRAY") ? $lecture->{'t'} : [ $lecture->{'t'}]);
+    my @processed_topics;
+    foreach my $a_topic (@$topics)
+    {
+        my $real_topic = $a_topic;
+        if (!exists($topics_map{$a_topic}))
+        {
+            if (exists($topic_aliases{$a_topic}))
+            {
+                $real_topic = $topic_aliases{$a_topic};
+            }
+            else
+            {
+                die "Topic '${a_topic}' mentioned in lecture " . 
+                    "$lecture->{'s'} is not registered.";
+            }
+        }
+        if (!exists($topics_map{$real_topic}))
+        {
+            die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " . 
+                "$lecture->{'s'} is not registered.";
+        }
+        push @processed_topics, $real_topic;
+    }
+    $lecture_copy{'t'} = \@processed_topics;
+    $lecture_copy{'d'} .= "/$year" if ($lecture_copy{'d'} =~ /^\d+\/\d+$/); 
+    if (!exists($lecture_copy{'comments'}))
+    {
+        $lecture_copy{'comments'} = "";            
+    }
+    if (!exists($lecture_copy{'series'}))
+    {
+        $lecture_copy{'series'} = "default";
+    }
+    $self->series_indexes()->{$lecture_copy{'series'}} = 1;
+    return \%lecture_copy;
+}
+
 sub calc_lectures_flat
 {
     my $self = shift;
@@ -66,60 +123,12 @@ sub calc_lectures_flat
         my $lect_idx = 0;
         foreach my $lecture (@{$lectures{$year}})
         {
-            my %lecture_copy = %$lecture;
-            foreach my $field (qw(d t l s))
-            {
-                if (!exists($lecture_copy{$field}))
-                {
-                    my $d = Data::Dumper->new([$lecture], ["\$lecture"]);
-                    my $lect_dump = $d->Dump();
-                    
-                    die "Field '${field}' is not present in lecture No. " . 
-                        "$lect_idx of the year $year. Dump Follows:\n$lect_dump";
-
-                }
-            }
-            
-            my $topics = ((ref($lecture->{'t'}) eq "ARRAY") ? $lecture->{'t'} : [ $lecture->{'t'}]);
-            my @processed_topics;
-            foreach my $a_topic (@$topics)
-            {
-                my $real_topic = $a_topic;
-                if (!exists($topics_map{$a_topic}))
-                {
-                    if (exists($topic_aliases{$a_topic}))
-                    {
-                        $real_topic = $topic_aliases{$a_topic};
-                    }
-                    else
-                    {
-                        die "Topic '${a_topic}' mentioned in lecture " . 
-                            "$lecture->{'s'} is not registered.";
-                    }
-                }
-                if (!exists($topics_map{$real_topic}))
-                {
-                    die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " . 
-                        "$lecture->{'s'} is not registered.";
-                }
-                push @processed_topics, $real_topic;
-            }
-            $lecture_copy{'t'} = \@processed_topics;
-            $lecture_copy{'d'} .= "/$year" if ($lecture_copy{'d'} =~ /^\d+\/\d+$/); 
-            if (!exists($lecture_copy{'comments'}))
-            {
-                $lecture_copy{'comments'} = "";            
-            }
-            if (!exists($lecture_copy{'series'}))
-            {
-                $lecture_copy{'series'} = "default";
-            }
-            $self->series_indexes()->{$lecture_copy{'series'}} = 1;
-            push @lectures_flat, {%lecture_copy };
-        }
-        continue
-        {
-            $lect_idx++;
+            push @lectures_flat, 
+                $self->get_lecture_struct(
+                    $lecture,
+                    $lect_idx++,
+                    $year
+                );
         }
     }
     $self->lectures_flat(\@lectures_flat);
