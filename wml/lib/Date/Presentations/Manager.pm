@@ -2,6 +2,14 @@ package Date::Presentations::Manager;
 
 use base 'Date::Presentations::Manager::Base';
 
+__PACKAGE__->mk_accessors(qw(
+    lectures_flat
+    series_indexes
+    this_day
+    this_month
+    this_year
+));
+
 use strict;
 use warnings;
 
@@ -12,74 +20,100 @@ use XML::RSS;
 
 use LecturesData;
 
-my @lectures_flat;
+my $date_pres_man = Date::Presentations::Manager->new();
 
-my @this_time = localtime(time());
-my ($this_day, $this_month, $this_year) = @this_time[3,4,5];
-$this_year += 1900;
-$this_month++;
-my %series_indexes = ();
-foreach my $year (sort { $a <=> $b } keys(%lectures))
+sub calc_this_time
 {
-    my $lect_idx = 0;
-    foreach my $lecture (@{$lectures{$year}})
-    {
-        my %lecture_copy = %$lecture;
-        foreach my $field (qw(d t l s))
-        {
-            if (!exists($lecture_copy{$field}))
-            {
-                my $d = Data::Dumper->new([$lecture], ["\$lecture"]);
-                my $lect_dump = $d->Dump();
-                
-                die "Field '${field}' is not present in lecture No. " . 
-                    "$lect_idx of the year $year. Dump Follows:\n$lect_dump";
+    my $self = shift;
 
-            }
-        }
-        
-        my $topics = ((ref($lecture->{'t'}) eq "ARRAY") ? $lecture->{'t'} : [ $lecture->{'t'}]);
-        my @processed_topics;
-        foreach my $a_topic (@$topics)
+    my @this_time = localtime(time());
+    $self->this_day($this_time[3]);
+    $self->this_month($this_time[4]+1);
+    $self->this_year($this_time[5]+1900);
+}
+
+sub _initialize
+{
+    my $self = shift;
+
+    return 0;
+}
+
+sub calc_lectures_flat
+{
+    my $self = shift;
+
+    my @lectures_flat;
+
+    $self->calc_this_time();
+    $self->series_indexes({});
+    foreach my $year (sort { $a <=> $b } keys(%lectures))
+    {
+        my $lect_idx = 0;
+        foreach my $lecture (@{$lectures{$year}})
         {
-            my $real_topic = $a_topic;
-            if (!exists($topics_map{$a_topic}))
+            my %lecture_copy = %$lecture;
+            foreach my $field (qw(d t l s))
             {
-                if (exists($topic_aliases{$a_topic}))
+                if (!exists($lecture_copy{$field}))
                 {
-                    $real_topic = $topic_aliases{$a_topic};
+                    my $d = Data::Dumper->new([$lecture], ["\$lecture"]);
+                    my $lect_dump = $d->Dump();
+                    
+                    die "Field '${field}' is not present in lecture No. " . 
+                        "$lect_idx of the year $year. Dump Follows:\n$lect_dump";
+
                 }
-                else
+            }
+            
+            my $topics = ((ref($lecture->{'t'}) eq "ARRAY") ? $lecture->{'t'} : [ $lecture->{'t'}]);
+            my @processed_topics;
+            foreach my $a_topic (@$topics)
+            {
+                my $real_topic = $a_topic;
+                if (!exists($topics_map{$a_topic}))
                 {
-                    die "Topic '${a_topic}' mentioned in lecture " . 
+                    if (exists($topic_aliases{$a_topic}))
+                    {
+                        $real_topic = $topic_aliases{$a_topic};
+                    }
+                    else
+                    {
+                        die "Topic '${a_topic}' mentioned in lecture " . 
+                            "$lecture->{'s'} is not registered.";
+                    }
+                }
+                if (!exists($topics_map{$real_topic}))
+                {
+                    die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " . 
                         "$lecture->{'s'} is not registered.";
                 }
+                push @processed_topics, $real_topic;
             }
-            if (!exists($topics_map{$real_topic}))
+            $lecture_copy{'t'} = \@processed_topics;
+            $lecture_copy{'d'} .= "/$year" if ($lecture_copy{'d'} =~ /^\d+\/\d+$/); 
+            if (!exists($lecture_copy{'comments'}))
             {
-                die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " . 
-                    "$lecture->{'s'} is not registered.";
+                $lecture_copy{'comments'} = "";            
             }
-            push @processed_topics, $real_topic;
+            if (!exists($lecture_copy{'series'}))
+            {
+                $lecture_copy{'series'} = "default";
+            }
+            $self->series_indexes()->{$lecture_copy{'series'}} = 1;
+            push @lectures_flat, {%lecture_copy };
         }
-        $lecture_copy{'t'} = \@processed_topics;
-        $lecture_copy{'d'} .= "/$year" if ($lecture_copy{'d'} =~ /^\d+\/\d+$/); 
-        if (!exists($lecture_copy{'comments'}))
+        continue
         {
-            $lecture_copy{'comments'} = "";            
+            $lect_idx++;
         }
-        if (!exists($lecture_copy{'series'}))
-        {
-            $lecture_copy{'series'} = "default";
-        }
-        $series_indexes{$lecture_copy{'series'}} = 1;
-        push @lectures_flat, {%lecture_copy };
     }
-    continue
-    {
-        $lect_idx++;
-    }
+    $self->lectures_flat(\@lectures_flat);
 }
+
+$date_pres_man->calc_lectures_flat();
+
+my @lectures_flat = @{$date_pres_man->lectures_flat()};
 
 my $dest_dir = "./lectures_dest/";
 if (! -d $dest_dir)
@@ -327,7 +361,7 @@ foreach $lecture (@lectures_flat)
 
     # Generate the lecture number
     my $series = $lecture->{'series'};
-    my $idx_in_series = $series_indexes{$series};
+    my $idx_in_series = $date_pres_man->series_indexes()->{$series};
     my $series_handle = $series_map{$series};
     if (exists($lecture->{'sub-series'}))
     {
@@ -427,9 +461,9 @@ foreach $lecture (@lectures_flat)
     if (! $is_future )
     {
         my $cmp_val =
-            (($date_year <=> $this_year) ||
-            ($date_month <=> $this_month) ||
-            ($date_day <=> $this_day));
+            (($date_year <=> $date_pres_man->this_year()) ||
+            ($date_month <=> $date_pres_man->this_month()) ||
+            ($date_day <=> $date_pres_man->this_day()));
 
         if ($cmp_val >= 0)
         {
@@ -497,7 +531,7 @@ foreach $lecture (@lectures_flat)
 continue
 {
     my $series = $lecture->{'series'};
-    my $lecture_idx = ($series_indexes{$series}++);
+    my $lecture_idx = ($date_pres_man->series_indexes()->{$series}++);
     if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
     {
         $group_id++;
