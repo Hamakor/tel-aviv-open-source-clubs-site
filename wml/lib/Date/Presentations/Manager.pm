@@ -2,7 +2,10 @@ package Date::Presentations::Manager;
 
 use base 'Date::Presentations::Manager::Base';
 
+# TODO :
+# Remove dest_dir eventually - the manager should not handle the output
 __PACKAGE__->mk_accessors(qw(
+    dest_dir
     lectures_flat
     series_indexes
     this_day
@@ -19,7 +22,13 @@ use XML::RSS;
 
 use LecturesData;
 
+# This is a temporary hack until everything is a method call.
 my $date_pres_man = Date::Presentations::Manager->new();
+
+sub get_man
+{
+    return $date_pres_man;
+}
 
 sub calc_this_time
 {
@@ -114,10 +123,11 @@ $date_pres_man->calc_lectures_flat();
 
 my @lectures_flat = @{$date_pres_man->lectures_flat()};
 
-my $dest_dir = "./lectures_dest/";
-if (! -d $dest_dir)
+$date_pres_man->dest_dir("./lectures_dest");
+
+if (! -d $date_pres_man->dest_dir)
 {
-    mkdir($dest_dir);
+    mkdir($date_pres_man->dest_dir);
 }
 
 my $group_id = 1;
@@ -539,7 +549,7 @@ continue
             my $f = $files[$grouped_file_idx];
             my $buffer = $f->{'buffer'};
             $buffer .= $page_footer;
-            open O, ">$dest_dir/$f->{'url'}";
+            open O, ">", $date_pres_man->dest_dir() . "/$f->{'url'}";
             print O $buffer;
             close(O);
             $f = $files[$grouped_file_idx] = $get_grouped_file->();
@@ -549,25 +559,16 @@ continue
     }
 }
 
-$rss_feed->save($dest_dir."rss.xml");
+$rss_feed->save($date_pres_man->dest_dir() . "rss.xml");
 
 &print_headers($page_footer);
 
 foreach my $f (@files)
 {
-    open O, ">$dest_dir/$f->{'url'}";
+    open O, ">" , $date_pres_man->dest_dir() . "/$f->{'url'}";
     print O $f->{'buffer'};
     close(O);
 }
-
-open STYLE, ">$dest_dir/style.css";
-print STYLE <<EOF;
-body { background-color : white ; background-image : url(pics/backtux.gif) }
-h1 { text-align : center }
-td.c { text-align : center }
-hr { height : 4px }
-EOF
-close (STYLE);
 
 1;
 
