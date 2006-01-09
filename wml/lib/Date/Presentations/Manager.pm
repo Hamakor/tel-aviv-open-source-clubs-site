@@ -163,7 +163,7 @@ sub get_grouped_file
 {
     my $self = shift;
 
-    my ($first_idx, $last_idx) = $self->get_group_indexes($date_pres_man->group_id());
+    my ($first_idx, $last_idx) = $self->get_group_indexes($self->group_id());
     $last_idx_in_group = $last_idx;
     return {
         'id' => "grouped",
@@ -202,8 +202,10 @@ foreach my $f (@files)
     $f->{'buffer'} = "";
 }
 
-my $print_files = sub
+sub print_files
 {
+    my $self = shift;
+
     my $spec = shift;
     
     my $topics = $spec->{'topics'} || [ "all" ];
@@ -419,7 +421,7 @@ foreach $lecture (@lectures_flat)
              ) 
         . "</tr>\n";
 
-    $print_files->(
+    $date_pres_man->print_files(
         { 
             'topics' => $lecture->{'t'},
             'past' => (! $is_future),
