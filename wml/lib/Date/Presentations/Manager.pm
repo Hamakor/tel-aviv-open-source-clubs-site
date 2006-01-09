@@ -5,6 +5,7 @@ use base 'Date::Presentations::Manager::Base';
 # TODO :
 # Remove dest_dir eventually - the manager should not handle the output
 __PACKAGE__->mk_accessors(qw(
+    base_url
     dest_dir
     group_id
     is_future
@@ -53,6 +54,8 @@ sub _initialize
     $self->num_lectures_in_group(20);
     $self->strict_flag(1);
     $self->is_future(0);
+    # TODO : make sure base_url is initialized from the arguments.
+    $self->base_url("http://www.cs.tau.ac.il/telux/");
 
     return 0;
 }
@@ -155,12 +158,11 @@ my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lecture
 
 my ($lecture);
 
-my $base_url = "http://www.cs.tau.ac.il/telux/";
 my $webmaster_email = "taux\@cs.tau.ac.il";
 my $rss_feed = XML::RSS->new('version' => "2.0");
 $rss_feed->channel(
     'title' => "Future Telux Lectures",
-    'link' => $base_url,
+    'link' => $date_pres_man->base_url(),
     'language' => "en-us",
     'description' => "Tel Aviv Linux Club (Telux) Future Lectures",
     'rating' => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
@@ -386,7 +388,7 @@ sub process_lecture
         my $lecture_url = $lecture->{'url'};
         if ($lecture_url !~ /^http:/)
         {
-            $lecture_url = "$base_url/$lecture_url";
+            $lecture_url = $self->base_url()."/$lecture_url";
         }
 
         # assuming meetings start at 18:30
@@ -395,7 +397,7 @@ sub process_lecture
         
         $rss_feed->add_item(
             'title' => $lecture->{'s'},
-            (map { $_ => $base_url } (qw(permaLink link))),
+            (map { $_ => $self->base_url() } (qw(permaLink link))),
             'enclosure' => { 'url' => $lecture_url, },
             'description' => $lecture->{'comments'},
             'author' => $lecturer_record->{'name'},
