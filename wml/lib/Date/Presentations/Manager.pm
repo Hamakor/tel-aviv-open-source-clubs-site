@@ -136,8 +136,6 @@ if (! -d $date_pres_man->dest_dir)
     mkdir($date_pres_man->dest_dir);
 }
 
-
-
 my $last_idx_in_group = 20;
 
 my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lectures_flat));
@@ -152,18 +150,21 @@ sub get_group_indexes
     return ($first_idx, $last_idx);
 }
 
-my $get_grouped_file = sub {
-    my ($first_idx, $last_idx) = $date_pres_man->get_group_indexes($date_pres_man->group_id());
+sub get_grouped_file
+{
+    my $self = shift;
+
+    my ($first_idx, $last_idx) = $self->get_group_indexes($date_pres_man->group_id());
     $last_idx_in_group = $last_idx;
     return {
         'id' => "grouped",
-        'url' => "lectures" . $date_pres_man->group_id() . ".html",
+        'url' => "lectures" . $self->group_id() . ".html",
         't_match' => ".*",
         '<title>' => "Haifa Linux Club (Lectures $first_idx-$last_idx)",
         'h1_title' => "Haifa Linux Club - Lectures $first_idx-$last_idx",
         'buffer' => "",
     };
-};
+}
 
 my @files = 
 (
@@ -526,7 +527,7 @@ continue
             open O, ">", $date_pres_man->dest_dir() . "/$f->{'url'}";
             print O $buffer;
             close(O);
-            $f = $files[$grouped_file_idx] = $get_grouped_file->();
+            $f = $files[$grouped_file_idx] = $date_pres_man->get_grouped_file();
             $f->{'buffer'} .= join("", $get_header->($f));
             $f->{'buffer'} .= $table_headers;
         }
