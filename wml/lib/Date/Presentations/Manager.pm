@@ -7,9 +7,11 @@ use base 'Date::Presentations::Manager::Base';
 __PACKAGE__->mk_accessors(qw(
     dest_dir
     group_id
+    is_future
     lectures_flat
     num_lectures_in_group
     series_indexes
+    strict_flag
     this_day
     this_month
     this_year
@@ -49,6 +51,8 @@ sub _initialize
     $self->series_indexes({});
     $self->group_id(1);
     $self->num_lectures_in_group(20);
+    $self->strict_flag(1);
+    $self->is_future(0);
 
     return 0;
 }
@@ -149,6 +153,28 @@ my $last_idx_in_group = 20;
 
 my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lectures_flat));
 
+my ($lecture);
+
+my $base_url = "http://www.cs.tau.ac.il/telux/";
+my $webmaster_email = "taux\@cs.tau.ac.il";
+my $rss_feed = XML::RSS->new('version' => "2.0");
+$rss_feed->channel(
+    'title' => "Future Telux Lectures",
+    'link' => $base_url,
+    'language' => "en-us",
+    'description' => "Tel Aviv Linux Club (Telux) Future Lectures",
+    'rating' => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
+    'copyright' => "Copyright 2005, Tel Aviv Linux Club",
+    'pubDate' => (scalar(localtime())),
+    'lastBuildDate' => (scalar(localtime())),
+    'docs' => "http://blogs.law.harvard.edu/tech/rss",
+    (map { 
+        $_ => $webmaster_email
+    } (qw(managingEditor webMaster))),
+    'ttl' => "360",
+    'generator' => "Perl and XML::RSS",
+);
+
 sub get_group_indexes
 {
     my $self = shift;
@@ -233,48 +259,25 @@ sub print_files
             $file->{'buffer'} .= join("", (map { (ref($_) eq "CODE" ? $_->($file) : $_) } @_));
         }
     }
-};
+}
 
-my $strict_flag = @ARGV ? shift : 1;
-
-    
-my ($lecture);
-my $is_future = 0;
-
-my $base_url = "http://www.cs.tau.ac.il/telux/";
-my $webmaster_email = "taux\@cs.tau.ac.il";
-my $rss_feed = XML::RSS->new('version' => "2.0");
-$rss_feed->channel(
-    'title' => "Future Telux Lectures",
-    'link' => $base_url,
-    'language' => "en-us",
-    'description' => "Tel Aviv Linux Club (Telux) Future Lectures",
-    'rating' => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
-    'copyright' => "Copyright 2005, Tel Aviv Linux Club",
-    'pubDate' => (scalar(localtime())),
-    'lastBuildDate' => (scalar(localtime())),
-    'docs' => "http://blogs.law.harvard.edu/tech/rss",
-    (map { 
-        $_ => $webmaster_email
-    } (qw(managingEditor webMaster))),
-    'ttl' => "360",
-    'generator' => "Perl and XML::RSS",
-);
-
-foreach $lecture (@lectures_flat)
+sub process_lecture
 {
+    my $self = shift;
+    my $lecture = shift;
+
     my @fields;
 
     # Generate the lecture number
     my $series = $lecture->{'series'};
-    my $idx_in_series = $date_pres_man->series_indexes()->{$series};
+    my $idx_in_series = $self->series_indexes()->{$series};
     my $series_handle = $series_map{$series};
     if (exists($lecture->{'sub-series'}))
     {
         $series_handle = $series_map{$series}->{'sub-series'}->{$lecture->{'sub-series'}};
     }
     my $lecture_num_template = $series_handle->{'lecture_num_template'};
-    push @fields, $lecture_num_template->($idx_in_series, 'strict' => $strict_flag);
+    push @fields, $lecture_num_template->($idx_in_series, 'strict' => $self->strict_flag());
 
     # Generate the subject
 
@@ -364,21 +367,21 @@ foreach $lecture (@lectures_flat)
     my $date = $lecture->{'d'};
     my ($date_day, $date_month, $date_year) = split(m!/!, $date);
 
-    if (! $is_future )
+    if (! $self->is_future() )
     {
         my $cmp_val =
-            (($date_year <=> $date_pres_man->this_year()) ||
-            ($date_month <=> $date_pres_man->this_month()) ||
-            ($date_day <=> $date_pres_man->this_day()));
+            (($date_year <=> $self->this_year()) ||
+            ($date_month <=> $self->this_month()) ||
+            ($date_day <=> $self->this_day()));
 
         if ($cmp_val >= 0)
         {
             # TODO: Add a way to separate between future and past.
-            $is_future = 1;
+            $self->is_future() = 1;
         }
     }
 
-    if ($is_future)
+    if ($self->is_future())
     {
         my $lecture_url = $lecture->{'url'};
         if ($lecture_url !~ /^http:/)
@@ -421,14 +424,20 @@ foreach $lecture (@lectures_flat)
              ) 
         . "</tr>\n";
 
-    $date_pres_man->print_files(
+    $self->print_files(
         { 
             'topics' => $lecture->{'t'},
-            'past' => (! $is_future),
+            'past' => (! $self->is_future()),
             'year' => $date_year,
         },
         $rendered_lecture
     );
+}
+
+
+foreach $lecture (@lectures_flat)
+{
+    $date_pres_man->process_lecture($lecture);
 }
 continue
 {
@@ -449,7 +458,7 @@ continue
     }
 }
 
-$rss_feed->save($date_pres_man->dest_dir() . "rss.xml");
+$rss_feed->save($date_pres_man->dest_dir() . "/rss.xml");
 
 foreach my $f (@files)
 {
