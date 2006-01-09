@@ -6,6 +6,7 @@ use base 'Date::Presentations::Manager::Base';
 # Remove dest_dir eventually - the manager should not handle the output
 __PACKAGE__->mk_accessors(qw(
     dest_dir
+    group_id
     lectures_flat
     series_indexes
     this_day
@@ -130,7 +131,7 @@ if (! -d $date_pres_man->dest_dir)
     mkdir($date_pres_man->dest_dir);
 }
 
-my $group_id = 1;
+$date_pres_man->group_id(1);
 
 my $num_lectures_in_group = 20;
 
@@ -148,11 +149,11 @@ sub get_group_indexes
 }
 
 my $get_grouped_file = sub {
-    my ($first_idx, $last_idx) = get_group_indexes($group_id);
+    my ($first_idx, $last_idx) = get_group_indexes($date_pres_man->group_id());
     $last_idx_in_group = $last_idx;
     return {
         'id' => "grouped",
-        'url' => "lectures$group_id.html",
+        'url' => "lectures" . $date_pres_man->group_id() . ".html",
         't_match' => ".*",
         '<title>' => "Haifa Linux Club (Lectures $first_idx-$last_idx)",
         'h1_title' => "Haifa Linux Club - Lectures $first_idx-$last_idx",
@@ -512,7 +513,7 @@ continue
     my $lecture_idx = ($date_pres_man->series_indexes()->{$series}++);
     if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
     {
-        $group_id++;
+        $date_pres_man->group_id($date_pres_man->group_id()+1);
         if (defined($grouped_file_idx))
         {
             my $f = $files[$grouped_file_idx];
