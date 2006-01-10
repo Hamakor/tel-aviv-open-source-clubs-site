@@ -30,6 +30,18 @@ __PACKAGE__->mk_accessors(qw(
     webmaster_email
 ));
 
+my @data_fields = (qw(
+    lecturer_aliases
+    subject_render_callbacks
+    lecturers
+    series_map
+    topics_map
+    topic_aliases
+    lectures
+));
+
+__PACKAGE__->mk_accessors(@data_fields);
+
 use LecturesData;
 
 sub calc_this_time
@@ -88,6 +100,15 @@ sub _initialize
     
     $self->rss_feed($rss_feed);
 
+    foreach my $field (@data_fields)
+    {
+        if (!exists($args{$field}))
+        {
+            die "You did not specify the required field \"$field\"";
+        }
+        $self->set($field, $args{$field});
+    }
+
     return 0;
 }
 
@@ -115,11 +136,11 @@ sub get_lecture_struct
     foreach my $a_topic (@$topics)
     {
         my $real_topic = $a_topic;
-        if (!exists($topics_map{$a_topic}))
+        if (!exists($self->topics_map()->{$a_topic}))
         {
-            if (exists($topic_aliases{$a_topic}))
+            if (exists($self->topic_aliases()->{$a_topic}))
             {
-                $real_topic = $topic_aliases{$a_topic};
+                $real_topic = $self->topic_aliases()->{$a_topic};
             }
             else
             {
@@ -127,7 +148,7 @@ sub get_lecture_struct
                     "$lecture->{'s'} is not registered.";
             }
         }
-        if (!exists($topics_map{$real_topic}))
+        if (!exists($self->topics_map()->{$real_topic}))
         {
             die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " . 
                 "$lecture->{'s'} is not registered.";
@@ -156,10 +177,10 @@ sub calc_lectures_flat
 
     $self->calc_this_time();
     
-    foreach my $year (sort { $a <=> $b } keys(%lectures))
+    foreach my $year (sort { $a <=> $b } keys(%{$self->lectures()}))
     {
         my $lect_idx = 0;
-        foreach my $lecture (@{$lectures{$year}})
+        foreach my $lecture (@{$self->lectures()->{$year}})
         {
             push @lectures_flat, 
                 $self->get_lecture_struct(
@@ -218,10 +239,10 @@ sub process_lecture
     # Generate the lecture number
     my $series = $lecture->{'series'};
     my $idx_in_series = $self->series_indexes()->{$series};
-    my $series_handle = $series_map{$series};
+    my $series_handle = $self->series_map()->{$series};
     if (exists($lecture->{'sub-series'}))
     {
-        $series_handle = $series_map{$series}->{'sub-series'}->{$lecture->{'sub-series'}};
+        $series_handle = $self->series_map->{$series}->{'sub-series'}->{$lecture->{'sub-series'}};
     }
     my $lecture_num_template = $series_handle->{'lecture_num_template'};
     push @fields, $lecture_num_template->($idx_in_series, 'strict' => $self->strict_flag());
@@ -231,17 +252,17 @@ sub process_lecture
     my $lecturer_id = $lecture->{'l'};
 
     $lecturer_id = 
-        (exists($lecturer_aliases{$lecturer_id}) ? 
-            $lecturer_aliases{$lecturer_id} :
+        (exists($self->lecturer_aliases()->{$lecturer_id}) ? 
+            $self->lecturer_aliases->{$lecturer_id} :
             $lecturer_id
         );
 
-    if (!exists($lecturers{$lecturer_id}))
+    if (!exists($self->lecturers()->{$lecturer_id}))
     {
         die "Unknown lecturer ID '$lecturer_id' in lecture of date " . $lecture->{'d'};
     }
 
-    my $lecturer_record = $lecturers{$lecturer_id};
+    my $lecturer_record = $self->lecturers()->{$lecturer_id};
 
     if (!exists($lecturer_record->{'subject_render'}))
     {
@@ -264,9 +285,9 @@ sub process_lecture
     {
         $subject_render = $subject_render_text;
     }
-    elsif (exists($subject_render_callbacks{$subject_render_text}))
+    elsif (exists($self->subject_render_callbacks()->{$subject_render_text}))
     {
-        $subject_render = $subject_render_callbacks{$subject_render_text};
+        $subject_render = $self->subject_render_callbacks()->{$subject_render_text};
     }
     else
     {

@@ -1,20 +1,9 @@
 package LecturesData;
 
-require Exporter;
+use strict;
+use warnings;
 
-use vars qw(@ISA);
-
-@ISA=qw(Exporter);
-
-my @exported_vars = qw(%lecturer_aliases %lecturers %lectures %series_map %topics_map %topic_aliases %subject_render_callbacks @topics_order);
-
-use vars @exported_vars;
-
-use vars qw(@EXPORT);
-
-@EXPORT=(@exported_vars);
-
-%lecturer_aliases = 
+my %lecturer_aliases = 
 (
     'dryice' => "meir_maor",
     'choo' => "guykeren",
@@ -47,7 +36,7 @@ sub explicit_url_subject_render
     return "<a href=\"" . $lecture->{'url'} . "\">" . $lecture->{'s'} . "</a>";
 }
 
-%subject_render_callbacks =
+my %subject_render_callbacks =
 (
     'explicit_url' => \&explicit_url_subject_render,
     'no_url' => \&no_url_subject_render,
@@ -62,7 +51,7 @@ sub explicit_url_subject_render
         },
 );
 
-%lecturers = 
+my %lecturers = 
 (
     'alex_landsberg' =>
     {
@@ -393,7 +382,7 @@ sub explicit_url_subject_render
     },
 );
 
-%series_map =
+my %series_map =
 (
     'default' => 
     {
@@ -473,7 +462,7 @@ sub explicit_url_subject_render
     },
 );
 
-%topics_map = 
+my %topics_map = 
 (
     'advocacy' =>
     {
@@ -519,9 +508,7 @@ sub explicit_url_subject_render
     },
 );
 
-@topics_order=(qw(kernel system network security prog utils advocacy));
-
-%topic_aliases =
+my %topic_aliases =
 (
     (map { $_ => 'utils' } (qw(util tools tool))),
     'networking' => "network",
@@ -529,7 +516,7 @@ sub explicit_url_subject_render
     'advo' => "advocacy",
 );
 
-%lectures =
+my %lectures =
 (
     '2003' =>
     [
@@ -912,3 +899,20 @@ and Eddie's other parts of the Net Programming presentations.
 =end Nothing
 
 =cut
+
+sub get_params
+{
+    return
+        (
+            'lecturer_aliases' => \%lecturer_aliases,
+            'subject_render_callbacks' => \%subject_render_callbacks,
+            'lecturers' => \%lecturers,
+            'series_map' => \%series_map,
+            'topics_map' => \%topics_map,
+            'topic_aliases' => \%topic_aliases,
+            'lectures' => \%lectures,
+        );
+}
+
+1;
+

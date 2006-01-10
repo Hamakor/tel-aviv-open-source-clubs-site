@@ -200,3 +200,9 @@ sub get_grouped_file
 
 my ($grouped_file_idx) = (grep { $files[$_]->{'id'} eq "grouped" } (0 .. $#files));
 
+
+##############################
+# Removing the topics_order - craft from Haifux.
+
+my @topics_order=(qw(kernel system network security prog utils advocacy));
+

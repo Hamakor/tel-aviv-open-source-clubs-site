@@ -5,6 +5,8 @@ use warnings;
 
 use Date::Presentations::Manager;
 
+use LecturesData;
+
 my @streams = 
 (
     {
@@ -27,6 +29,7 @@ my @streams =
 
 # This is a temporary hack until everything is a method call.
 my $date_pres_man = Date::Presentations::Manager->new(
+    LecturesData::get_params(),
     'streams' => \@streams,
     );
 
