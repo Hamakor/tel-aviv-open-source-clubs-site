@@ -892,7 +892,7 @@ sub explicit_url_subject_render
             s => "CASE (= Computer Aided Software Engineering) Tools and What's Between Them",
             url => "",
             t => ["prog"],
-        },
+        }
     ],
 );
 
