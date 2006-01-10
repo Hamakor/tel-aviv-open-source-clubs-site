@@ -457,14 +457,35 @@ sub render_field
         $field->{'text'} . "\n</td>\n";
 }
 
+sub get_fields_list
+{
+    return [qw(lecture_num subject lecturer date comments)];
+}
+
+sub get_fields
+{
+    my $self = shift;
+    my $lecture = shift;
+
+    return 
+    [
+        map 
+        { 
+            $self->can("get_".$_."_field")->($self, $lecture) 
+        } 
+        @{$self->get_fields_list()} 
+    ];
+}
+
 sub render_lecture
 {
-    my ($self, $lecture, $fields) = @_;
+    my ($self, $lecture) = @_;
+
     return
-        "<tr>\n" . 
-        join("", 
-            (map { $self->render_field($lecture, $_) } @$fields)
-        ) . 
+        "<tr>\n" .
+        join("",
+            (map { $self->render_field($lecture, $_) } @{$self->get_fields($lecture)})
+        ) .
         "</tr>\n";
 }
 
@@ -473,13 +494,6 @@ sub process_lecture
     my $self = shift;
     my $lecture = shift;
 
-    my @fields;
-
-    push @fields, $self->get_lecture_num_field($lecture);
-    push @fields, $self->get_subject_field($lecture);
-    push @fields, $self->get_lecturer_field($lecture);
-    push @fields, $self->get_date_field($lecture);
-    push @fields, $self->get_comments_field($lecture);
 
     $self->update_is_future($lecture);
 
@@ -494,7 +508,7 @@ sub process_lecture
             'past' => (! $self->is_future()),
             'year' => $self->get_lecture_year($lecture),
         },
-        $self->render_lecture($lecture, \@fields),
+        $self->render_lecture($lecture),
     );
 }
 
