@@ -1,18 +1,28 @@
 package Date::Presentations::Manager;
 
+use strict;
+use warnings;
+
 use base 'Date::Presentations::Manager::Base';
+
+use Data::Dumper;
+use POSIX qw(mktime strftime);
+use XML::RSS;
+
+use Date::Presentations::Manager::Stream::Results;
 
 # TODO :
 # Remove dest_dir eventually - the manager should not handle the output
 __PACKAGE__->mk_accessors(qw(
     base_url
-    dest_dir
     group_id
     is_future
     lectures_flat
     num_lectures_in_group
     rss_feed
     series_indexes
+    stream_specs
+    stream_results
     strict_flag
     this_day
     this_month
@@ -20,22 +30,7 @@ __PACKAGE__->mk_accessors(qw(
     webmaster_email
 ));
 
-use strict;
-use warnings;
-
-use Data::Dumper;
-use POSIX qw(mktime strftime);
-use XML::RSS;
-
 use LecturesData;
-
-# This is a temporary hack until everything is a method call.
-my $date_pres_man = Date::Presentations::Manager->new();
-
-sub get_man
-{
-    return $date_pres_man;
-}
 
 sub calc_this_time
 {
@@ -51,7 +46,19 @@ sub _initialize
 {
     my $self = shift;
 
+    my (%args) = @_;
+
     $self->series_indexes({});
+    $self->stream_results({});
+
+    $self->stream_specs($args{'streams'}) or
+        die "Undefined arg \"streams\"!";
+
+    foreach my $s (@{$self->stream_specs()})
+    {
+        $self->stream_results()->{$s->{'id'}} = 
+            Date::Presentations::Manager::Stream::Results->new();
+    }
     $self->group_id(1);
     $self->num_lectures_in_group(20);
     $self->strict_flag(1);
@@ -165,39 +172,6 @@ sub calc_lectures_flat
     $self->lectures_flat(\@lectures_flat);
 }
 
-$date_pres_man->calc_lectures_flat();
-
-$date_pres_man->dest_dir("./lectures_dest");
-
-if (! -d $date_pres_man->dest_dir)
-{
-    mkdir($date_pres_man->dest_dir);
-}
-
-my @files = 
-(
-    {
-        'id' => "future",
-        'url' => "future.html",
-        't_match' => ".*",
-        'no_header' => 1,
-        'future_only' => 1,
-    },
-    map {
-        +{
-            'id' => $_,
-            'url' => "$_.html",
-            't_match' => ".*",
-            'no_header' => 1,
-            'year' => $_,
-        },
-    } (2003 .. 2006)
-);
-
-foreach my $f (@files)
-{
-    $f->{'buffer'} = "";
-}
 
 sub print_files
 {
@@ -218,7 +192,7 @@ sub print_files
         $topics = [ "none" ];
     }
 
-    foreach my $file (@files)
+    foreach my $file (@{$self->stream_specs()})
     {
         my $pattern = $file->{'t_match'};
         if ((grep { ($_ eq "all") || ($_ =~ m/^$pattern$/) } @$topics) &&
@@ -227,7 +201,9 @@ sub print_files
             (exists($file->{'year'}) ? ($file->{'year'} == $spec->{'year'}) : 1)
            )
         {
-            $file->{'buffer'} .= join("", (map { (ref($_) eq "CODE" ? $_->($file) : $_) } @_));
+            $self->stream_results()->{$file->{'id'}}->insert(
+                join("", (map { (ref($_) eq "CODE" ? $_->($file) : $_) } @_))
+            );
         }
     }
 }
@@ -418,14 +394,54 @@ sub process_all_lectures
     }
 }
 
+my @streams = 
+(
+    {
+        'id' => "future",
+        'url' => "future.html",
+        't_match' => ".*",
+        'no_header' => 1,
+        'future_only' => 1,
+    },
+    map {
+        +{
+            'id' => $_,
+            'url' => "$_.html",
+            't_match' => ".*",
+            'no_header' => 1,
+            'year' => $_,
+        },
+    } (2003 .. 2006)
+);
+
+# This is a temporary hack until everything is a method call.
+my $date_pres_man = Date::Presentations::Manager->new(
+    'streams' => \@streams,
+    );
+
+sub get_man
+{
+    return $date_pres_man;
+}
+
+$date_pres_man->calc_lectures_flat();
+
+my $dest_dir = "./lectures_dest";
+
+if (! -d $dest_dir)
+{
+    mkdir($dest_dir);
+}
+
 $date_pres_man->process_all_lectures();
 
-foreach my $f (@files)
+foreach my $s (@streams)
 {
-    open O, ">" , $date_pres_man->dest_dir() . "/$f->{'url'}";
-    print O $f->{'buffer'};
+    open O, ">" , $dest_dir . "/" . $s->{'url'};
+    print O @{$date_pres_man->stream_results()->{$s->{'id'}}->get_items()};
     close(O);
 }
+
 
 1;
 
