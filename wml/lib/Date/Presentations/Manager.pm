@@ -174,34 +174,6 @@ if (! -d $date_pres_man->dest_dir)
     mkdir($date_pres_man->dest_dir);
 }
 
-my $last_idx_in_group = 20;
-
-sub get_group_indexes
-{
-    my $self = shift;
-    my $group_id = shift;
-    my $first_idx = $self->num_lectures_in_group()*($group_id-1)+1;
-    my $last_idx = $first_idx+$self->num_lectures_in_group()-1;
-
-    return ($first_idx, $last_idx);
-}
-
-sub get_grouped_file
-{
-    my $self = shift;
-
-    my ($first_idx, $last_idx) = $self->get_group_indexes($self->group_id());
-    $last_idx_in_group = $last_idx;
-    return {
-        'id' => "grouped",
-        'url' => "lectures" . $self->group_id() . ".html",
-        't_match' => ".*",
-        '<title>' => "Haifa Linux Club (Lectures $first_idx-$last_idx)",
-        'h1_title' => "Haifa Linux Club - Lectures $first_idx-$last_idx",
-        'buffer' => "",
-    };
-}
-
 my @files = 
 (
     {
@@ -221,8 +193,6 @@ my @files =
         },
     } (2003 .. 2006)
 );
-
-my ($grouped_file_idx) = (grep { $files[$_]->{'id'} eq "grouped" } (0 .. $#files));
 
 foreach my $f (@files)
 {
