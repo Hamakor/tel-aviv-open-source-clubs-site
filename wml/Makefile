@@ -21,7 +21,10 @@ lib/lectures_dest/rss.xml: lib/render_lectures.pl lib/LecturesData.pm
 src/advanced-2004.html.wml: lib/lectures_dest/2003.html lib/lectures_dest/2004.html
 	touch $@
 
-src/advanced.html.wml: lib/lectures_dest/2005.html
+src/advanced.html.wml: lib/lectures_dest/2005.html lib/lectures_dest/2006.html
+	touch $@
+
+src/newbies.html.wml: lib/lectures_dest/w2l-2005.html
 	touch $@
 
 src/index.html.wml: lib/lectures_dest/future.html

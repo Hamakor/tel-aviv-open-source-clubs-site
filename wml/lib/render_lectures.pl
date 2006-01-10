@@ -16,6 +16,13 @@ my @streams =
         'no_header' => 1,
         'future_only' => 1,
     },
+    {
+        'id' => "w2l-2005",
+        'url' => "w2l-2005.html",
+        't_match' => ".*",
+        'no_header' => 1,
+        'series' => sub { my $s = shift; return ($s eq "w2l-2005") },
+    },
     map {
         +{
             'id' => $_,
@@ -23,6 +30,10 @@ my @streams =
             't_match' => ".*",
             'no_header' => 1,
             'year' => $_,
+            'series' => sub {
+                my $s = shift;
+                return ($s eq "default");
+            },
         },
     } (2003 .. 2006)
 );

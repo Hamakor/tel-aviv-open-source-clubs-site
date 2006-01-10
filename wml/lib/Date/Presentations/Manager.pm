@@ -216,10 +216,15 @@ sub print_files
     foreach my $file (@{$self->stream_specs()})
     {
         my $pattern = $file->{'t_match'};
+        my $is_series = $file->{'series'} || sub { 1 };
         if ((grep { ($_ eq "all") || ($_ =~ m/^$pattern$/) } @$topics) &&
             (! ($is_header && $file->{'no_header'})) &&
             (! ($is_past && $file->{'future_only'})) &&
-            (exists($file->{'year'}) ? ($file->{'year'} == $spec->{'year'}) : 1)
+            (exists($file->{'year'}) ?
+                ($file->{'year'} == $spec->{'year'}) :
+                1
+            ) &&
+            ($is_series->($spec->{'series'}))
            )
         {
             $self->stream_results()->{$file->{'id'}}->insert(
@@ -235,10 +240,16 @@ sub get_idx_in_series
     return $self->series_indexes()->{$lecture->{'series'}};
 }
 
+sub get_lecture_series
+{
+    my ($self, $lecture) = @_;
+    return $lecture->{'series'};
+}
+
 sub get_lecture_num_field
 {
     my ($self, $lecture) = @_;
-    my $series = $lecture->{'series'};
+    my $series = $self->get_lecture_series($lecture);
     my $series_handle = $self->series_map()->{$series};
     if (exists($lecture->{'sub-series'}))
     {
@@ -507,6 +518,7 @@ sub process_lecture
             'topics' => $lecture->{'t'},
             'past' => (! $self->is_future()),
             'year' => $self->get_lecture_year($lecture),
+            'series' => $self->get_lecture_series($lecture),
         },
         $self->render_lecture($lecture),
     );
@@ -521,10 +533,9 @@ sub process_all_lectures
     }
     continue
     {
-        $self->series_indexes()->{$lecture->{'series'}}++;
+        $self->series_indexes()->{$self->get_lecture_series($lecture)}++;
     }
 }
-
 
 1;
 
