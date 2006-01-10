@@ -394,54 +394,6 @@ sub process_all_lectures
     }
 }
 
-my @streams = 
-(
-    {
-        'id' => "future",
-        'url' => "future.html",
-        't_match' => ".*",
-        'no_header' => 1,
-        'future_only' => 1,
-    },
-    map {
-        +{
-            'id' => $_,
-            'url' => "$_.html",
-            't_match' => ".*",
-            'no_header' => 1,
-            'year' => $_,
-        },
-    } (2003 .. 2006)
-);
-
-# This is a temporary hack until everything is a method call.
-my $date_pres_man = Date::Presentations::Manager->new(
-    'streams' => \@streams,
-    );
-
-sub get_man
-{
-    return $date_pres_man;
-}
-
-$date_pres_man->calc_lectures_flat();
-
-my $dest_dir = "./lectures_dest";
-
-if (! -d $dest_dir)
-{
-    mkdir($dest_dir);
-}
-
-$date_pres_man->process_all_lectures();
-
-foreach my $s (@streams)
-{
-    open O, ">" , $dest_dir . "/" . $s->{'url'};
-    print O @{$date_pres_man->stream_results()->{$s->{'id'}}->get_items()};
-    close(O);
-}
-
 
 1;
 
