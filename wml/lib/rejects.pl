@@ -168,3 +168,4 @@ continue
     }
 }
 
+my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lectures_flat));

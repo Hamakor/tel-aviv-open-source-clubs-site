@@ -167,8 +167,6 @@ sub calc_lectures_flat
 
 $date_pres_man->calc_lectures_flat();
 
-my @lectures_flat = @{$date_pres_man->lectures_flat()};
-
 $date_pres_man->dest_dir("./lectures_dest");
 
 if (! -d $date_pres_man->dest_dir)
@@ -177,10 +175,6 @@ if (! -d $date_pres_man->dest_dir)
 }
 
 my $last_idx_in_group = 20;
-
-my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lectures_flat));
-
-my ($lecture);
 
 sub get_group_indexes
 {
@@ -444,7 +438,7 @@ sub process_lecture
 sub process_all_lectures
 {
     my $self = shift;
-    foreach $lecture (@{$self->lectures_flat()})
+    foreach my $lecture (@{$self->lectures_flat()})
     {
         $self->process_lecture($lecture);
     }
