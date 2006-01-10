@@ -445,6 +445,28 @@ sub update_is_future
         }
     }
 }
+sub render_field
+{
+    my ($self, $lecture, $field) = @_;
+    $field = 
+        (ref($field) eq "HASH") ? 
+            $field : 
+            { 'text' => $field, 'td-params' => "", }
+            ;
+    return "<td" . $field->{'td-params'} . ">\n" . 
+        $field->{'text'} . "\n</td>\n";
+}
+
+sub render_lecture
+{
+    my ($self, $lecture, $fields) = @_;
+    return
+        "<tr>\n" . 
+        join("", 
+            (map { $self->render_field($lecture, $_) } @$fields)
+        ) . 
+        "</tr>\n";
+}
 
 sub process_lecture
 {
@@ -459,9 +481,6 @@ sub process_lecture
     push @fields, $self->get_date_field($lecture);
     push @fields, $self->get_comments_field($lecture);
 
-    # TODO: Remove later.
-    my $lecturer_record = $self->get_lecturer_record($lecture);
-
     $self->update_is_future($lecture);
 
     if ($self->is_future())
@@ -469,25 +488,13 @@ sub process_lecture
         $self->add_rss_item($lecture);
     }
 
-    my $rendered_lecture = 
-        "<tr>\n" . 
-        join("", 
-            map 
-                {
-                    $_ = (ref($_) eq "HASH") ? $_ : { 'text' => $_, 'td-params' => "", };
-                    "<td" . $_->{'td-params'} . ">\n" . 
-                    $_->{'text'} . "\n</td>\n" 
-                } @fields
-             ) 
-        . "</tr>\n";
-
     $self->print_files(
         {
             'topics' => $lecture->{'t'},
             'past' => (! $self->is_future()),
             'year' => $self->get_lecture_year($lecture),
         },
-        $rendered_lecture
+        $self->render_lecture($lecture, \@fields),
     );
 }
 
