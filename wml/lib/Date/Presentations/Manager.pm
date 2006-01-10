@@ -322,11 +322,18 @@ sub get_subject_field
         );
 }
 
+sub get_lecturer_name
+{
+    my ($self, $lecture) = @_;
+    return $self->get_lecturer_record($lecture)->{'name'};
+}
+
 sub get_lecturer_field
 {
     my ($self, $lecture) = @_;
 
     my $lecturer_record = $self->get_lecturer_record($lecture);
+    my $name = $self->get_lecturer_name($lecture);
 
     # Generate the lecturer field
 
@@ -338,25 +345,22 @@ sub get_lecturer_field
         {
             die "Unknown email for lecturer '" . $self->get_lecturer_id($lecture) . "'";
         }
-        $lecturer_field = "<a href=\"mailto:" . $lecturer_record->{'email'} . 
-        "\">" . $lecturer_record->{'name'} . "</a>";
+        return "<a href=\"mailto:" . $lecturer_record->{'email'} . 
+        "\">$name</a>";
     }
     elsif ($name_render_type eq "plain")
     {
-        $lecturer_field = $lecturer_record->{'name'};
+        return $name;
     }
     elsif ($name_render_type eq "homepage")
     {
-        $lecturer_field = "<a href=\"". $lecturer_record->{'homepage'} . "\">".
-            $lecturer_record->{'name'} . "</a>";
+        return "<a href=\"". $lecturer_record->{'homepage'} . "\">$name</a>";
     }
     else
     {
         die ("Unknown lecturer's name_render_type field for " . 
             "lecturer '" . $self->get_lecturer_id($lecture) . "'");
     }
-
-    return $lecturer_field;
 }
 
 sub get_lecture_date
@@ -379,6 +383,41 @@ sub get_comments_field
     return $lecture->{'comments'};
 }
 
+sub get_lecture_date_time
+{
+    my ($self, $lecture) = @_;
+    my ($date_day, $date_month, $date_year) = $self->get_lecture_dmy($lecture);
+    # assuming meetings start at 18:30
+    return mktime(0, 30, 18, $date_day, $date_month-1, $date_year-1900);
+}
+
+sub add_rss_item
+{
+    my ($self, $lecture) = @_;
+
+    my $lecture_url = $lecture->{'url'};
+    if ($lecture_url !~ /^http:/)
+    {
+        $lecture_url = $self->base_url()."/$lecture_url";
+    }
+    
+    $self->rss_feed()->add_item(
+        'title' => $lecture->{'s'},
+        (map { $_ => $self->base_url() } (qw(permaLink link))),
+        'enclosure' => { 'url' => $lecture_url, },
+        'description' => $self->get_comments_field($lecture),
+        'author' => $self->get_lecturer_name($lecture),
+        'pubDate' => scalar(localtime($self->get_lecture_date_time($lecture))),
+        'category' => "Meetings",
+    );
+}
+
+sub get_lecture_dmy
+{
+    my ($self, $lecture) = @_;
+    return split(m!/!, $self->get_lecture_date($lecture));
+}
+
 sub process_lecture
 {
     my $self = shift;
@@ -390,17 +429,12 @@ sub process_lecture
     push @fields, $self->get_subject_field($lecture);
     push @fields, $self->get_lecturer_field($lecture);
     push @fields, $self->get_date_field($lecture);
-    # Generate the comments field
     push @fields, $self->get_comments_field($lecture);
-
 
     # TODO: Remove later.
     my $lecturer_record = $self->get_lecturer_record($lecture);
 
-
-    # Generate the date field
-    
-    my ($date_day, $date_month, $date_year) = split(m!/!, $self->get_lecture_date($lecture));
+    my ($date_day, $date_month, $date_year) = $self->get_lecture_dmy($lecture);
 
     if (! $self->is_future() )
     {
@@ -418,27 +452,8 @@ sub process_lecture
 
     if ($self->is_future())
     {
-        my $lecture_url = $lecture->{'url'};
-        if ($lecture_url !~ /^http:/)
-        {
-            $lecture_url = $self->base_url()."/$lecture_url";
-        }
-
-        # assuming meetings start at 18:30
-        my $date_time = 
-            mktime(0, 30, 18, $date_day, $date_month-1, $date_year-1900);
-        
-        $self->rss_feed()->add_item(
-            'title' => $lecture->{'s'},
-            (map { $_ => $self->base_url() } (qw(permaLink link))),
-            'enclosure' => { 'url' => $lecture_url, },
-            'description' => $lecture->{'comments'},
-            'author' => $lecturer_record->{'name'},
-            'pubDate' => scalar(localtime($date_time)),
-            'category' => "Meetings",
-        );
+        $self->add_rss_item($lecture);
     }
-
 
     my $rendered_lecture = 
         "<tr>\n" . 
@@ -453,7 +468,7 @@ sub process_lecture
         . "</tr>\n";
 
     $self->print_files(
-        { 
+        {
             'topics' => $lecture->{'t'},
             'past' => (! $self->is_future()),
             'year' => $date_year,
