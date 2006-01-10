@@ -11,11 +11,13 @@ __PACKAGE__->mk_accessors(qw(
     is_future
     lectures_flat
     num_lectures_in_group
+    rss_feed
     series_indexes
     strict_flag
     this_day
     this_month
     this_year
+    webmaster_email
 ));
 
 use strict;
@@ -56,6 +58,28 @@ sub _initialize
     $self->is_future(0);
     # TODO : make sure base_url is initialized from the arguments.
     $self->base_url("http://www.cs.tau.ac.il/telux/");
+    
+    $self->webmaster_email("taux\@cs.tau.ac.il");
+
+    my $rss_feed = XML::RSS->new('version' => "2.0");
+    $rss_feed->channel(
+        'title' => "Future Telux Lectures",
+        'link' => $self->base_url(),
+        'language' => "en-us",
+        'description' => "Tel Aviv Linux Club (Telux) Future Lectures",
+        'rating' => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
+        'copyright' => "Copyright 2005, Tel Aviv Linux Club",
+        'pubDate' => (scalar(localtime())),
+        'lastBuildDate' => (scalar(localtime())),
+        'docs' => "http://blogs.law.harvard.edu/tech/rss",
+        (map {
+            $_ => $self->webmaster_email(),
+        } (qw(managingEditor webMaster))),
+        'ttl' => "360",
+        'generator' => "Perl and XML::RSS",
+    );
+    
+    $self->rss_feed($rss_feed);
 
     return 0;
 }
@@ -157,25 +181,6 @@ my $last_idx_in_group = 20;
 my $num_default_lectures = scalar(grep { $_->{'series'} eq 'default' } (@lectures_flat));
 
 my ($lecture);
-
-my $webmaster_email = "taux\@cs.tau.ac.il";
-my $rss_feed = XML::RSS->new('version' => "2.0");
-$rss_feed->channel(
-    'title' => "Future Telux Lectures",
-    'link' => $date_pres_man->base_url(),
-    'language' => "en-us",
-    'description' => "Tel Aviv Linux Club (Telux) Future Lectures",
-    'rating' => '(PICS-1.1 "http://www.classify.org/safesurf/" 1 r (SS~~000 1))',
-    'copyright' => "Copyright 2005, Tel Aviv Linux Club",
-    'pubDate' => (scalar(localtime())),
-    'lastBuildDate' => (scalar(localtime())),
-    'docs' => "http://blogs.law.harvard.edu/tech/rss",
-    (map { 
-        $_ => $webmaster_email
-    } (qw(managingEditor webMaster))),
-    'ttl' => "360",
-    'generator' => "Perl and XML::RSS",
-);
 
 sub get_group_indexes
 {
@@ -395,7 +400,7 @@ sub process_lecture
         my $date_time = 
             mktime(0, 30, 18, $date_day, $date_month-1, $date_year-1900);
         
-        $rss_feed->add_item(
+        $self->rss_feed()->add_item(
             'title' => $lecture->{'s'},
             (map { $_ => $self->base_url() } (qw(permaLink link))),
             'enclosure' => { 'url' => $lecture_url, },
@@ -450,8 +455,6 @@ sub process_all_lectures
 }
 
 $date_pres_man->process_all_lectures();
-
-$rss_feed->save($date_pres_man->dest_dir() . "/rss.xml");
 
 foreach my $f (@files)
 {
