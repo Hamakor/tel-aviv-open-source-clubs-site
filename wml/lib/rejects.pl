@@ -144,3 +144,27 @@ my $page_footer = "</table>\n<hr />\n" .
             $f->{'buffer'} .= $table_headers;
         }
                 
+
+
+#####################################################################
+# Removing the get_grouped_file functionality because it's not used
+# in Telux - to be restored later in a better way.
+continue
+{
+    my $series = $lecture->{'series'};
+    my $lecture_idx = ($date_pres_man->series_indexes()->{$series}++);
+    if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
+    {
+        $date_pres_man->group_id($date_pres_man->group_id()+1);
+        if (defined($grouped_file_idx))
+        {
+            my $f = $files[$grouped_file_idx];
+            my $buffer = $f->{'buffer'};
+            open O, ">", $date_pres_man->dest_dir() . "/$f->{'url'}";
+            print O $buffer;
+            close(O);
+            $files[$grouped_file_idx] = $date_pres_man->get_grouped_file();
+        }
+    }
+}
+

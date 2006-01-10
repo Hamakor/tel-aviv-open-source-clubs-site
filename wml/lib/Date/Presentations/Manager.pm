@@ -436,29 +436,20 @@ sub process_lecture
     );
 }
 
-
-foreach $lecture (@lectures_flat)
+sub process_all_lectures
 {
-    $date_pres_man->process_lecture($lecture);
-}
-continue
-{
-    my $series = $lecture->{'series'};
-    my $lecture_idx = ($date_pres_man->series_indexes()->{$series}++);
-    if (($series eq 'default') && ($lecture_idx == $last_idx_in_group))
+    my $self = shift;
+    foreach $lecture (@{$self->lectures_flat()})
     {
-        $date_pres_man->group_id($date_pres_man->group_id()+1);
-        if (defined($grouped_file_idx))
-        {
-            my $f = $files[$grouped_file_idx];
-            my $buffer = $f->{'buffer'};
-            open O, ">", $date_pres_man->dest_dir() . "/$f->{'url'}";
-            print O $buffer;
-            close(O);
-            $f = $files[$grouped_file_idx] = $date_pres_man->get_grouped_file();
-        }
+        $self->process_lecture($lecture);
+    }
+    continue
+    {
+        $self->series_indexes()->{$lecture->{'series'}}++;
     }
 }
+
+$date_pres_man->process_all_lectures();
 
 $rss_feed->save($date_pres_man->dest_dir() . "/rss.xml");
 
