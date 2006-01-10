@@ -238,7 +238,6 @@ sub get_idx_in_series
 sub get_lecture_num_field
 {
     my ($self, $lecture) = @_;
-    # Generate the lecture number
     my $series = $lecture->{'series'};
     my $series_handle = $self->series_map()->{$series};
     if (exists($lecture->{'sub-series'}))
@@ -252,20 +251,13 @@ sub get_lecture_num_field
         );
 }
 
-sub process_lecture
+sub get_lecturer_id
 {
-    my $self = shift;
-    my $lecture = shift;
-
-    my @fields;
-
-    push @fields, $self->get_lecture_num_field($lecture);
-
-    # Generate the subject
+    my ($self, $lecture) = @_;
 
     my $lecturer_id = $lecture->{'l'};
 
-    $lecturer_id = 
+    $lecturer_id =
         (exists($self->lecturer_aliases()->{$lecturer_id}) ? 
             $self->lecturer_aliases->{$lecturer_id} :
             $lecturer_id
@@ -276,7 +268,22 @@ sub process_lecture
         die "Unknown lecturer ID '$lecturer_id' in lecture of date " . $lecture->{'d'};
     }
 
-    my $lecturer_record = $self->lecturers()->{$lecturer_id};
+    return $lecturer_id;
+}
+
+sub get_lecturer_record
+{
+    my ($self, $lecture) = @_;
+
+    return $self->lecturers()->{$self->get_lecturer_id($lecture)};
+}
+
+sub get_subject_field
+{
+    my ($self, $lecture) = @_;
+
+    # Generate the subject
+    my $lecturer_record = $self->get_lecturer_record($lecture);
 
     if (!exists($lecturer_record->{'subject_render'}))
     {
@@ -308,11 +315,25 @@ sub process_lecture
         die "Unknown Subject Render '$subject_render_text'!\n";
     }
         
-    push @fields, 
+    return
         $subject_render->(
             $lecture,
             $self->get_idx_in_series($lecture),
         );
+}
+
+sub process_lecture
+{
+    my $self = shift;
+    my $lecture = shift;
+
+    my @fields;
+
+    push @fields, $self->get_lecture_num_field($lecture);
+    push @fields, $self->get_subject_field($lecture);
+
+    # TODO: Remove later.
+    my $lecturer_record = $self->get_lecturer_record($lecture);
 
     # Generate the lecturer field
 
@@ -322,7 +343,7 @@ sub process_lecture
     {
         if (!defined($lecturer_record->{'email'}))
         {
-            die "Unknown email for lecturer '$lecturer_id'";
+            die "Unknown email for lecturer '" . $self->get_lecturer_id($lecture) . "'";
         }
         $lecturer_field = "<a href=\"mailto:" . $lecturer_record->{'email'} . 
         "\">" . $lecturer_record->{'name'} . "</a>";
@@ -339,7 +360,7 @@ sub process_lecture
     else
     {
         die ("Unknown lecturer's name_render_type field for " . 
-            "lecturer '$lecturer_id'");
+            "lecturer '" . $self->get_lecturer_id($lecture) . "'");
     }
 
     push @fields, $lecturer_field;
