@@ -16,7 +16,8 @@ my ($pub_date) = (grep {m{^<pubDate>.*</pubDate>\n?$}} @lines);
 my ($last_build_date) = (grep {m{^<lastBuildDate>.*</lastBuildDate>\n?$}} @lines);
 
 my @lines_to_change = io("lib/lectures_dest.good/rss.xml")->getlines();
-@lines_to_change = (map { m{^<pubDate>.*</pubDate>\n?$} ? $pub_date : $_ } @lines_to_change);
+my $count = 0;
+@lines_to_change = (map { (m{^<pubDate>.*</pubDate>\n?$} && (!$count++)) ? $pub_date : $_ } @lines_to_change);
 @lines_to_change = (map { m{^<lastBuildDate>.*</lastBuildDate>\n?$} ? $last_build_date : $_ } @lines_to_change);
 io("lib/lectures_dest.good/rss.xml")->print(@lines_to_change);
 
