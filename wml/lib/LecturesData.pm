@@ -116,6 +116,12 @@ sub explicit_url_subject_render
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'doron_bleiberg' =>
+    {
+        'name' => "Doron Bleiberg",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'eddie' => 
     {
         'name' => "Eddie Aronovich",
@@ -879,6 +885,13 @@ sub explicit_url_subject_render
             s => "The Vim Editor for Beginners",
             url => "http://www.shlomifish.org/lecture/Vim/beginners/",
             t => ["prog", "utils"],
+        },
+        {
+            l => "doron_bleiberg",
+            d => "22/1",
+            s => "CASE (= Computer Aided Software Engineering) Tools and What's Between Them",
+            url => "",
+            t => ["prog"],
         },
     ],
 );
