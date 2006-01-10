@@ -229,6 +229,29 @@ sub print_files
     }
 }
 
+sub get_idx_in_series
+{
+    my ($self, $lecture) = @_;
+    return $self->series_indexes()->{$lecture->{'series'}};
+}
+
+sub get_lecture_num_field
+{
+    my ($self, $lecture) = @_;
+    # Generate the lecture number
+    my $series = $lecture->{'series'};
+    my $series_handle = $self->series_map()->{$series};
+    if (exists($lecture->{'sub-series'}))
+    {
+        $series_handle = $self->series_map->{$series}->{'sub-series'}->{$lecture->{'sub-series'}};
+    }
+    my $lecture_num_template = $series_handle->{'lecture_num_template'};
+    return $lecture_num_template->(
+        $self->get_idx_in_series($lecture),
+        'strict' => $self->strict_flag()
+        );
+}
+
 sub process_lecture
 {
     my $self = shift;
@@ -236,16 +259,7 @@ sub process_lecture
 
     my @fields;
 
-    # Generate the lecture number
-    my $series = $lecture->{'series'};
-    my $idx_in_series = $self->series_indexes()->{$series};
-    my $series_handle = $self->series_map()->{$series};
-    if (exists($lecture->{'sub-series'}))
-    {
-        $series_handle = $self->series_map->{$series}->{'sub-series'}->{$lecture->{'sub-series'}};
-    }
-    my $lecture_num_template = $series_handle->{'lecture_num_template'};
-    push @fields, $lecture_num_template->($idx_in_series, 'strict' => $self->strict_flag());
+    push @fields, $self->get_lecture_num_field($lecture);
 
     # Generate the subject
 
@@ -297,7 +311,7 @@ sub process_lecture
     push @fields, 
         $subject_render->(
             $lecture,
-            $idx_in_series
+            $self->get_idx_in_series($lecture),
         );
 
     # Generate the lecturer field
