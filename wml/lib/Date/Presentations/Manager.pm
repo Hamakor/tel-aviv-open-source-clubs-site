@@ -359,6 +359,26 @@ sub get_lecturer_field
     return $lecturer_field;
 }
 
+sub get_lecture_date
+{
+    my ($self, $lecture) = @_;
+    return $lecture->{'d'};
+}
+
+sub get_date_field
+{
+    my ($self, $lecture) = @_;
+
+    return $self->get_lecture_date($lecture);
+}
+
+sub get_comments_field
+{
+    my ($self, $lecture) = @_;
+
+    return $lecture->{'comments'};
+}
+
 sub process_lecture
 {
     my $self = shift;
@@ -369,6 +389,10 @@ sub process_lecture
     push @fields, $self->get_lecture_num_field($lecture);
     push @fields, $self->get_subject_field($lecture);
     push @fields, $self->get_lecturer_field($lecture);
+    push @fields, $self->get_date_field($lecture);
+    # Generate the comments field
+    push @fields, $self->get_comments_field($lecture);
+
 
     # TODO: Remove later.
     my $lecturer_record = $self->get_lecturer_record($lecture);
@@ -376,8 +400,7 @@ sub process_lecture
 
     # Generate the date field
     
-    my $date = $lecture->{'d'};
-    my ($date_day, $date_month, $date_year) = split(m!/!, $date);
+    my ($date_day, $date_month, $date_year) = split(m!/!, $self->get_lecture_date($lecture));
 
     if (! $self->is_future() )
     {
@@ -416,13 +439,6 @@ sub process_lecture
         );
     }
 
-    # $date =~ s{^(\d+)/(\d+)/\d{2}(\d{2})$}{$1/$2/$3};
-
-    push @fields, $date;
-
-    # Generate the comments field
-
-    push @fields, $lecture->{'comments'};
 
     my $rendered_lecture = 
         "<tr>\n" . 
