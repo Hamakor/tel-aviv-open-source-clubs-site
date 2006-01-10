@@ -418,21 +418,16 @@ sub get_lecture_dmy
     return split(m!/!, $self->get_lecture_date($lecture));
 }
 
-sub process_lecture
+sub get_lecture_year
 {
-    my $self = shift;
-    my $lecture = shift;
+    my ($self, $lecture) = @_;
+    my ($d, $m, $y) = $self->get_lecture_dmy($lecture);
+    return $y;
+}
 
-    my @fields;
-
-    push @fields, $self->get_lecture_num_field($lecture);
-    push @fields, $self->get_subject_field($lecture);
-    push @fields, $self->get_lecturer_field($lecture);
-    push @fields, $self->get_date_field($lecture);
-    push @fields, $self->get_comments_field($lecture);
-
-    # TODO: Remove later.
-    my $lecturer_record = $self->get_lecturer_record($lecture);
+sub update_is_future
+{
+    my ($self, $lecture) = @_;
 
     my ($date_day, $date_month, $date_year) = $self->get_lecture_dmy($lecture);
 
@@ -449,6 +444,25 @@ sub process_lecture
             $self->is_future(1);
         }
     }
+}
+
+sub process_lecture
+{
+    my $self = shift;
+    my $lecture = shift;
+
+    my @fields;
+
+    push @fields, $self->get_lecture_num_field($lecture);
+    push @fields, $self->get_subject_field($lecture);
+    push @fields, $self->get_lecturer_field($lecture);
+    push @fields, $self->get_date_field($lecture);
+    push @fields, $self->get_comments_field($lecture);
+
+    # TODO: Remove later.
+    my $lecturer_record = $self->get_lecturer_record($lecture);
+
+    $self->update_is_future($lecture);
 
     if ($self->is_future())
     {
@@ -471,7 +485,7 @@ sub process_lecture
         {
             'topics' => $lecture->{'t'},
             'past' => (! $self->is_future()),
-            'year' => $date_year,
+            'year' => $self->get_lecture_year($lecture),
         },
         $rendered_lecture
     );
