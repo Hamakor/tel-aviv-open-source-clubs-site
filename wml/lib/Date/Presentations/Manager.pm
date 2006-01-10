@@ -322,17 +322,10 @@ sub get_subject_field
         );
 }
 
-sub process_lecture
+sub get_lecturer_field
 {
-    my $self = shift;
-    my $lecture = shift;
+    my ($self, $lecture) = @_;
 
-    my @fields;
-
-    push @fields, $self->get_lecture_num_field($lecture);
-    push @fields, $self->get_subject_field($lecture);
-
-    # TODO: Remove later.
     my $lecturer_record = $self->get_lecturer_record($lecture);
 
     # Generate the lecturer field
@@ -363,8 +356,24 @@ sub process_lecture
             "lecturer '" . $self->get_lecturer_id($lecture) . "'");
     }
 
-    push @fields, $lecturer_field;
-    
+    return $lecturer_field;
+}
+
+sub process_lecture
+{
+    my $self = shift;
+    my $lecture = shift;
+
+    my @fields;
+
+    push @fields, $self->get_lecture_num_field($lecture);
+    push @fields, $self->get_subject_field($lecture);
+    push @fields, $self->get_lecturer_field($lecture);
+
+    # TODO: Remove later.
+    my $lecturer_record = $self->get_lecturer_record($lecture);
+
+
     # Generate the date field
     
     my $date = $lecture->{'d'};
