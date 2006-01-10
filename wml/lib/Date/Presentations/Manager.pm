@@ -379,7 +379,7 @@ sub process_lecture
         if ($cmp_val >= 0)
         {
             # TODO: Add a way to separate between future and past.
-            $self->is_future() = 1;
+            $self->is_future(1);
         }
     }
 
