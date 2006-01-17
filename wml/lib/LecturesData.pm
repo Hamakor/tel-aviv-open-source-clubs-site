@@ -875,11 +875,18 @@ my %lectures =
         },
         {
             l => "doron_bleiberg",
-            d => "22/1",
+            d => "29/1",
             s => "CASE (= Computer Aided Software Engineering) Tools and What's Between Them",
             url => "",
             t => ["prog"],
-        }
+        },
+        {
+            l => "eddie",
+            d => "12/2",
+            s => "Grid Computing - the Real Power of a Community",
+            url => "",
+            t => ["net", "prog"],
+        },
     ],
 );
 
