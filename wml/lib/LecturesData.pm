@@ -887,6 +887,14 @@ my %lectures =
             url => "",
             t => ["net", "prog"],
         },
+        {
+            l => "herouth_maoz",
+            d => "12/3",
+            s => "GIMP 2.2",
+            url => "lecture-notes/gimp-herouth-slides/",
+            t => "utils",
+            'comments' => q{Rerun. <a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
+        },
     ],
 );
 
