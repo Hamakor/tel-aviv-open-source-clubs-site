@@ -367,6 +367,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "series_idx",
     },
+    'vitaly_karasik' =>
+    {
+        'name' => "Vitaly Karasik",
+        'name_render_type' => "plain",
+        'subject_render' => "series_idx",
+    },
     'you' =>
     {
         'name' => "You, yes you",
@@ -895,6 +901,13 @@ my %lectures =
             t => "utils",
             'comments' => q{Rerun. <a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
         },
+        {
+            l => "vitaly_karasik",
+            d => "26/3",
+            s => "Linux Kernel Tuning and Customization",
+            url => "",
+            t => ["kernel"],
+        }
     ],
 );
 
