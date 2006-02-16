@@ -907,7 +907,15 @@ my %lectures =
             s => "Linux Kernel Tuning and Customization",
             url => "",
             t => ["kernel"],
-        }
+        },
+        {
+            l => "ori_idan",
+            d => "9/4",
+            s => "Embedded Linux Bring-Up - A Short War Story",
+            url => "http://www.helicontech.co.il/whitepapers/LinuxBringUp.html",
+            t => ["kernel", "system"],
+            'comments' => q{Rerun.},
+        },
     ],
 );
 
