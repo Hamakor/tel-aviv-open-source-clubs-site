@@ -2,6 +2,8 @@
 
 <latemp_subject "Tel Aviv Linux Club - Old Advanced Lectures" />
 
+
+<define-tag out_of_date_info>
 <h1>Note</h1>
 <p>
 After the 24-October lecture, we will take a break from the advanced lectures
@@ -19,6 +21,10 @@ to hold the <a href="newbies.html">Beginners' series</a>.
 All lectures will start at 18:30 in room 007,
 in the Schreiber building.
 </p>
+</define-tag>
+
+
+<h1>Old Regular Lectures</h1>
 
 <lectures_table>
 #include '../lib/lectures_dest/2003.html'
