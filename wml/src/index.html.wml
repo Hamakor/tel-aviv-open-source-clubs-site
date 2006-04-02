@@ -8,8 +8,8 @@
 
 <h2>"Perl for Newbies Series" - סדרכת פרל למתחילים</h2>
 
-<p style="text-align:right">
-אנו פותחים <a href="http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/">.בסדרת הרצאות</a> המלמדת את שפת התכנות 
+<p style="text-align:right" dir="rtl">
+אנו פותחים <a href="http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/">בסדרת הרצאות</a> המלמדת את שפת התכנות 
 <a href="http://he.wikipedia.org/wiki/פרל">פרל</a>
 לאנשים שאינם יודעים את השפה (או אף אינם יודעים תכנות כלל). כלל הנראה 
 הסדרה תתקיים פעם בחודש כל מפגש שני של המועדון.
@@ -25,21 +25,26 @@ take place once a month - every second meeting of the club.
 <h2 style="text-align: right;">כללי</h2>
 
 <div style="text-align: right;" dir="rtl">
-מועדון הלינוקס התל-אביבי הוקם כדי לאפשר שיתוף מידע בין משתמשי לינוקס ומי שמעוניין להשמיע דברו בנושא.
-המועדון פועל על בסיס התנדבותי ואינו ממומן ע"י שום גורם שהוא. 
-בשנה שעברה הועברו הרצאות למתחילים והשנה יועברו הרצאות למתחילים ולמתקדמים.
-במהלך חודש נובמבר נקיים מסיבת התקנה בה נסייע בהתקנה לכל מי שמעוניין להכיר את מערכת ההפעלה לינוקס.
-<br />
+<p>
+מועדון הלינוקס התל-אביבי הוקם כדי לאפשר שיתוף מידע 
+בין משתמשי לינוקס ומי שמעוניין להשמיע דברו בנושא. המועדון פועל 
+על בסיס התנדבותי ואינו ממומן ע"י שום גורם שהוא. אנו מקיימים 
+<a href="http://welcome.linux.org.il/">סדרת ברוכים הבאים ללינוקס</a>
+פעם בשנה כדי להכיר את מערכת ההפעלה לינוקס לאנשים שלא התנסו בה.
+</p>
+<p>
 לכל הפעילויות של מועדון הלינוקס נשמח לצרף קבוצות מאורגנות - ניתן לבקש דרך האתר.
+</p>
 </div>
-<br />
-<h2  style="text-align: left;">General</h2> 
+
+<h2  style="text-align: left;">General</h2>
+
 <div style="text-align: left;" dir="ltr" >
-The Tel-Aviv University Linux Club was established to allow student, users, developers and system administrators to share and exchange information. 
-All the activities are voluntary and are not sponsored in any meaning. 
-Lectures are given bi-weekly  all around the year.
-Once a year we have our annual "Linux Installation Party" when the TAU-CS team and volunteers help new users (newbies) to install Linux on their personal computer.
-During the period (before and after) the installation party we offer introduction lectures about the basic usage of Linux.
+The Tel-Aviv University Linux Club was established to allow students, 
+users, developers and system administrators to share and exchange information. 
+All the activities are voluntary and are not sponsored in any way. 
+Lectures are given bi-weekly all around the year.
+We give an annual <a href="http://welcome.linux.org.il/">Welcome to Linux series</a> which offers introduction lectures about the basic usage of Linux.
 </div>
 
 <h1>Future Presentations</h1>
