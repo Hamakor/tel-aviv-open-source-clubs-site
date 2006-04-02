@@ -1,0 +1,13 @@
+#include '../template.wml'
+
+<latemp_subject "Telux' Call for Presentations" />
+
+<h1>Telux' Call for Presentations</h1>
+
+<p>
+The Tel Aviv Linux Club is constantly seeking new lecturers and new
+presentations. If you're interested in giving a presentation and/or preparing
+material for that, please <a href="mailto:taux@cs.tau.ac.il">contact us</a>.
+The presentations take place at Tel Aviv University.
+</p>
+

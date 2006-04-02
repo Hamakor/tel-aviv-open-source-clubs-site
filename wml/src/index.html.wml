@@ -2,9 +2,27 @@
 
 <latemp_subject "Tel Aviv Linux Club" />
 
-<h1 align="center" style='text-align:center'><a href="advanced.html">לוח ההרצאות הרגילות באוניברסיטת ת"א</a> </h1>
+<h1>Tel Aviv Linux Club - מועדון הלינוקס התל-אביבי</h1>
 
-<h1 style="text-align: right;">כללי</h1>
+<h2 style="text-align:right"><a href="advanced.html">לוח ההרצאות הרגילות באוניברסיטת ת"א</a></h2>
+
+<h2>"Perl for Newbies Series" - סדרכת פרל למתחילים</h2>
+
+<p style="text-align:right">
+אנו פותחים <a href="http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/">.בסדרת הרצאות</a> המלמדת את שפת התכנות 
+<a href="http://he.wikipedia.org/wiki/פרל">פרל</a>
+לאנשים שאינם יודעים את השפה (או אף אינם יודעים תכנות כלל). כלל הנראה 
+הסדרה תתקיים פעם בחודש כל מפגש שני של המועדון.
+</p>
+
+<p>
+We are starting <a href="http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/">a series of presentations</a> that will teach 
+<a href="http://www.perl.org/">The Perl Programming Language</a> to people 
+who don't know it yet (or do not know programming at all). It will probably
+take place once a month - every second meeting of the club.
+</p>
+
+<h2 style="text-align: right;">כללי</h2>
 
 <div style="text-align: right;" dir="rtl">
 מועדון הלינוקס התל-אביבי הוקם כדי לאפשר שיתוף מידע בין משתמשי לינוקס ומי שמעוניין להשמיע דברו בנושא.
@@ -15,7 +33,7 @@
 לכל הפעילויות של מועדון הלינוקס נשמח לצרף קבוצות מאורגנות - ניתן לבקש דרך האתר.
 </div>
 <br />
-<h1  style="text-align: left;">General</h1> 
+<h2  style="text-align: left;">General</h2> 
 <div style="text-align: left;" dir="ltr" >
 The Tel-Aviv University Linux Club was established to allow student, users, developers and system administrators to share and exchange information. 
 All the activities are voluntary and are not sponsored in any meaning. 

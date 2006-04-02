@@ -21,6 +21,10 @@ my $tree_contents =
             'url' => "",
         },
         {
+            'text' => "Call for Presentations",
+            'url' => "cfp.html",
+        },
+        {
             'text' => "Mailing List",
             'url' => "mailing-lists/",
         },
