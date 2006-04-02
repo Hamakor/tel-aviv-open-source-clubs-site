@@ -916,6 +916,13 @@ my %lectures =
             t => ["kernel", "system"],
             'comments' => q{Rerun.},
         },
+        {
+            l => "shlomif",
+            d => "23/4",
+            s => "Perl for Newbies - Part 1",
+            url => "http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/",
+            t => ["util", "prog"],
+        },
     ],
 );
 
