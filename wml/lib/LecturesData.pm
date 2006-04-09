@@ -371,7 +371,7 @@ my %lecturers =
     {
         'name' => "Vitaly Karasik",
         'name_render_type' => "plain",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
     },
     'you' =>
     {
@@ -905,7 +905,7 @@ my %lectures =
             l => "vitaly_karasik",
             d => "26/3",
             s => "Linux Kernel Tuning and Customization",
-            url => "",
+            url => "lecture-notes/karasik-kernel/",
             t => ["kernel"],
         },
         {
@@ -923,6 +923,20 @@ my %lectures =
             url => "http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/",
             t => ["util", "prog"],
         },
+        {
+            l => "nir_simionovich",
+            d => "7/5",
+            s => "TBD",
+            url => "",
+            t => ["system", "net"],
+        },
+        {
+            l => "shlomif",
+            d => "21/5",
+            s => "Perl for Newbies - Part 2",
+            url => "http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/",
+            t => ["util", "prog"],
+        }
     ],
 );
 
