@@ -925,9 +925,9 @@ my %lectures =
         },
         {
             l => "nir_simionovich",
-            d => "7/5",
-            s => "TBD",
-            url => "",
+            d => "14/5",
+            s => "Voice-over-IP and Asterisk for Newbies or Welcome to Asterisk...",
+            url => "lecture-notes/NirS-VoIP-from-the-eye-of-a-SysAdmin.ppt",
             t => ["system", "net"],
         },
         {
