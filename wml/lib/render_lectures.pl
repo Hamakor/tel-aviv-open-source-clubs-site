@@ -16,14 +16,19 @@ my @streams =
         'no_header' => 1,
         'future_only' => 1,
     },
-    {
-        'id' => "w2l-2005",
-        'url' => "w2l-2005.html",
-        't_match' => ".*",
-        'no_header' => 1,
-        'series' => sub { my $s = shift; return ($s eq "w2l-2005") },
-    },
-    map {
+    (map { 
+            my $year = $_;
+            +{
+                'id' => "w2l-$year",
+                'url' => "w2l-$year.html",
+                't_match' => ".*",
+                'no_header' => 1,
+                'series' => sub { my $s = shift; return ($s eq "w2l-$year") },
+            }
+        } 
+        (2005 .. 2006)
+    ),
+    (map {
         +{
             'id' => $_,
             'url' => "$_.html",
@@ -35,7 +40,7 @@ my @streams =
                 return ($s eq "default");
             },
         },
-    } (2003 .. 2006)
+    } (2003 .. 2006)),
 );
 
 # This is a temporary hack until everything is a method call.

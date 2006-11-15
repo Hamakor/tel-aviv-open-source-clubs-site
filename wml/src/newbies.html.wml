@@ -6,6 +6,14 @@
 
 <h1>הרצאות למתחילים של מועדון הלינוקס באוניברסיטת ת"א</h1>
 
+<h2>ההרצאות של הסדרה הנוכחית של שנת 2006</h2>
+
+<lectures_table>
+<tbody>
+#include '../lib/lectures_dest/w2l-2006.html'
+</tbody>
+</lectures_table>
+
 <h2>ההרצאות של הסדרה הקודמת של שנת 2005</h2>
 
 <lectures_table>

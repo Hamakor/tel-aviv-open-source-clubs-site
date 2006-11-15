@@ -388,6 +388,24 @@ my %lecturers =
     },
 );
 
+sub w2l_lecture_num_template
+{
+    my $lecture_num = shift;
+    my %flags = (@_);
+    if ($flags{'strict'})
+    {
+        return 
+            {
+                'td-params' => " class=\"c\"",
+                'text' => "<a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num",
+            };
+    }
+    else
+    {
+        return "<div align=\"center\"><a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num</div>\n"
+    }
+}
+
 my %series_map =
 (
     'default' => 
@@ -433,23 +451,11 @@ my %series_map =
     },
     'w2l-2005' =>
     {
-        'lecture_num_template' => 
-            sub {
-                my $lecture_num = shift;
-                my %flags = (@_);
-                if ($flags{'strict'})
-                {
-                    return 
-                        {
-                            'td-params' => " class=\"c\"",
-                            'text' => "<a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num",
-                        };
-                }
-                else
-                {
-                    return "<div align=\"center\"><a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num</div>\n"
-                }
-            },
+        'lecture_num_template' => \&w2l_lecture_num_template,
+    },
+    'w2l-2006' =>
+    {
+        'lecture_num_template' => \&w2l_lecture_num_template,
     },
     'perl' =>
     {
@@ -936,7 +942,69 @@ my %lectures =
             s => "Perl for Newbies - Part 2",
             url => "http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/",
             t => ["util", "prog"],
-        }
+        },
+        {
+            l => "eddie",
+            d => "5/11",
+            s => "Blitz Lecture",
+            url => "http://www.shlomifish.org/lecture/W2L/Blitz/slides/",
+            t => [],
+            'series' => "w2l-2006",
+            'comments' => <<"EOF",
+<p>
+Everything one needs to know to start with Linux - 
+applications, interfaces, working in the command shell,
+getting help, configuration tools, package installation
+and a little on the philosophy of open-source.
+</p>
+<p>
+A video of the presentation courtesy of Lior Solomon 
+is available in two parts: 
+<a href="http://www.consist.co.il/sites/consist/_media/mediabank/Linux_01_1.wmv">Part 1</a> and
+<a href="http://www.consist.co.il/sites/consist/_media/mediabank/Linux_01_2.wmv">Part 2</a>.
+</p>
+EOF
+        },
+        {
+            l => "sagiv_barhoom",
+            d => "12/11",
+            s => "Linux for the Student",
+            url => "lin-club_files/w2l-linux_for_student1.sxi",
+            t => [],
+            'series' => "w2l-2006",
+            'comments' => q{Using OpenOffice.org and other useful tools
+            for the school and the university},
+        },
+        {
+            l => "ori_idan",
+            d => "19/11",
+            s => "Living in the Community",
+            url => "lecture-notes/how-to-ask-questions-the-smart-way.sxi",
+            t => [],
+            'series' => "w2l-2006",
+            'comments' => q{How to live and get help from the Linux community.
+                Terms, resources, and etiquette.},
+        },
+        {
+            l => "gby",
+            d => "26/11",
+            s => "Development Tools in Linux",
+            url => "http://www.shlomifish.org/lecture/W2L/Development/",
+            t => [],
+            'series' => "w2l-2006",
+            'comments' => q{Popular and useful software development tools
+                for Linux},
+        },
+        {
+            l => "eddie",
+            d => "3/12",
+            s => "The Linux Installation Process",
+            url => "http://vipe.technion.ac.il/~adir/lectures/MandrakeInstLect.pdf",
+            t => [],
+            'series' => "w2l-2006",
+            'comments' => q{How to install Linux, and what one should be
+                aware of},
+        },
     ],
 );
 
