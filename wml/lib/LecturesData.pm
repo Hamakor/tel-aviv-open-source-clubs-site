@@ -958,10 +958,7 @@ getting help, configuration tools, package installation
 and a little on the philosophy of open-source.
 </p>
 <p>
-A video of the presentation courtesy of Lior Solomon 
-is available in two parts: 
-<a href="http://www.consist.co.il/sites/consist/_media/mediabank/Linux_01_1.wmv">Part 1</a> and
-<a href="http://www.consist.co.il/sites/consist/_media/mediabank/Linux_01_2.wmv">Part 2</a>.
+<a href="http://dafdefan.blogspot.com/2006/11/blog-post_13.html">A video of the presentation courtesy of Lior Solomon is available</a>.
 </p>
 EOF
         },
