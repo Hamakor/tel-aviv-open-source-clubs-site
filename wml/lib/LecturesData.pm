@@ -1002,11 +1002,14 @@ EOF
             l => "zohar_snir",
             d => "3/12",
             s => "The Linux Installation Process",
-            url => "http://vipe.technion.ac.il/~adir/lectures/MandrakeInstLect.pdf",
+            url => "lecture-notes/Linux-Installation-Process-2006.odp",
             t => [],
             'series' => "w2l-2006",
             'comments' => q{How to install Linux, and what one should be
-                aware of},
+                aware of.
+                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
+                Notes in PDF Format</a>
+            },
         },
     ],
 );
