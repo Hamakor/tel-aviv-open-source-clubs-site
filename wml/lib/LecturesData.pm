@@ -386,6 +386,12 @@ my %lecturers =
         'homepage' => "http://www.eng.tau.ac.il/~shavitt/",
         'subject_render' => "explicit_url",
     },
+    'zohar_snir' =>
+    {
+        'name' => "Zohar Snir",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
 );
 
 sub w2l_lecture_num_template
@@ -993,7 +999,7 @@ EOF
                 for Linux},
         },
         {
-            l => "eddie",
+            l => "zohar_snir",
             d => "3/12",
             s => "The Linux Installation Process",
             url => "http://vipe.technion.ac.il/~adir/lectures/MandrakeInstLect.pdf",
