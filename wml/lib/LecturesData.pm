@@ -1026,7 +1026,14 @@ EOF
             s => "The Free Pascal Compiler - Beyond the myths, when clearing the fog",
             url => "",
             t => ["prog"],
-        },    
+        },
+        {
+            l => "ori_idan",
+            d => "21/1",
+            s => "Running Linux on an ARM 7 Board",
+            url => "",
+            t => ["kernel", "system"],
+        }, 
     ],
 );
 
