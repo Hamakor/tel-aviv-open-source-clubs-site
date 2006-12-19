@@ -162,6 +162,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'ido_kanner' =>
+    {
+        'name' => "Ido Kanner",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },    
     'iftach_hyams' =>
     {
         'name' => "Iftach Hyams",
@@ -1011,6 +1017,16 @@ EOF
                 Notes in PDF Format</a>
             },
         },
+    ],
+    '2007' =>
+    [
+        {
+            l => "ido_kanner",
+            d => "7/1",
+            s => "The Free Pascal Compiler - Beyond the myths, when clearing the fog",
+            url => "",
+            t => ["prog"],
+        },    
     ],
 );
 
