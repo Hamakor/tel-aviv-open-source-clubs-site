@@ -124,6 +124,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "series_idx",
     },
+    'elizabeth_sterling' =>
+    {
+        'name' => "Elizabeth Sterling",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'eran_sandler' =>
     {
         'name' => "Eran Sandler",
@@ -167,7 +173,7 @@ my %lecturers =
         'name' => "Ido Kanner",
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
-    },    
+    },
     'iftach_hyams' =>
     {
         'name' => "Iftach Hyams",
@@ -1034,6 +1040,13 @@ EOF
             url => "",
             t => ["kernel", "system"],
         }, 
+        {
+            l => "elizabeth_sterling",
+            d => "25/2",
+            s => "Setting up and Managing an Apache Server",
+            url => "",
+            t => ["system", "net"],
+        },
     ],
 );
 
