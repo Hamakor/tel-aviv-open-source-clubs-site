@@ -40,7 +40,7 @@ my @streams =
                 return ($s eq "default");
             },
         },
-    } (2003 .. 2006)),
+    } (2003 .. 2007)),
 );
 
 # This is a temporary hack until everything is a method call.
