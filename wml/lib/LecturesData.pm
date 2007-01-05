@@ -183,7 +183,8 @@ my %lecturers =
     'jacob_dunk' =>
     {
         'name' => "Jacob Dunkelman",
-        'name_render_type' => "plain",
+        'name_render_type' => "email",
+        'email' => "jacbod\@tbm.co.il",
         'subject_render' => "explicit_url",
     },
     'lior_kaplan' =>
