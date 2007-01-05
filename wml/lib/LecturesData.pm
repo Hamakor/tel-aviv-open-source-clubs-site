@@ -1054,6 +1054,14 @@ EOF
             t => ["tools"],
         },
         {
+            l => "sun",
+            d => "18/2",
+            s => ("Introduction to Modern Algebra and RSA, " .
+                "or What is the Smallest RSA Public Key"),
+            url => "",
+            t => ["system", "security", "prog"],
+        },
+        {
             l => "elizabeth_sterling",
             d => "25/2",
             s => "Setting up and Managing an Apache Server",
