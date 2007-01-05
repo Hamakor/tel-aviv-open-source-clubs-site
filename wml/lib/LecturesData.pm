@@ -180,6 +180,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'jacob_dunk' =>
+    {
+        'name' => "Jacob Dunkelman",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'lior_kaplan' =>
     {
         'name' => "Lior Kaplan",
@@ -1039,7 +1045,14 @@ EOF
             s => "Running Linux on an ARM 7 Board",
             url => "",
             t => ["kernel", "system"],
-        }, 
+        },
+        {
+            l => "jacob_dunk",
+            d => "4/2",
+            s => "CAD/CAM in Linux",
+            url => "",
+            t => ["tools"],
+        },
         {
             l => "elizabeth_sterling",
             d => "25/2",
