@@ -1044,7 +1044,7 @@ EOF
             l => "ori_idan",
             d => "21/1",
             s => "Running Linux on an ARM 7 Board",
-            url => "",
+            url => "lin-club_files/Ori-Idan-Linux-ARM7TDMI.odp",
             t => ["kernel", "system"],
         },
         {
