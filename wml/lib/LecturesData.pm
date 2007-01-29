@@ -26,12 +26,18 @@ sub no_url_subject_render
     return $lecture->{'s'};
 }
 
+my $empty_url = "special://empty/";
+
 sub explicit_url_subject_render
 {
     my $lecture = shift;
     if (!exists($lecture->{'url'}))
     {
         die "URL not specified for Lecture " . $lecture->{'s'} . "!\n";
+    }
+    if ($lecture->{'url'} eq $empty_url)
+    {
+        return $lecture->{'s'};
     }
     return "<a href=\"" . $lecture->{'url'} . "\">" . $lecture->{'s'} . "</a>";
 }
@@ -807,13 +813,13 @@ my %lectures =
             s => "DIMES - Mapping the Internet",
             d => "26/6",
             t => ["prog", "net"],
-            url => "",
+            url => $empty_url,
         },
         {
             l => "telux_members",
             d => "10/7",
             s => "Lightning Talks",
-            url => "",
+            url => $empty_url,
             t => [],
         },
         {
@@ -827,21 +833,21 @@ my %lectures =
             l => "ori_idan",
             d => "7/8",
             s => "Kernel Building",
-            url => "",
+            url => $empty_url,
             t => ["kernel", "system"],
         },
         {
             l => "eddie",
             d => "21/8",
             s => "Network Programming",
-            url => "",
+            url => $empty_url,
             t => ["prog", "net"],
         },
         {
             l => "eddie",
             d => "11/9",
             s => "Network Programming - Part 2",
-            url => "",
+            url => $empty_url,
             t => ["prog", "net"],
         },
         {
@@ -914,14 +920,14 @@ my %lectures =
             l => "doron_bleiberg",
             d => "29/1",
             s => "CASE (= Computer Aided Software Engineering) Tools and What's Between Them",
-            url => "",
+            url => $empty_url,
             t => ["prog"],
         },
         {
             l => "eddie",
             d => "12/2",
             s => "Grid Computing - the Real Power of a Community",
-            url => "",
+            url => $empty_url,
             t => ["net", "prog"],
         },
         {
@@ -1037,7 +1043,7 @@ EOF
             l => "ido_kanner",
             d => "7/1",
             s => "The Free Pascal Compiler - Beyond the myths, when clearing the fog",
-            url => "",
+            url => $empty_url,
             t => ["prog"],
         },
         {
@@ -1051,7 +1057,7 @@ EOF
             l => "jacob_dunk",
             d => "4/2",
             s => "CAD/CAM in Linux",
-            url => "",
+            url => $empty_url,
             t => ["tools"],
         },
         {
@@ -1059,14 +1065,14 @@ EOF
             d => "18/2",
             s => ("Introduction to Modern Algebra and RSA, " .
                 "or What is the Smallest RSA Public Key"),
-            url => "",
+            url => $empty_url,
             t => ["system", "security", "prog"],
         },
         {
             l => "elizabeth_sterling",
             d => "25/2",
             s => "Setting up and Managing an Apache Server",
-            url => "",
+            url => $empty_url,
             t => ["system", "net"],
         },
     ],
@@ -1081,7 +1087,7 @@ and Eddie's other parts of the Net Programming presentations.
             l => "nir_simionovich",
             d => "4/9",
             s => "GnuGK - The GNU GateKeeper Implementation",
-            url => "",
+            url => $empty_url,
             t => ["system", "net"],
         },
 
