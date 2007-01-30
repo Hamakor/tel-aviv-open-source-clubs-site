@@ -1043,7 +1043,7 @@ EOF
             l => "ido_kanner",
             d => "7/1",
             s => "The Free Pascal Compiler - Beyond the myths, when clearing the fog",
-            url => $empty_url,
+            url => "http://ik.homelinux.org/index.rhtml/other/lectures/fpc_about",
             t => ["prog"],
         },
         {
