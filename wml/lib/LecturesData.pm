@@ -1061,14 +1061,6 @@ EOF
             t => ["tools"],
         },
         {
-            l => "sun",
-            d => "18/2",
-            s => ("Introduction to Modern Algebra and RSA, " .
-                "or What is the Smallest RSA Public Key"),
-            url => $empty_url,
-            t => ["system", "security", "prog"],
-        },
-        {
             l => "elizabeth_sterling",
             d => "25/2",
             s => "Setting up and Managing an Apache Server",
@@ -1089,6 +1081,16 @@ and Eddie's other parts of the Net Programming presentations.
             s => "GnuGK - The GNU GateKeeper Implementation",
             url => $empty_url,
             t => ["system", "net"],
+        },
+
+This is Shachar's presentation that was postponed.
+        {
+            l => "sun",
+            d => "18/2",
+            s => ("Introduction to Modern Algebra and RSA, " .
+                "or What is the Smallest RSA Public Key"),
+            url => $empty_url,
+            t => ["system", "security", "prog"],
         },
 
 =end Nothing
