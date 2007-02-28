@@ -1064,8 +1064,15 @@ EOF
             l => "elizabeth_sterling",
             d => "25/2",
             s => "Setting up and Managing an Apache Server",
-            url => $empty_url,
+            url => "lin-club_files/Elizabeth-Sterling-ApachePresentation.odp",
             t => ["system", "net"],
+        },
+        {
+            l => "elizabeth_sterling",
+            d => "11/3",
+            s => "Emacs",
+            url => $empty_url,
+            t => ["tools", "system"],
         },
     ],
 );
