@@ -1074,6 +1074,14 @@ EOF
             url => $empty_url,
             t => ["tools", "system"],
         },
+        {
+            l => "sun",
+            d => "1/4",
+            s => "Why the Smallest RSA Private Key is not 42 (it's 47)",
+            url => $empty_url,
+            t => ["system", "security", "prog"],
+        },
+
     ],
 );
 
