@@ -256,6 +256,12 @@ my %lecturers =
         'email' => "nadav256\@hotmail.com",
         'subject_render' => "no_url",
     },
+    'nadav_vinik' =>
+    {
+        'name' => "Nadav Vinik",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'nir_simionovich' =>
     {
         'name' => "Nir Simionovich",
@@ -1078,10 +1084,24 @@ EOF
             l => "sun",
             d => "1/4",
             s => "Why the Smallest RSA Private Key is not 42 (it's 47)",
-            url => $empty_url,
+            url => "lin-club_files/Shachar-Shemesh--RSA-lecture.odp",
             t => ["system", "security", "prog"],
         },
-
+        {
+            l => "nadav_vinik",
+            d => "22/7",
+            s => "Firebug",
+            url => $empty_url,
+            t => ["net", "prog"],
+        },
+        {
+            l => "nadav_vinik",
+            d => "5/8",
+            s => "JavaScript, AJAX and DOM",
+            url => $empty_url,
+            t => ["net", "prog"],
+        },
+        
     ],
 );
 
