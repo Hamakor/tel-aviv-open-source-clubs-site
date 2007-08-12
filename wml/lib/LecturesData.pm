@@ -1101,7 +1101,13 @@ EOF
             url => $empty_url,
             t => ["net", "prog"],
         },
-        
+        {
+            l => "telux_members",
+            d => "19/8",
+            s => "Short Presentations by Various People",
+            url => $empty_url,
+            t => [],
+        },
     ],
 );
 
