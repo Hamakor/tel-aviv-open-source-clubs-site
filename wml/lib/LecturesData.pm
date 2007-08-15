@@ -1108,6 +1108,13 @@ EOF
             url => $empty_url,
             t => [],
         },
+        {
+            l => "ido_kanner",
+            d => "9/9",
+            s => "Optimising MySQL Queries",
+            url => $empty_url,
+            t => ["prog"],
+        },
     ],
 );
 
