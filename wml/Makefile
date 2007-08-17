@@ -15,13 +15,13 @@ DOCS_COMMON_DEPS = template.wml
 
 all: latemp_targets dest/Default.html dest/rss.xml
 
-lib/lectures_dest/rss.xml: lib/render_lectures.pl lib/LecturesData.pm
+lib/lectures_dest/rss.xml lib/lectures_dest/%.html: lib/render_lectures.pl lib/LecturesData.pm
 	(cd lib && perl render_lectures.pl)
 
 src/advanced-2004.html.wml: lib/lectures_dest/2003.html lib/lectures_dest/2004.html
 	touch $@
 
-src/advanced.html.wml: lib/lectures_dest/2005.html lib/lectures_dest/2006.html
+src/advanced.html.wml: lib/lectures_dest/2005.html lib/lectures_dest/2006.html lib/lectures_dest/2007.html
 	touch $@
 
 src/newbies.html.wml: lib/lectures_dest/w2l-2005.html

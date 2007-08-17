@@ -1108,13 +1108,6 @@ EOF
             url => $empty_url,
             t => [],
         },
-        {
-            l => "ido_kanner",
-            d => "9/9",
-            s => "Optimising MySQL Queries",
-            url => $empty_url,
-            t => ["prog"],
-        },
     ],
 );
 
@@ -1131,14 +1124,14 @@ and Eddie's other parts of the Net Programming presentations.
             t => ["system", "net"],
         },
 
-This is Shachar's presentation that was postponed.
+This is Ido Kanner's presentation about Optimising MySQL Queries:
+
         {
-            l => "sun",
-            d => "18/2",
-            s => ("Introduction to Modern Algebra and RSA, " .
-                "or What is the Smallest RSA Public Key"),
+            l => "ido_kanner",
+            d => "9/9",
+            s => "Optimising MySQL Queries",
             url => $empty_url,
-            t => ["system", "security", "prog"],
+            t => ["prog"],
         },
 
 =end Nothing
