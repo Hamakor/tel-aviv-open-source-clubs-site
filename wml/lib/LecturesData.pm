@@ -66,6 +66,12 @@ my %lecturers =
         'email' => "alex.landsberg\@ligad.com",
         'subject_render' => "no_url",
     },
+    'alexander_sirotkin' =>
+    {
+        'name' => "Alexander Sirotkin",
+        'name_render_type' => "plain",
+        'subject_render' => "series_idx",
+    },
     'aviram' =>
     {
         'name' => "Aviram Jenik",
@@ -1107,6 +1113,25 @@ EOF
             s => "Short Presentations by Various People",
             url => $empty_url,
             t => [],
+            comments => <<"EOF",
+<ul>
+<li>
+<a href="http://www.shlomifish.org/lecture/joel-test/">Shlomi Fish's slides
+about the Joel Test</a>
+</li>
+<li>
+<a href="lecture-notes/Meital-Bourvine-Reconstructor-Slides.odp">Meital
+Bourvine's slides about Reconstructor</a>
+</li>
+</ul>
+EOF
+        },
+        {
+            l => "alexander_sirotkin",
+            d => "16/9",
+            s => "Embedded Linux",
+            url => $empty_url,
+            t => ["prog","system"],
         },
     ],
 );
