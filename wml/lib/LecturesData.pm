@@ -70,7 +70,7 @@ my %lecturers =
     {
         'name' => "Alexander Sirotkin",
         'name_render_type' => "plain",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
     },
     'aviram' =>
     {
@@ -1132,6 +1132,14 @@ EOF
             s => "Embedded Linux",
             url => $empty_url,
             t => ["prog","system"],
+            comments => <<"EOF",
+<ul>
+<li>
+<a href="http://www.linuxconf.eu/2007/programme/abstract-ASirotkin-1.shtml">Link
+to the Paper</a> as presented on LinuxConf Europe 2007.
+</li>
+</ul>
+EOF
         },
     ],
 );
