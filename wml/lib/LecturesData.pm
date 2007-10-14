@@ -1141,6 +1141,20 @@ to the Paper</a> as presented on LinuxConf Europe 2007.
 </ul>
 EOF
         },
+        {
+            l => "shlomif",
+            d => "21/10",
+            s => "Collective Hacking Session - Archive::Zip",
+            url => $empty_url,
+            t => ["prog"],
+            comments => <<"EOF",
+<p>
+We gather and work together on an open source project. This time, we're working
+on the <a href="http://search.cpan.org/dist/Archive-Zip/">Archive-Zip</a>
+module.
+</p>
+EOF
+        },
     ],
 );
 
