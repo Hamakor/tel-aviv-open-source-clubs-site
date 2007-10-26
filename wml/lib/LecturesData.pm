@@ -219,6 +219,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'meital_bourvine' =>
+    {
+        'name' => "Meital Bourvine",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'mike_almogy' =>
     {
         'name' => "Mike Almogy",
@@ -1154,6 +1160,13 @@ on the <a href="http://search.cpan.org/dist/Archive-Zip/">Archive-Zip</a>
 module.
 </p>
 EOF
+        },
+        {
+            l => "meital_bourvine",
+            d => "4/11",
+            s => "Welcome-to-Linux \"Intro to Linux\" Rehearsal",
+            url => "http://www.shlomifish.org/lecture/W2L/Blitz/",
+            t => ["advocacy","utils",],
         },
     ],
 );
