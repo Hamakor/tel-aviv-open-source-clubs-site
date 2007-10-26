@@ -1,4 +1,5 @@
 #include '../template.wml'
+#include "room_info.wml"
 
 <latemp_subject "Tel Aviv Linux Club" />
 
@@ -30,6 +31,8 @@ All the activities are voluntary and are not sponsored in any way.
 Lectures are given bi-weekly all around the year.
 We give an annual <a href="http://welcome.linux.org.il/">Welcome to Linux series</a> which offers introduction lectures about the basic usage of Linux.
 </div>
+
+<room_information />
 
 <h1>Future Presentations</h1>
 
