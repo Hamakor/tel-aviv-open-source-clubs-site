@@ -506,6 +506,10 @@ my %series_map =
     {
         'lecture_num_template' => \&w2l_lecture_num_template,
     },
+    'w2l-2007' =>
+    {
+        'lecture_num_template' => \&w2l_lecture_num_template,
+    },
     'perl' =>
     {
         'lecture_num_template' =>
@@ -1167,6 +1171,63 @@ EOF
             s => "Welcome-to-Linux \"Intro to Linux\" Rehearsal",
             url => "http://www.shlomifish.org/lecture/W2L/Blitz/",
             t => ["advocacy","utils",],
+        },
+        {
+            l => "meital_bourvine",
+            d => "2/12",
+            s => "Intro to Linux",
+            url => "http://www.shlomifish.org/lecture/W2L/Mini-Intro/slides/",
+            t => [],
+            'series' => "w2l-2007",
+            'comments' => <<"EOF",
+<p>
+A brief intro to Linux in order for beginners to be familiar with it,
+and to allow them to understand it and start working with it.
+</p>
+EOF
+        },
+        {
+            l => "sagiv_barhoom",
+            d => "9/12",
+            s => "Linux for the Student",
+            url => "lin-club_files/w2l-linux_for_student1.sxi",
+            t => [],
+            'series' => "w2l-2007",
+            'comments' => q{Using OpenOffice.org and other useful tools
+            for the school and the university},
+        },
+        {
+            l => "ori_idan",
+            d => "16/12",
+            s => "Living in the Community",
+            url => "lecture-notes/how-to-ask-questions-the-smart-way.sxi",
+            t => [],
+            'series' => "w2l-2007",
+            'comments' => q{How to live in, and get help from the Linux 
+                community. Terms, resources, and etiquette.},
+        },
+        {
+            l => "gby",
+            d => "23/12",
+            s => "Development Tools in Linux",
+            url => "http://www.shlomifish.org/lecture/W2L/Development/",
+            t => [],
+            'series' => "w2l-2007",
+            'comments' => q{Popular and useful software development tools
+                for Linux},
+        },
+        {
+            l => "zohar_snir",
+            d => "30/12",
+            s => "The Linux Installation Process",
+            url => "lecture-notes/Linux-Installation-Process-2006.odp",
+            t => [],
+            'series' => "w2l-2007",
+            'comments' => q{How to install Linux, and what one should be
+                aware of.
+                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
+                Notes in PDF Format</a>
+            },
         },
     ],
 );
