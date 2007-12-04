@@ -1184,6 +1184,10 @@ EOF
 A brief intro to Linux in order for beginners to be familiar with it,
 and to allow them to understand it and start working with it.
 </p>
+<p>
+<a href="lecture-notes/W2L-Mini-Intro-Presentation-by-Meital-Bourvine.odp">Slides
+in OpenDocument format</a>. (for OpenOffice.org, etc.)
+</p>
 EOF
         },
         {

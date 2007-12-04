@@ -26,7 +26,7 @@ my @streams =
                 'series' => sub { my $s = shift; return ($s eq "w2l-$year") },
             }
         } 
-        (2005 .. 2006)
+        (2005 .. 2007)
     ),
     (map {
         +{
