@@ -9,6 +9,9 @@
 <latemp_author "Eddie Aronovich" />
 <latemp_meta_desc "Telux" />
 
+<latemp_extra_head_elements>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed for Telux Events" href="$(ROOT)/rss.xml" />
+</latemp_extra_head_elements>
 
 <latemp_affiliations_buttons>
 <p>
