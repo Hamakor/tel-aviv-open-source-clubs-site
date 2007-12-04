@@ -1207,7 +1207,7 @@ EOF
                 community. Terms, resources, and etiquette.},
         },
         {
-            l => "gby",
+            l => "elizabeth_sterling",
             d => "23/12",
             s => "Development Tools in Linux",
             url => "http://www.shlomifish.org/lecture/W2L/Development/",
