@@ -1194,7 +1194,7 @@ EOF
             l => "sagiv_barhoom",
             d => "9/12",
             s => "Linux for the Student",
-            url => "lin-club_files/w2l-linux_for_student1.sxi",
+            url => "lecture-notes/w2l-2007-linux-for-student.zip",
             t => [],
             'series' => "w2l-2007",
             'comments' => q{Using OpenOffice.org and other useful tools
