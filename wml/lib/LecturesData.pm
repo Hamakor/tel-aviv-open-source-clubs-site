@@ -1204,7 +1204,7 @@ EOF
             l => "ori_idan",
             d => "16/12",
             s => "Living in the Community",
-            url => "lecture-notes/how-to-ask-questions-the-smart-way.sxi",
+            url => "lecture-notes/w2l-2007-how-to-ask-qs.odp",
             t => [],
             'series' => "w2l-2007",
             'comments' => q{How to live in, and get help from the Linux 
@@ -1214,7 +1214,7 @@ EOF
             l => "elizabeth_sterling",
             d => "23/12",
             s => "Development Tools in Linux",
-            url => "http://www.shlomifish.org/lecture/W2L/Development/",
+            url => "lecture-notes/w2l-2007-Linux-Devel-Tools.odp",
             t => [],
             'series' => "w2l-2007",
             'comments' => q{Popular and useful software development tools
