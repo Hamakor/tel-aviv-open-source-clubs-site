@@ -225,6 +225,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'micha_silver' =>
+    {
+        'name' => "Micha Silver",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'mike_almogy' =>
     {
         'name' => "Mike Almogy",
@@ -1224,7 +1230,7 @@ EOF
             l => "zohar_snir",
             d => "30/12",
             s => "The Linux Installation Process",
-            url => "lecture-notes/Linux-Installation-Process-2006.odp",
+            url => "lecture-notes/w2l-2007-Linux-Installation-Process.odp",
             t => [],
             'series' => "w2l-2007",
             'comments' => q{How to install Linux, and what one should be
@@ -1232,6 +1238,16 @@ EOF
                 <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
                 Notes in PDF Format</a>
             },
+        },
+    ],
+    '2008' =>
+    [
+        {
+            l => "micha_silver",
+            d => "20/01",
+            s => "Open Source GIS (Geographic Information Systems) - State of the Art",
+            url => $empty_url,
+            t => ["prog", "util"],
         },
     ],
 );
