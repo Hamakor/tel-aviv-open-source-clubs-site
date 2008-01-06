@@ -1248,6 +1248,11 @@ EOF
             s => "Open Source GIS (Geographic Information Systems) - State of the Art",
             url => $empty_url,
             t => ["prog", "util"],
+            comments => <<"EOF"
+<p>
+<a href="abstracts/foss-gis.html">Abstract</a>
+</p>
+EOF
         },
     ],
 );

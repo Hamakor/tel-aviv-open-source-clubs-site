@@ -1,0 +1,23 @@
+#include '../template.wml'
+
+<latemp_subject "Abstract of the FOSS GIS Presentation by Micha Silver" />
+
+<h1>Abstract of the FOSS GIS Presentation by Micha Silver</h1>
+
+<p>
+The adoption of 
+<a href="http://en.wikipedia.org/wiki/Geographic_information_system">Geographic 
+Information Systems (GIS)</a> by both governments and the
+industry has seen constant growth over the last decade. Nearly all the 
+widely deployed GIS software is proprietary and closed source. Open source 
+developers have risen to the challenge and 
+<a href="http://en.wikipedia.org/wiki/FOSS">FOSS (= free and open source 
+software)</a> GIS software has also 
+expanded and matured in parallel with proprietary applications, 
+especially over the last 5 years. This talk will present several of the 
+more popular "FOSS4G" projects, and how they fit into the framework of 
+implementing a GIS. Installation options will be covered, and the 
+capabilities and limitations of some of the software will be 
+demonstrated.
+</p>
+
