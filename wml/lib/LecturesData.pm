@@ -428,6 +428,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'yuval_tal' =>
+    {
+        'name' => "Yuval Tal",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'yuval_shavitt' =>
     {
         'name' => "Yuval Shavitt",
@@ -1251,6 +1257,28 @@ EOF
             comments => <<"EOF"
 <p>
 <a href="abstracts/foss-gis.html">Abstract</a>
+</p>
+EOF
+        },
+        {
+            l => "elizabeth_sterling",
+            d => "27/01",
+            s => "Using the Command Line",
+            url => $empty_url,
+            t => ["prog", "system", "util"],
+            comments => <<"EOF"
+Using the UNIX/Linux command line for fun and profit.
+EOF
+        },
+        {
+            l => "yuval_tal",
+            d => "17/02",
+            s => "XBMC - The Xbox Media Center",
+            url => $empty_url,
+            t => ["prog", "util"],
+            comments => <<"EOF"
+<p>
+<a href="http://www.xboxmediacenter.com/">Xbox Media Center (XBMC) Homepage</a>
 </p>
 EOF
         },
