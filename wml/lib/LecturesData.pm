@@ -1271,6 +1271,13 @@ Using the UNIX/Linux command line for fun and profit.
 EOF
         },
         {
+            l => "sagiv_barhoom",
+            d => "3/02",
+            s => "Introduction to Linux Scripting",
+            url => $empty_url,
+            t => ["prog", "system", "util"],
+        },
+        {
             l => "yuval_tal",
             d => "17/02",
             s => "XBMC - The Xbox Media Center",
