@@ -1264,7 +1264,7 @@ EOF
             l => "elizabeth_sterling",
             d => "27/01",
             s => "Using the Command Line",
-            url => $empty_url,
+            url =>  "lecture-notes/Elizabeth-Sterling--The-Linux-Command-Line-Interface.odp",
             t => ["prog", "system", "util"],
             comments => <<"EOF"
 Using the UNIX/Linux command line for fun and profit.
