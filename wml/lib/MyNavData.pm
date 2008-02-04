@@ -31,13 +31,6 @@ my $tree_contents =
         {
             'text' => "Regular Lectures",
             'url' => "advanced.html",
-            'subs' => 
-            [
-                {
-                    'text' => "Old",
-                    'url' => "advanced-2004.html",
-                },
-            ],
         },
         {
             'text' => "Beginners' Series",

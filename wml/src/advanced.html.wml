@@ -11,6 +11,8 @@
 
 <div dir="ltr">
 <lectures_table>
+#include '../lib/lectures_dest/2003.html'
+#include '../lib/lectures_dest/2004.html'
 #include '../lib/lectures_dest/2005.html'
 #include '../lib/lectures_dest/2006.html'
 #include '../lib/lectures_dest/2007.html'
