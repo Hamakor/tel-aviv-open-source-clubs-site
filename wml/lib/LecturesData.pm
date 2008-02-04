@@ -53,7 +53,7 @@ my %subject_render_callbacks =
             {
                 die "URL not specified for Lecture " . $lecture->{'s'} . "!\n";
             }
-            return "<a href=\"http://vipe.technion.ac.il/~shlomif/lecture/" . $lecture->{'url'} . "\">" . $lecture->{'s'} . "</a>";
+            return "<a href=\"http://www.shlomifish.org/lecture/" . $lecture->{'url'} . "\">" . $lecture->{'s'} . "</a>";
         },
 );
 
@@ -527,7 +527,7 @@ my %series_map =
         'lecture_num_template' =>
             sub {
                 my $lecture_num = shift;
-                return "<a href=\"http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/\">Programming in Perl - $lecture_num</a>";
+                return "<a href=\"http://www.shlomifish.org/lecture/Perl/Newbies/\">Programming in Perl - $lecture_num</a>";
             },        
     },
     'none' =>
@@ -602,14 +602,14 @@ my %lectures =
             s => "GIMP (Part 1/2)",
             d => "21/9",
             t => "utils",
-            url => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
+            url => "http://www.shlomifish.org/lecture/Gimp/",
         },
         {
             l => "shlomif",
             s => "GIMP (Part 2/2)",
             d => "19/10",
             t => "utils",
-            'url' => "http://vipe.technion.ac.il/~shlomif/lecture/Gimp/",
+            'url' => "http://www.shlomifish.org/lecture/Gimp/",
         },
         {
             l => "eddie",
@@ -726,7 +726,7 @@ my %lectures =
             l => "shlomif",
             s => "Autoconf",
             d => "4/7",
-            url => "http://vipe.technion.ac.il/~shlomif/lecture/Autotools/",
+            url => "http://www.shlomifish.org/lecture/Autotools/",
             t => "prog",
         },
         {
@@ -770,7 +770,7 @@ my %lectures =
             l => "shlomif",
             s => "Freecell Solver - Evolution of a C Program",
             d => "19/9",
-            url => "http://vipe.technion.ac.il/~shlomif/lecture/Freecell-Solver/",
+            url => "http://www.shlomifish.org/lecture/Freecell-Solver/",
             t => "prog",
         },
         {
@@ -819,7 +819,7 @@ my %lectures =
             s => "GIMP 2.2",
             url => "lecture-notes/gimp-herouth-slides/",
             t => "utils",
-            'comments' => q{<a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
+            'comments' => q{<a href="http://www.shlomifish.org/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
         },
         {
             l => "ori_idan",
@@ -970,7 +970,7 @@ my %lectures =
             s => "GIMP 2.2",
             url => "lecture-notes/gimp-herouth-slides/",
             t => "utils",
-            'comments' => q{Rerun. <a href="http://vipe.technion.ac.il/~shlomif/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
+            'comments' => q{Rerun. <a href="http://www.shlomifish.org/lecture/Gimp/">Original Lecture by Shlomi Fish</a> (in English and with different images)},
         },
         {
             l => "vitaly_karasik",
@@ -991,7 +991,7 @@ my %lectures =
             l => "shlomif",
             d => "23/4",
             s => "Perl for Newbies - Part 1",
-            url => "http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/",
+            url => "http://www.shlomifish.org/lecture/Perl/Newbies/",
             t => ["util", "prog"],
         },
         {
@@ -1005,7 +1005,7 @@ my %lectures =
             l => "shlomif",
             d => "21/5",
             s => "Perl for Newbies - Part 2",
-            url => "http://vipe.technion.ac.il/~shlomif/lecture/Perl/Newbies/",
+            url => "http://www.shlomifish.org/lecture/Perl/Newbies/",
             t => ["util", "prog"],
         },
         {
