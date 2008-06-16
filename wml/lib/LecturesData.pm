@@ -1274,7 +1274,7 @@ EOF
             l => "sagiv_barhoom",
             d => "3/02",
             s => "Introduction to Linux Scripting",
-            url => $empty_url,
+            url => "lecture-notes/Sagiv-Barhoom--bash_vs_perl.tar.gz",
             t => ["prog", "system", "util"],
         },
         {
@@ -1286,6 +1286,24 @@ EOF
             comments => <<"EOF"
 <p>
 <a href="http://www.xboxmediacenter.com/">Xbox Media Center (XBMC) Homepage</a>
+</p>
+EOF
+        },
+        {
+            l => "telux_members",
+            d => "15/06",
+            s => "Vim Tips and Tricks",
+            url => $empty_url,
+            t => ["prog", "util"],
+            comments => <<"EOF"
+<p>
+We will meet to share Tips and Tricks of <a href="http://www.vim.org/">the 
+Vim editor</a>. Bring in your favourite tips and tricks, .vimrc customisations,
+etc.
+</p>
+
+<p>
+This is a joint meeting - Tel Aviv OSDClub (Open Source Developers' Club).
 </p>
 EOF
         },
