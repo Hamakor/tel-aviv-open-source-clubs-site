@@ -1293,7 +1293,7 @@ EOF
             l => "telux_members",
             d => "15/06",
             s => "Vim Tips and Tricks",
-            url => $empty_url,
+            url => "http://www.shlomifish.org/lecture/Vim/telux-tips-and-tricks/",
             t => ["prog", "util"],
             comments => <<"EOF"
 <p>
