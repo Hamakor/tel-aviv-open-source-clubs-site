@@ -1307,6 +1307,13 @@ This is a joint meeting - Tel Aviv OSDClub (Open Source Developers' Club).
 </p>
 EOF
         },
+        {
+            l => "telux_members",
+            d => "29/06",
+            s => "Software Management Discussion/Brainstorming",
+            url => "http://wiki.perl.org.il/index.php/Meeting_on_29_June_2008",
+            t => ["prog"],
+        },
     ],
 );
 
