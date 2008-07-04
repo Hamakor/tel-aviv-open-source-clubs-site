@@ -1314,6 +1314,13 @@ EOF
             url => "http://wiki.perl.org.il/index.php/Meeting_on_29_June_2008",
             t => ["prog"],
         },
+        {
+            l => "ori_idan",
+            d => "13/07",
+            s => "Internet Standards - Why, Who and How",
+            url => "http://wiki.perl.org.il/index.php/Meeting_on_13_July_2008",
+            t => ["prog", "advocacy", "util",],
+        },
     ],
 );
 
