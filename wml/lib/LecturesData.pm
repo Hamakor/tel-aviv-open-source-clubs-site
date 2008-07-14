@@ -1321,6 +1321,13 @@ EOF
             url => "http://wiki.perl.org.il/index.php/Meeting_on_13_July_2008",
             t => ["prog", "advocacy", "util",],
         },
+        {
+            l => "ido_kanner",
+            d => "27/07",
+            s => "puts ruby - Introduction to the Cool Stuff and Pitfalls of Ruby",
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_27_July_2008",
+            t => ["prog","util",],
+        },
     ],
 );
 
