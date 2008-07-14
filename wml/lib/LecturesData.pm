@@ -199,6 +199,13 @@ my %lecturers =
         'email' => "jacbod\@tbm.co.il",
         'subject_render' => "explicit_url",
     },
+    'jon_klinger' =>
+    {
+        'name' => "Jonathan Klinger",
+        'name_render_type' => "homepage",
+        'homepage' => "http://www.2jk.org/praxis/",
+        'subject_render' => "series_idx",
+    },
     'lior_kaplan' =>
     {
         'name' => "Lior Kaplan",
@@ -1327,6 +1334,13 @@ EOF
             s => "puts ruby - Introduction to the Cool Stuff and Pitfalls of Ruby",
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_27_July_2008",
             t => ["prog","util",],
+        },
+        {
+            l => "jon_klinger",
+            d => "03/08",
+            s => "Open Source Licences - History and Overview",
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_03_August_2008",
+            t => ["advocacy", "prog",],
         },
     ],
 );
