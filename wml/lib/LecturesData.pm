@@ -204,7 +204,7 @@ my %lecturers =
         'name' => "Jonathan Klinger",
         'name_render_type' => "homepage",
         'homepage' => "http://www.2jk.org/praxis/",
-        'subject_render' => "series_idx",
+        'subject_render' => "explicit_url",
     },
     'lior_kaplan' =>
     {
