@@ -1325,8 +1325,16 @@ EOF
             l => "ori_idan",
             d => "13/07",
             s => "Internet Standards - Why, Who and How",
-            url => "http://wiki.perl.org.il/index.php/Meeting_on_13_July_2008",
+            url => "http://www.w3c.org.il/files/phpgroup.pdf",
             t => ["prog", "advocacy", "util",],
+            comments => <<"EOF",
+<ul>
+<li>
+<a href="http://wiki.perl.org.il/index.php/Meeting_on_13_July_2008">Wiki 
+Page about the Meeting</a>
+</li>
+</ul>
+EOF
         },
         {
             l => "ido_kanner",
