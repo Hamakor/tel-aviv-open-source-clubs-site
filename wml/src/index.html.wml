@@ -3,11 +3,11 @@
 
 <latemp_subject "Tel Aviv Linux Club" />
 
-<h1>Tel Aviv Linux Club - מועדון הלינוקס התל-אביבי</h1>
+<h1 id="main">Tel Aviv Linux Club - מועדון הלינוקס התל-אביבי</h1>
 
-<h2 style="text-align:right"><a href="advanced.html">לוח ההרצאות הרגילות באוניברסיטת ת"א</a></h2>
+<h2 id="advanced" style="text-align:right"><a href="advanced.html">לוח ההרצאות הרגילות באוניברסיטת ת"א</a></h2>
 
-<h2 style="text-align: right;">כללי</h2>
+<h2 id="general_heb" style="text-align: right;">כללי</h2>
 
 <div style="text-align: right;" dir="rtl">
 <p>
@@ -22,7 +22,7 @@
 </p>
 </div>
 
-<h2  style="text-align: left;">General</h2>
+<h2 id="general_eng" style="text-align: left;">General</h2>
 
 <div style="text-align: left;" dir="ltr" >
 The Tel-Aviv University Linux Club was established to allow students, 
@@ -34,7 +34,7 @@ We give an annual <a href="http://welcome.linux.org.il/">Welcome to Linux series
 
 <room_information />
 
-<h1>Future Presentations</h1>
+<h1 id="future_pres">Future Presentations</h1>
 
 <div dir="ltr">
 <lectures_table>
@@ -42,3 +42,35 @@ We give an annual <a href="http://welcome.linux.org.il/">Welcome to Linux series
 </lectures_table>
 </div>
 
+<h1 id="links">Links</h1>
+
+<h2 id="club_links">Telux-Related Links</h2>
+
+<ul>
+<li>
+<a href="http://www.facebook.com/group.php?gid=23799195669">"Tel Aviv Open Source Developers Club" on Facebook</a>
+</li>
+</ul>
+
+<h2 id="other_clubs">Other Clubs</h2>
+
+<ul>
+<li>
+<a href="http://www.haifux.org/">Haifa Linux Club</a>
+</li>
+<li>
+<a href="http://www.jlc.org.il/">Jerusalem Linux Club</a>
+</li>
+<li>
+<a href="http://tuxology.net/herzelinux/">Herzelinux - Linux in Herzeliyah</a>
+</li>
+</ul>
+
+<h2 id="more_links">More Links</h2>
+
+<ul>
+<li>
+<a href="http://www.shlomifish.org/open-source/resources/israel/guide-to-israeli-foss-resources/">Guide to
+Israeli FOSS Resources</a> - a comperhensive list of links.
+</li>
+</ul>
