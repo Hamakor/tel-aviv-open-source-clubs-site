@@ -1,0 +1,21 @@
+Whatsup
+    + - front page
+    + - calendar.
+
+Linmag
+    + - events
+
++ Linux-IL + Telux
+
+Tapuz -
+    + - Prog. Lang., 
+        - http://www.tapuz.co.il/forums/forum.asp?forum=89
+    + - Linux
+        - http://www.tapuz.co.il/forums/forum.asp?forum=236
+    - Software Engineering
+
+Ynet
+    + - "Tikhnuth Oopituakh".
+
+Walla
+    - Tikhnuth
