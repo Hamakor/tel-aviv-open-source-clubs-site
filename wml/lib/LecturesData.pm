@@ -1342,6 +1342,22 @@ EOF
             s => "puts ruby - Introduction to the Cool Stuff and Pitfalls of Ruby",
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_27_July_2008",
             t => ["prog","util",],
+            comments => <<"EOF",
+<ul>
+<li>
+Slides in <b>OpenDocument Format</b>: 
+<a href="http://ik.homelinux.org/lectures/puts_ruby/puts_ruby.odp">on 
+Ido's site</a> ;
+<a href="lecture-notes/puts_ruby.odp">local</a>.
+</li>
+<li>
+Slides in <b>PDF Format</b>:
+<a href="http://ik.homelinux.org/lectures/puts_ruby/puts_ruby.pdf">on
+Ido's site</a> ; 
+<a href="lecture-notes/puts_ruby.pdf">local</a>.
+</li>
+</ul>
+EOF
         },
         {
             l => "jon_klinger",
