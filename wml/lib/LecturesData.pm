@@ -1344,17 +1344,9 @@ EOF
             t => ["prog","util",],
             comments => <<"EOF",
 <ul>
-<li>
-Slides in <b>OpenDocument Format</b>: 
-<a href="http://ik.homelinux.org/lectures/puts_ruby/puts_ruby.odp">on 
-Ido's site</a> ;
-<a href="lecture-notes/puts_ruby.odp">local</a>.
-</li>
-<li>
-Slides in <b>PDF Format</b>:
-<a href="http://ik.homelinux.org/lectures/puts_ruby/puts_ruby.pdf">on
-Ido's site</a> ; 
-<a href="lecture-notes/puts_ruby.pdf">local</a>.
+<li><a href="http://ik.homelinux.org/index.rhtml/other/lectures/puts_ruby">slides on Ido's site</a></li>
+<li><b>Local</b>: <a href="lecture-notes/puts_ruby.odp">OpenDocument 
+Format</a>, <a href="lecture-notes/puts_ruby.pdf">PDF Format</a>.
 </li>
 </ul>
 EOF
