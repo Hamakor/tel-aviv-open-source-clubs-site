@@ -199,6 +199,12 @@ my %lecturers =
         'email' => "jacbod\@tbm.co.il",
         'subject_render' => "explicit_url",
     },
+    'ohad_levy' =>
+    {
+        'name' => "Ohad Levy",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'jon_klinger' =>
     {
         'name' => "Jonathan Klinger",
@@ -1357,6 +1363,13 @@ EOF
             s => "Open Source Licences - History and Overview",
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_03_August_2008",
             t => ["advocacy", "prog",],
+        },
+        {
+            l => "ohad_levy",
+            d => "07/09",
+            s => "Puppet - the Cross-Platform Central Management Tool",
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_07_September_2008",
+            t => ["util", "system", "security"],
         },
     ],
 );
