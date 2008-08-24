@@ -1371,6 +1371,13 @@ EOF
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_07_September_2008",
             t => ["util", "system", "security"],
         },
+        {
+            l => "ori_idan",
+            d => "21/09",
+            s => "The Semantic Web",
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_September_2008",
+            t => ["advocacy", "prog"],
+        },
     ],
 );
 
