@@ -1370,6 +1370,12 @@ EOF
             s => "Puppet - the Cross-Platform Central Management Tool",
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_07_September_2008",
             t => ["util", "system", "security"],
+            comments => <<"EOF",
+<ul>
+<li><b>Local</b>: <a href="lecture-notes/puppet-teluxmeet.pdf">Slides in
+PDF Format</a></li>
+</ul>
+EOF
         },
         {
             l => "ori_idan",
