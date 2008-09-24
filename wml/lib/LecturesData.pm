@@ -1372,7 +1372,7 @@ EOF
             t => ["util", "system", "security"],
             comments => <<"EOF",
 <ul>
-<li><b>Local</b>: <a href="lecture-notes/puppet-teluxmeet.pdf">Slides in
+<li><a href="lecture-notes/puppet-teluxmeet.pdf">Slides in
 PDF Format</a></li>
 </ul>
 EOF
@@ -1383,6 +1383,12 @@ EOF
             s => "The Semantic Web",
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_September_2008",
             t => ["advocacy", "prog"],
+            comments => <<"EOF",
+<ul>
+<li><a href="lecture-notes/semanticweb.pdf">Slides in PDF Format</a></li>
+<li><a href="lecture-notes/semanticweb.odp">Slides in ODP (OpenDocument / OpenOffice.org) Format</a></li>
+</ul>
+EOF
         },
     ],
 );
