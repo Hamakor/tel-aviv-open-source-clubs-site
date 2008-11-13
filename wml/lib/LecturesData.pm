@@ -535,6 +535,10 @@ my %series_map =
     {
         'lecture_num_template' => \&w2l_lecture_num_template,
     },
+    'w2l-2008' =>
+    {
+        'lecture_num_template' => \&w2l_lecture_num_template,
+    },
     'perl' =>
     {
         'lecture_num_template' =>
@@ -1389,6 +1393,63 @@ EOF
 <li><a href="lecture-notes/semanticweb.odp">Slides in ODP (OpenDocument / OpenOffice.org) Format</a></li>
 </ul>
 EOF
+        },
+        {
+            l => "eddie",
+            d => "23/11",
+            s => "Intro to Linux",
+            url => "http://www.shlomifish.org/lecture/W2L/Mini-Intro/slides/",
+            t => [],
+            'series' => "w2l-2008",
+            'comments' => <<"EOF",
+<p>
+A brief intro to Linux in order for beginners to become familiar with it,
+and to allow them to understand it and start working with it.
+</p>
+EOF
+        },
+        {
+            l => "zohar_snir",
+            d => "30/11",
+            s => "The Linux Installation Process",
+            url => "lecture-notes/w2l-2007-Linux-Installation-Process.odp",
+            t => [],
+            'series' => "w2l-2008",
+            'comments' => q{How to install Linux, and what one should be
+                aware of.
+                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
+                Notes in PDF Format</a>
+            },
+        },
+        {
+            l => "sagiv_barhoom",
+            d => "7/12",
+            s => "Linux for the Student",
+            url => "lecture-notes/w2l-2007-linux-for-student.zip",
+            t => [],
+            'series' => "w2l-2008",
+            'comments' => q{Using OpenOffice.org and other useful tools
+            for the school and the university},
+        },
+        {
+            l => "ori_idan",
+            d => "14/12",
+            s => "Living in the Community",
+            url => "lecture-notes/w2l-2007-how-to-ask-qs.odp",
+            t => [],
+            'series' => "w2l-2008",
+            'comments' => q{How to live in, and get help from the Linux 
+                community. Terms, resources, and etiquette.},
+        },
+        {
+            l => "elizabeth_sterling",
+            d => "23/12",
+            s => "Development Tools in Linux",
+            url => "http://www.shlomifish.org/lecture/W2L/Development/",
+            t => [],
+            'series' => "w2l-2008",
+            'comments' => q{Popular and useful software development tools
+                for Linux},
         },
     ],
 );
