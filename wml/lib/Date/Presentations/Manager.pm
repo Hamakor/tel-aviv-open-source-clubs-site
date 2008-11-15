@@ -15,6 +15,7 @@ use Date::Presentations::Manager::Stream::Results;
 # Remove dest_dir eventually - the manager should not handle the output
 __PACKAGE__->mk_accessors(qw(
     base_url
+    _calendar
     group_id
     is_future
     lectures_flat
@@ -99,6 +100,8 @@ sub _initialize
     );
     
     $self->rss_feed($rss_feed);
+
+    $self->_calendar([]);
 
     foreach my $field (@data_fields)
     {
@@ -421,6 +424,14 @@ sub add_rss_item
         'pubDate' => scalar(localtime($self->get_lecture_date_time($lecture))),
         'category' => "Meetings",
     );
+
+    push @{$self->_calendar()},
+        {
+            url => $lecture_url,
+            title => $lecture->{s},
+            'time' => $self->get_lecture_date_time($lecture),
+            'lecturer' => $self->get_lecturer_name($lecture),
+        };
 }
 
 sub get_lecture_dmy
@@ -537,5 +548,60 @@ sub process_all_lectures
     }
 }
 
+sub syndicate_to_google_calendar
+{
+    my $self = shift;
+    my $args = shift;
+
+    my $calendar_url = $args->{'url'};
+    my $username = $args->{'username'};
+    my $location = $args->{'location'};
+
+    print "Please Enter Your Google Password:\n";
+    my $password = <>;
+    chomp($password);
+
+    require Net::Google::Calendar;
+
+    my $cal = Net::Google::Calendar->new(url => $calendar_url);
+
+    $cal->login($username, $password);
+
+    foreach my $event (@{$self->_calendar()})
+    {
+        my $day_start = DateTime->from_epoch( epoch => $event->{time});
+        my $day_end = DateTime->from_epoch( epoch => $event->{time});
+
+        $day_start->set(hour => 0, minute => 0, second => 0);        
+        $day_end->set(hour => 23, minute => 59, second => 0);
+        
+        if ($cal->get_events(
+                'start-min' => $day_start, 'start-max' => $day_end
+            )
+        )
+        {
+            # Do nothing - already populated.
+        }
+        else
+        {
+            my $start = DateTime->from_epoch( epoch => $event->{'time'} );
+            my $end = $start + DateTime::Duration->new(hours => 2);
+
+            my $entry = Net::Google::Calendar::Entry->new();
+
+            $entry->title($event->{'title'});
+            $entry->content('OSDClub Tel Aviv Lecture');
+            $entry->location($location);
+            $entry->status('confirmed'); 
+            $entry->transparency('opaque');
+            $entry->visibility('public'); 
+            $entry->when($start, $end);
+
+            $cal->add_entry(
+                $entry
+            );
+        }
+    }
+}
 1;
 

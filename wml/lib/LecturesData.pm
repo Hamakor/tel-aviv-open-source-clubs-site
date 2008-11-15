@@ -1443,7 +1443,7 @@ EOF
         },
         {
             l => "elizabeth_sterling",
-            d => "23/12",
+            d => "21/12",
             s => "Development Tools in Linux",
             url => "http://www.shlomifish.org/lecture/W2L/Development/",
             t => [],
