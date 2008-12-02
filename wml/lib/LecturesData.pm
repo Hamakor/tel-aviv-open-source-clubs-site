@@ -1412,7 +1412,7 @@ EOF
             l => "zohar_snir",
             d => "30/11",
             s => "The Linux Installation Process",
-            url => "lecture-notes/w2l-2007-Linux-Installation-Process.odp",
+            url => "lecture-notes/w2l-2008-Linux-Installation-Process.odp",
             t => [],
             'series' => "w2l-2008",
             'comments' => q{How to install Linux, and what one should be
