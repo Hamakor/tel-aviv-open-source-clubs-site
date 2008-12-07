@@ -1442,14 +1442,21 @@ EOF
                 community. Terms, resources, and etiquette.},
         },
         {
-            l => "elizabeth_sterling",
+            l => "telux_members",
             d => "21/12",
+            s => "Hamakor General Assembly",
+            url => "http://www.hamakor.org.il/content/view/98/1/",
+            t => [],
+        },
+        {
+            l => "elizabeth_sterling",
+            d => "28/12",
             s => "Development Tools in Linux",
             url => "http://www.shlomifish.org/lecture/W2L/Development/",
             t => [],
             'series' => "w2l-2008",
             'comments' => q{Popular and useful software development tools
-                for Linux},
+                for Linux. <b>Note:</b> Date Change.},
         },
     ],
 );
