@@ -411,6 +411,13 @@ my %lecturers =
         'homepage' => "http://www.lingnu.com/",
         'subject_render' => "explicit_url",
     },
+    'szabgab' =>
+    {
+        'name' => "Gabor Szabo",
+        'name_render_type' => "homepage",
+        'homepage' => "http://szabgab.com/",
+        'subject_render' => "explicit_url",
+    },
     'telux_members' =>
     {
         'name' => "Telux Members",
@@ -1457,6 +1464,13 @@ EOF
             'series' => "w2l-2008",
             'comments' => q{Popular and useful software development tools
                 for Linux. <b>Note:</b> Date Change.},
+        },
+        {
+            l => "szabgab",
+            d => "04/01",
+            s => "GUI development With wxPerl and Padre, the Perl IDE",
+            t => ["advocacy", "prog"],
+            url => $empty_url,
         },
     ],
 );
