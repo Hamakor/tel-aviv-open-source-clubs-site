@@ -1468,8 +1468,8 @@ EOF
         {
             l => "szabgab",
             d => "04/01",
-            s => "GUI development With wxPerl and Padre, the Perl IDE",
-            t => ["advocacy", "prog"],
+            s => "GUI Development with wxPerl and Padre, the Perl IDE",
+            t => ["advocacy", "prog", "util",],
             url => $empty_url,
         },
     ],
