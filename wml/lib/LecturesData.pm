@@ -467,6 +467,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'zvi_devir' =>
+    {
+        'name' => "Zvi Devir",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
 );
 
 sub w2l_lecture_num_template
@@ -1474,6 +1480,13 @@ EOF
             s => "GUI Development with wxPerl and Padre, the Perl IDE",
             t => ["advocacy", "prog", "util",],
             url => $empty_url,
+        },
+        {
+            l => "zvi_devir",
+            d => "15/02",
+            s => "Windows Refund HOWTO",
+            t => ["advocacy",],
+            url => "http://www.haifux.org/lectures/204/",
         },
     ],
 );
