@@ -148,6 +148,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "series_idx",
     },
+    'erez_d' =>
+    {
+        'name' => "Erez D",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'ez-aton' =>
     {
         'name' => "Ez-Aton",
@@ -1487,6 +1493,13 @@ EOF
             s => "Windows Refund HOWTO",
             t => ["advocacy",],
             url => "http://www.haifux.org/lectures/204/",
+        },
+        {
+            l => "erez_d",
+            d => "08/03",
+            s => "Satellite T.V. and Linux (not just YES)",
+            t => ["prog", "util",],
+            url => $empty_url,
         },
     ],
 );
