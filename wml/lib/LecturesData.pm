@@ -150,7 +150,7 @@ my %lecturers =
     },
     'erez_d' =>
     {
-        'name' => "Erez D",
+        'name' => "Erez Doron",
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
@@ -1497,7 +1497,7 @@ EOF
         {
             l => "erez_d",
             d => "08/03",
-            s => "Satellite T.V. and Linux (not just YES)",
+            s => "Private Satellite T.V. and Linux",
             t => ["prog", "util",],
             url => $empty_url,
         },
