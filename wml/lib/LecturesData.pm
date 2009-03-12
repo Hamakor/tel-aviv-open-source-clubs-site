@@ -1499,7 +1499,21 @@ EOF
             d => "08/03",
             s => "Private Satellite T.V. and Linux",
             t => ["prog", "util",],
-            url => $empty_url,
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_08_March_2009",
+        },
+        {
+            l => "szabgab",
+            d => "22/03",
+            s => "High-Level Programming Concepts using Perl 6 - Part I",
+            t => ["prog", "util","advocacy"],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_22_March_2009",
+        },
+        {
+            l => "szabgab",
+            d => "05/04",
+            s => "High-Level Programming Concepts using Perl 6 - Part II",
+            t => ["prog", "util","advocacy"],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_05_April_2009",
         },
     ],
 );
