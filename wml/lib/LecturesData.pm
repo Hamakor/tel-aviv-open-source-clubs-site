@@ -1500,6 +1500,14 @@ EOF
             s => "Private Satellite T.V. and Linux",
             t => ["prog", "util",],
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_08_March_2009",
+            'comments' => q{
+                <ul>
+                <li>
+                <a href="lecture-notes/Satellite-Television-and-Linux.pdf">Lecture 
+                Notes in PDF Format</a>
+                </li>
+                </ul>
+            },
         },
         {
             l => "szabgab",
