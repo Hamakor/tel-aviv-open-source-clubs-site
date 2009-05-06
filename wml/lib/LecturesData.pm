@@ -66,6 +66,12 @@ my %lecturers =
         'email' => "alex.landsberg\@ligad.com",
         'subject_render' => "no_url",
     },
+    'alex_nerst' =>
+    {
+        'name' => "Alex Nerst",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'alexander_sirotkin' =>
     {
         'name' => "Alexander Sirotkin",
@@ -1522,6 +1528,13 @@ EOF
             s => "Introduction to Perl 6 - Part II",
             t => ["prog", "util","advocacy"],
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_05_April_2009",
+        },
+        {
+            l => "alex_nerst",
+            d => "31/05",
+            s => "The Open-Source Fring Twitter and Last.fm Mobile Apps",
+            t => ["prog"],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_31_May_2009",
         },
     ],
 );
