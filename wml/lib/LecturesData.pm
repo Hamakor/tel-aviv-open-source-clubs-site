@@ -66,9 +66,9 @@ my %lecturers =
         'email' => "alex.landsberg\@ligad.com",
         'subject_render' => "no_url",
     },
-    'alex_nerst' =>
+    'alex_nerst_and_michal_geva' =>
     {
-        'name' => "Alex Nerst",
+        'name' => "Alex Nerst and Michal Geva",
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
@@ -1530,7 +1530,7 @@ EOF
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_05_April_2009",
         },
         {
-            l => "alex_nerst",
+            l => "alex_nerst_and_michal_geva",
             d => "31/05",
             s => "The Open-Source Fring Twitter and Last.fm Mobile Apps",
             t => ["prog"],
