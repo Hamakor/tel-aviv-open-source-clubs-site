@@ -603,5 +603,19 @@ sub syndicate_to_google_calendar
         }
     }
 }
+
+# Not working yet.
+sub generate_publicity_files
+{
+    my $self = shift;
+    my $args = shift;
+
+    my $dest_dir = $args->{'dest_dir'};
+
+    foreach my $event (@{$self->_calendar()})
+    {
+        my $day = DateTime->from_epoch( epoch => $event->{time});
+    }
+}
 1;
 
