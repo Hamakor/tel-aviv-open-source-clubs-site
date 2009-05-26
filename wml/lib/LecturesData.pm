@@ -389,6 +389,13 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'sawyer' =>
+    {
+        'name' => "Yaron Meiry (Sawyer)",
+        'name_render_type' => "homepage",
+        'homepage' => "http://use.perl.org/~xsawyerx/journal/",
+        'subject_render' => "explicit_url",
+    },
     'sforbes' =>
     {
         'name' => "Shoshannah Forbes",
@@ -1535,6 +1542,13 @@ EOF
             s => "The Open-Source Fring Twitter and Last.fm Mobile Apps",
             t => ["prog"],
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_31_May_2009",
+        },
+        {
+            l => "sawyer",
+            d => "21/06",
+            s => "Programming Red Flags",
+            t => ["prog"],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_June_2009",
         },
     ],
 );
