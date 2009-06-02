@@ -58,7 +58,18 @@ wiki.osdc.org.il</a>
 </li>
 
 <li>
-<a href="http://www.google.com/calendar/embed?src=9g7qee2bk12j3r1eq04t5okf5c%40group.calendar.google.com&amp;ctz=Asia/Jerusalem">Our Google Calendar</a>
+<a href="http://www.google.com/calendar/embed?src=9g7qee2bk12j3r1eq04t5okf5c%40group.calendar.google.com&amp;ctz=Asia/Jerusalem">Our Google Calendar</a><br />
+<ul>
+<li>
+<a href="http://www.google.com/calendar/ical/9g7qee2bk12j3r1eq04t5okf5c%40group.calendar.google.com/public/basic.ics">ICal / ICalendar format</a>
+</li>
+<li>
+<a href="http://www.google.com/calendar/feeds/9g7qee2bk12j3r1eq04t5okf5c%40group.calendar.google.com/public/basic">Calendar in XML format</a>
+</li>
+<li>
+<a href="http://www.google.com/calendar/embed?src=9g7qee2bk12j3r1eq04t5okf5c%40group.calendar.google.com&ctz=Asia/Jerusalem">Calendar in HTML format</a>
+</li>
+</ul>
 </li>
 
 </ul>
