@@ -1545,7 +1545,7 @@ EOF
         },
         {
             l => "sawyer",
-            d => "21/06",
+            d => "28/06",
             s => "Programming Red Flags",
             t => ["prog"],
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_June_2009",
