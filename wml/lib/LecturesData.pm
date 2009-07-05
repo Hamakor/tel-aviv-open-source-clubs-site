@@ -1548,7 +1548,19 @@ EOF
             d => "28/06",
             s => "Programming Red Flags",
             t => ["prog"],
-            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_June_2009",
+            url => "http://www.slideshare.net/xSawyer/red-flags-1683319",
+            comments => q{
+                <ul>
+                <li>
+                <a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_June_2009">Meeting 
+                Page on the Wiki</a>
+                </li>
+                <li>
+                <a href="lecture-notes/sawyer-programming-red-flags.odp">ODP
+                File</a>
+                </li>
+                </ul>
+            },
         },
     ],
 );
