@@ -123,6 +123,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "no_url",
     },
+    'david_khosid' =>
+    {
+        'name' => "David Khosid",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'doron_bleiberg' =>
     {
         'name' => "Doron Bleiberg",
@@ -1561,6 +1567,13 @@ EOF
                 </li>
                 </ul>
             },
+        },
+        {
+            l => "david_khosid",
+            d => "06/09",
+            s => "Advanced GDB",
+            t => ["prog"],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_06_September_2009",
         },
     ],
 );
