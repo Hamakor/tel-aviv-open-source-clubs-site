@@ -1574,6 +1574,20 @@ EOF
             s => "Advanced GDB",
             t => ["prog"],
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_06_September_2009",
+            comments => <<'EOF',
+                <ul>
+                <li>
+                <a href="lecture-notes/GDB_Linux_telux.pdf">Slides in PDF Format</a>
+                </li>
+                <li>
+                <a href="lecture-notes/GDB_Linux_telux.pptx">Slides in PPTX format</a> (New XML-based PowerPoint)
+                </li>
+                <li>
+                <a href="lecture-notes/gdbinit_stl_views-1.03.txt">gdbinit STL
+                views</a>
+                </li>
+                </ul>
+EOF
         },
     ],
 );
