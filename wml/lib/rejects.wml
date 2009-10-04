@@ -33,3 +33,10 @@ take place once a month - every second meeting of the club.
 
 </div>
 </define-tag>
+
+<latemp_top_banner>
+<div class="banner"><a href="http://august.penguin.org.il/"
+    title="הכנס הקהילתי השנתי לקוד פתוח בישראל"><img
+    src="$(ROOT)/images/ap_2009_banner.png" style="border-width:0"
+    alt="אוגוסט פינגווין 2009" /></a></div>
+</latemp_top_banner>

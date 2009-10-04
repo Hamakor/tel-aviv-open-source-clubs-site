@@ -47,13 +47,6 @@ taux@cs.tau.ac.il</a>
 </p>
 </latemp_webmaster>
 
-<latemp_top_banner>
-<div class="banner"><a href="http://august.penguin.org.il/"
-    title="הכנס הקהילתי השנתי לקוד פתוח בישראל"><img
-    src="$(ROOT)/images/ap_2009_banner.png" style="border-width:0"
-    alt="אוגוסט פינגווין 2009" /></a></div>
-</latemp_top_banner>
-
 <define-tag lectures_table endtag="required">
 <table border="1" summary="Table of the Lectures: first column is the lecture number; second column is the subject; third is the lecturer; fourth is the date; fifth is for comments or links." class="lect_tab">
 <tr>
