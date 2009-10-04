@@ -22,3 +22,14 @@ take place once a month - every second meeting of the club.
 </p>
 </define-tag>
 
+<define-tag advanced_lectures_extra_lectures>
+<div dir="rtl">
+<h2>הרצאות נוספות</h2>
+<ul>
+<li>אהרון מחל - רישום תוים בלינוקס</li>
+<li>חרות מעוז - Command line PHP</li>
+<li>אורי עידן - שפעול מערכות Embedded</li>
+</ul>
+
+</div>
+</define-tag>

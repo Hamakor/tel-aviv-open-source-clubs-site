@@ -1,7 +1,7 @@
 #include '../template.wml'
 #include "room_info.wml"
 
-<latemp_subject "Tel Aviv Linux Club - Advanced Lectures" />
+<latemp_subject "Tel Aviv Open Source Club - Regular Lectures" />
 
 <div dir="rtl">
 <h1>לוח ההרצאות 2003-2009</h1>
@@ -19,15 +19,5 @@
 #include '../lib/lectures_dest/2008.html'
 #include '../lib/lectures_dest/2009.html'
 </lectures_table>
-</div>
-
-<div dir="rtl">
-<h2>הרצאות נוספות</h2>
-<ul>
-<li>אהרון מחל - רישום תוים בלינוקס</li>
-<li>חרות מעוז - Command line PHP</li>
-<li>אורי עידן - שפעול מערכות Embedded</li>
-</ul>
-
 </div>
 
