@@ -13,11 +13,12 @@
 <p>
 מועדון הקוד הפתוח התל-אביבי (או בקיצור תלוקס, Telux or TelFOSS) - בעבר
 מועדון הלינוקס התל-אביבי - הוקם כדי לאפשר שיתוף מידע בין משתמשי 
-<a href="http://he.wikipedia.org/wiki/%D7%AA%D7%95%D7%9B%D7%A0%D7%94_%D7%97%D7%95%D7%A4%D7%A9%D7%99%D7%AA">התוכנה החופשית ופתוחת הקוד</a>
-ומי שמעוניין להשמיע דברו בנושא. המועדון פועל 
-על בסיס התנדבותי ואינו ממומן ע"י שום גורם שהוא. אנו מקיימים 
-<a href="http://welcome.foss.org.il/">"סדרת ברוכים הבאים לעולם הקוד הפתוח"</a>
-פעם בשנה כדי להכיר את עולם קוד המקור הפתוח לאנשים שאינם מתמצאים בו או שרוצים להכיר אותו יותר טוב.
+<a href="http://he.wikipedia.org/wiki/%D7%AA%D7%95%D7%9B%D7%A0%D7%94_%D7%97%D7%95%D7%A4%D7%A9%D7%99%D7%AA">התוכנה 
+החופשית ופתוחת הקוד</a>
+ומי שמעוניין להשמיע דברו בנושא. המועדון פועל על בסיס התנדבותי ואינו ממומן ע"י
+שום גורם שהוא. אנו מקיימים <a href="http://welcome.foss.org.il/">"סדרת 
+ברוכים הבאים לעולם הקוד הפתוח"</a> פעם בשנה כדי להכיר את עולם קוד המקור הפתוח
+לאנשים שאינם מתמצאים בו או שרוצים להכיר אותו יותר טוב.
 </p>
 <p>
 לכל הפעילויות של מועדון הלינוקס נשמח לצרף קבוצות מאורגנות - ניתן לבקש דרך האתר.
@@ -27,11 +28,20 @@
 <h2 id="general_eng" style="text-align: left;">General</h2>
 
 <div style="text-align: left;" dir="ltr" >
-The Tel-Aviv Open Source Club (a.k.a "Telux" or "TelFOSS"), formerly the Tel Aviv Linux Club was established to allow the users, developers and system administrators of <a href="http://en.wikipedia.org/wiki/Free_and_open_source_software">free and open source software (FOSS)</a>
-to share and exchange information.  All the activities are voluntary and are not sponsored in any way. 
-Lectures are given bi-weekly all around the year.
-We give an annual <a href="http://welcome.foss.org.il/">"Welcome to the World of Open Source" series</a>
-to introduce open source for people who want to be more familiar with it.
+
+<p>
+The Tel-Aviv Open Source Club (a.k.a "Telux" or "TelFOSS"), formerly the
+Tel Aviv Linux Club was established to allow the users, developers and system
+administrators of <a
+href="http://en.wikipedia.org/wiki/Free_and_open_source_software">free and open
+source software (FOSS)</a> to share and exchange information.  All the
+activities are voluntary and are not sponsored in any way.  Lectures are given
+bi-weekly all around the year.  We give an annual <a
+href="http://welcome.foss.org.il/">"Welcome to the World of Open Source"
+series</a> to introduce open source for people who want to be more familiar
+with it.
+</p>
+
 </div>
 
 <room_information />
