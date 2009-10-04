@@ -27,11 +27,12 @@
 <h2 id="general_eng" style="text-align: left;">General</h2>
 
 <div style="text-align: left;" dir="ltr" >
-The Tel-Aviv University Linux Club was established to allow students, 
-users, developers and system administrators to share and exchange information. 
-All the activities are voluntary and are not sponsored in any way. 
+The Tel-Aviv Open Source Club (a.k.a "Telux" or "TelFOSS") was established to allow 
+the users, developers and system administrators of <a href="http://en.wikipedia.org/wiki/Free_and_open_source_software">free and open source software (FOSS)</a>
+to share and exchange information.  All the activities are voluntary and are not sponsored in any way. 
 Lectures are given bi-weekly all around the year.
-We give an annual <a href="http://welcome.linux.org.il/">Welcome to Linux series</a> which offers introduction lectures about the basic usage of Linux.
+We give an annual <a href="http://welcome.foss.org.il/">"Welcome to the World of Open Source" series</a>
+to introduce open source for people who want to be more familiar with it.
 </div>
 
 <room_information />
@@ -80,7 +81,7 @@ wiki.osdc.org.il</a>
 
 <ul>
 <li>
-<a href="http://www.haifux.org/">Haifa Linux Club</a>
+<a href="http://www.haifux.org/">Haifa Linux Club (Haifux)</a>
 </li>
 <li>
 <a href="http://www.jlc.org.il/">Jerusalem Linux Club</a>
