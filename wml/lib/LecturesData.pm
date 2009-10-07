@@ -5,6 +5,7 @@ use warnings;
 
 my %lecturer_aliases = 
 (
+    'conan' => "constantine_shulyupin",
     'dryice' => "meir_maor",
     'choo' => "guykeren",
     'kilmo' => "orrd",
@@ -97,6 +98,13 @@ my %lecturers =
         'name' => "Asaf Arbely",
         'name_render_type' => "plain",
         'subject_render' => "series_idx",
+    },
+    'constantine_shulyupin' =>
+    {
+        'name' => "Constantine Shulyupin",
+        'name_render_type' => "homepage",
+        'homepage' => "http://www.linuxdriver.co.il/",
+        'subject_render' => "explicit_url",
     },
     'choo_and_eli' =>
     {
@@ -1587,6 +1595,15 @@ EOF
                 views</a>
                 </li>
                 </ul>
+EOF
+        },
+        {
+            l => "conan",
+            d => "25/10",
+            s => "CMake",
+            t => ["prog"],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_25_October_2009",
+            comments => <<'EOF',
 EOF
         },
     ],
