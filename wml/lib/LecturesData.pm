@@ -532,6 +532,25 @@ sub w2l_lecture_num_template
     }
 }
 
+
+sub w2foss_lecture_num_template
+{
+    my $lecture_num = shift;
+    my %flags = (@_);
+    if ($flags{'strict'})
+    {
+        return 
+            {
+                'td-params' => " class=\"c\"",
+                'text' => "<a href=\"http://welcome.foss.org.il/\">Welcome to FOSS</a> - $lecture_num",
+            };
+    }
+    else
+    {
+        return "<div align=\"center\"><a href=\"http://welcome.foss.org.il/\">Welcome to FOSS</a> - $lecture_num</div>\n";
+    }
+}
+
 my %series_map =
 (
     'default' => 
@@ -593,7 +612,7 @@ my %series_map =
     },
     'w2foss-2009' =>
     {
-        'lecture_num_template' => \&w2l_lecture_num_template,
+        'lecture_num_template' => \&w2foss_lecture_num_template,
     },
     'perl' =>
     {
