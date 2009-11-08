@@ -451,6 +451,12 @@ my %lecturers =
         'homepage' => "http://szabgab.com/",
         'subject_render' => "explicit_url",
     },
+    'tal_ko' =>
+    {
+        'name' => "Tal Ko",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },    
     'telux_members' =>
     {
         'name' => "Telux Members",
@@ -582,6 +588,10 @@ my %series_map =
         'lecture_num_template' => \&w2l_lecture_num_template,
     },
     'w2l-2008' =>
+    {
+        'lecture_num_template' => \&w2l_lecture_num_template,
+    },
+    'w2foss-2009' =>
     {
         'lecture_num_template' => \&w2l_lecture_num_template,
     },
@@ -1605,6 +1615,14 @@ EOF
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_25_October_2009",
             comments => <<'EOF',
 EOF
+        },
+        {
+            l => "tal_ko",
+            d => "08/11",
+            s => "Demo of Cool and Comprehensive Open Source Software",
+            url => "http://wiki.osdc.org.il/index.php/Welcome_to_FOSS_-_2009",
+            'series' => "w2foss-2009",
+            t => ["advocacy"],
         },
     ],
 );
