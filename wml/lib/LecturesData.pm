@@ -1643,6 +1643,22 @@ EOF
             'series' => "w2foss-2009",
             t => ["advocacy"],
         },
+        {
+            l => "ori_idan",
+            d => "22/11",
+            s => "What is Free and Open Source Software?",
+            'series' => "w2foss-2009",
+            t => ["advocacy"],
+            url => "http://wiki.osdc.org.il/index.php/Welcome_to_FOSS_-_2009",
+            comments => <<"EOF",
+Ori Idan will talk about what actually
+are free software and open-source: what are the guiding principles behind free
+software, why is it good, important, and helpful for users (but also for
+developers), and also why it doesn't contradict any Capitalistic principles.
+Moreover, in this meeting, we will explore Linux as a 100% open source
+operating system, and some things that its open-source nature enables.
+EOF
+        },
     ],
 );
 
