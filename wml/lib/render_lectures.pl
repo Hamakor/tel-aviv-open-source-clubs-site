@@ -18,15 +18,16 @@ my @streams =
     },
     (map { 
             my $year = $_;
+            my $base = (($year >= 2009) ? "w2foss" : "w2l");
             +{
-                'id' => "w2l-$year",
-                'url' => "w2l-$year.html",
+                'id' => "$base-$year",
+                'url' => "$base-$year.html",
                 't_match' => ".*",
                 'no_header' => 1,
-                'series' => sub { my $s = shift; return ($s eq "w2l-$year") },
+                'series' => sub { my $s = shift; return ($s eq "$base-$year") },
             }
         } 
-        (2005 .. 2008)
+        (2005 .. 2009)
     ),
     (map {
         +{

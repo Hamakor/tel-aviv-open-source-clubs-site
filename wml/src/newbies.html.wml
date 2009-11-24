@@ -1,12 +1,20 @@
 #include '../template.wml'
 
-<latemp_subject "Tel Aviv Linux Club Beginner's Lectures" />
+<latemp_subject "Tel Aviv Open Source Club Beginner's Lectures" />
 
 <div dir="rtl">
 
-<h1>הרצאות למתחילים של מועדון הלינוקס באוניברסיטת ת"א</h1>
+<h1>הרצאות למתחילים של מועדון הקוד הפתוח באוניברסיטת ת"א</h1>
 
-<h2 id="w2l-2008">ההרצאות של הסדרה הנוכחית של שנת 2008</h2>
+<h2 id="w2foss-2009">ההרצאות של הסדרה הנוכחית של שנת 2009</h2>
+
+<lectures_table>
+<tbody>
+#include '../lib/lectures_dest/w2foss-2009.html'
+</tbody>
+</lectures_table>
+
+<h2 id="w2l-2008">ההרצאות של הסדרה הקודמת של שנת 2008</h2>
 
 <lectures_table>
 <tbody>

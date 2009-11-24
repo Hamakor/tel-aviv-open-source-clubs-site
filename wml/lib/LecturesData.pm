@@ -1651,14 +1651,28 @@ EOF
             t => ["advocacy"],
             url => "http://wiki.osdc.org.il/index.php/Welcome_to_FOSS_-_2009",
             comments => <<"EOF",
+            <p>
 Ori Idan will talk about what actually
 are free software and open-source: what are the guiding principles behind free
 software, why is it good, important, and helpful for users (but also for
 developers), and also why it doesn't contradict any Capitalistic principles.
 Moreover, in this meeting, we will explore Linux as a 100% open source
 operating system, and some things that its open-source nature enables.
+</p>
+<p>
+<a href="lecture-notes/freesoftware.odp">Lecture Notes in OpenDocument Presentation Format</a> (OpenOffice.org, etc.)
+</p>
 EOF
         },
+        {
+            l => "tal_ko",
+            d => "06/12",
+            s => "Demo of Cool and Comprehensive Open Source Software",
+            url => "http://wiki.osdc.org.il/index.php/Welcome_to_FOSS_-_2009",
+            'series' => "w2foss-2009",
+            t => ["advocacy"],
+        },
+        
     ],
 );
 
