@@ -1674,6 +1674,16 @@ EOF
         },
         
     ],
+    '2010' =>
+    [
+        {
+            l => "sawyer",
+            d => "17/01",
+            s => q{The Moose Perl OOP System for Beginners - "Prepare for Total Moosification"},
+            t => ["prog", "util",],
+            url => $empty_url,
+        },
+    ],
 );
 
 =begin Nothing
