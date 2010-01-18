@@ -143,6 +143,12 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
+    'drupal_il' =>
+    {
+        'name' => "Drupal Israel",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
+    },
     'eddie' => 
     {
         'name' => "Eddie Aronovich",
@@ -1672,7 +1678,6 @@ EOF
             'series' => "w2foss-2009",
             t => ["advocacy"],
         },
-        
     ],
     '2010' =>
     [
@@ -1683,6 +1688,13 @@ EOF
             t => ["prog", "util",],
             url => $empty_url,
         },
+        {
+            l => "drupal_il",
+            d => "31/01",
+            s => qq{"Drupal Israel" Tel Aviv January Meeting},
+            t => ["prog", "util",],
+            url => 'http://www.meetup.com/Drupal-Israel/calendar/12327179/?success=mailing_list_sent',
+        }
     ],
 );
 
