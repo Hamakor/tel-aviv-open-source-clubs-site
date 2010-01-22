@@ -330,7 +330,7 @@ my %lecturers =
         'name' => "Nir Simionovich",
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
-    },
+    },  
     'oded_koren' =>
     {
         'name' => "Oded Koren",
@@ -395,6 +395,12 @@ my %lecturers =
         'name_render_type' => "email",
         'email' => "orrd\@vipe.technion.ac.il",
         'subject_render' => "series_idx",
+    },
+    'rami_addady' =>
+    {
+        'name' => "Rami Addady",
+        'name_render_type' => "plain",
+        'subject_render' => "explicit_url",
     },
     'ron_art' =>
     {
@@ -1694,7 +1700,14 @@ EOF
             s => qq{"Drupal Israel" Tel Aviv January Meeting},
             t => ["prog", "util",],
             url => 'http://www.meetup.com/Drupal-Israel/calendar/12327179/?success=mailing_list_sent',
-        }
+        },
+        {
+            l => "rami_addady",
+            d => "14/02",
+            s => "The vtiger CRM (= Customer Relation Management) Package",
+            t => ["util", "advocacy",],
+            url => $empty_url,
+        },
     ],
 );
 
