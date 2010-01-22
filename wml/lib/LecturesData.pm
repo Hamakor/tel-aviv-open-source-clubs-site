@@ -419,7 +419,7 @@ my %lecturers =
     {
         'name' => "Yaron Meiry (Sawyer)",
         'name_render_type' => "homepage",
-        'homepage' => "http://use.perl.org/~xsawyerx/journal/",
+        'homepage' => "http://blogs.perl.org/users/sawyer_x/",
         'subject_render' => "explicit_url",
     },
     'sforbes' =>
