@@ -41,7 +41,7 @@ my @streams =
                 return ($s eq "default");
             },
         },
-    } (2003 .. 2009)),
+    } (2003 .. 2010)),
 );
 
 # This is a temporary hack until everything is a method call.
@@ -72,10 +72,10 @@ $date_pres_man->rss_feed()->save($dest_dir. "/rss.xml");
 
 open STYLE, ">", ($dest_dir . "/style.css");
 print STYLE <<EOF;
-body { background-color : white ; background-image : url(pics/backtux.gif) }
-h1 { text-align : center }
-td.c { text-align : center }
-hr { height : 4px }
+body { background-color : white ; background-image : url(pics/backtux.gif); }
+h1 { text-align : center; }
+td.c { text-align : center; }
+hr { height : 4px; }
 EOF
 close (STYLE);
 
