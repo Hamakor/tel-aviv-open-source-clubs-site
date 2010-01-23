@@ -1692,7 +1692,12 @@ EOF
             d => "17/01",
             s => q{The Moose Perl OOP System for Beginners - "Prepare for Total Moosification"},
             t => ["prog", "util",],
-            url => $empty_url,
+            url => "http://www.slideshare.net/xSawyer/moose-perl-5",
+            comments => <<"EOF",
+<p>
+<a href="lecture-notes/moose-by-sawyer.odp">Copy of the Lecture Notes in OpenDocument Presentation Format</a> (OpenOffice.org, etc.)
+</p>
+EOF
         },
         {
             l => "drupal_il",
