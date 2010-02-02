@@ -47,4 +47,5 @@ upload_telux_new: all
 upload_telux: all
 	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/)
 
-
+runtest:
+	runprove -l t/gen_lecture_publicity.t

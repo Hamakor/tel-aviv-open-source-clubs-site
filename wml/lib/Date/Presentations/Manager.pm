@@ -8,8 +8,13 @@ use base 'Date::Presentations::Manager::Base';
 use Data::Dumper;
 use POSIX qw(mktime strftime);
 use XML::RSS;
+use DateTime;
+use Template;
+use utf8;
 
 use Date::Presentations::Manager::Stream::Results;
+
+use Carp;
 
 # TODO :
 # Remove dest_dir eventually - the manager should not handle the output
@@ -440,6 +445,30 @@ sub get_lecture_dmy
     return split(m!/!, $self->get_lecture_date($lecture));
 }
 
+sub get_lecture_DateTime
+{
+    my ($self, $lecture) = @_;
+
+    my ($date_day, $date_month, $date_year) = $self->get_lecture_dmy($lecture);
+
+    return DateTime->new(
+        year => $date_year,
+        month => $date_month,
+        day => $date_day,
+        hour => "18",
+        minute => 0,
+    );
+}
+
+sub get_lecture_url
+{
+    my ($self, $lecture) = @_;
+
+    return $self->get_lecture_DateTime($lecture)->strftime(
+        "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_%d_%B_%Y"
+    );
+}
+
 sub get_lecture_year
 {
     my ($self, $lecture) = @_;
@@ -522,6 +551,7 @@ sub process_lecture
     if ($self->is_future())
     {
         $self->add_rss_item($lecture);
+        $self->_output_lecture_publicity($lecture);
     }
 
     $self->print_files(
@@ -533,6 +563,114 @@ sub process_lecture
         },
         $self->render_lecture($lecture),
     );
+}
+
+sub gen_lecture_publicity
+{
+    my ($self, $lecture) = @_;
+
+    my $lang = 'he';
+
+    return { 
+        $lang => $self->_gen_lecture_publicity_for_lang($lecture, $lang),
+    };
+}
+
+sub _gen_lecture_publicity_for_lang
+{
+    my ($self, $lecture, $lang) = @_;
+
+    if ($lang ne "he")
+    {
+        Carp::confess "Wrong lang '$lang'!";
+    }
+
+    my $template_text = <<"EOF";
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE
+    html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="[% lang %]">
+<head>
+<title>Telux Announcement</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body { direction : rtl; text-align : right; }
+</style>
+</head>
+<body>
+
+<p>
+<a href="[% obj.club_url() %]">[% obj.club_name(lang) %]</a>
+ייפגש שוב כדי לשמוע את
+<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_17_January_2010">הרצאתו של 
+ירון מאירי (Sawyer) אודות "Moose, מערכת תכנות מונחה העצמים לשפת פרל (למתחילים)"</a>. 
+ההרצאה תתקיים ביום ראשון, 17 בינואר 2010, בשעה 18:00 (שימו לב לשינוי בשעה משנה שעברה), 
+באולם הולצבלט, מס' 007 במסדרון הבניינים למדעים מדויקים (שימו לב לשינוי במיקום משנה שעברה) באוניברסיטת תל אביב. פרטים נוספים, מפות להגעה וכיוצא בזה, ניתן למצוא 
+<a href="http://www.cs.tau.ac.il/telux/">באתר</a>
+<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_17_January_2010">ובוויקי</a>.
+הנוכחות בהרצאה היא חינמית ולא נדרשת הרשמה מראש.
+</p>
+
+<p>
+<a href="http://moose.perl.org/">Moose</a>
+הינה מערכת תכנות מונחה-עצמים פוסט-מודרנית לשפה פרל 5. היא נכתבה 
+מכיוון שההוגה המקורי שלה (סטיבן ליטל) קינא במה שפרל 6 סיפקה 
+בנוגע לתכנות מונחה עצמים, ולכן במקום לעבור לרובי הוא שקד על פיתוח
+מערכת דומה לפרל 5. Moose שאבה השראה מיכולות ה-OOP של שפות רבות 
+כמו פרל 6, Smalltalk, ליספ, רובי, ג'אווה, OCaml ושפות אחרות כשהיא 
+נשארת נאמנה לשורשי ה-פרל 5 שלה. 
+</p>
+
+<p>
+ירון מאירי הינו מנהל מערכות ומפתח פרל. הוא מרצה על קוד פתוח, תוכנה חופשית, 
+אבטחה וסטנדרטים של תכנות. ירון העביר בעבר את 
+<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_28_June_2009">ההרצאה 
+על דגלים אדומים בתכנות עבור שפות עיליות ביותר</a> במועדון התל-אביבי.
+</p>
+
+<p>
+אנו תמיד מחפשים מרצים שיתנדבו לתת הרצאות בנושאים שונים הקשורים לקוד-פתוח ולמחשבים. במידה שאתם מעוניינים לתת הרצאה, או שיש לכם הצעה להרצאה שמעניינת אתכם, נשמח לשמוע ממכם. 
+</p>
+
+</body>
+</html>
+EOF
+
+    my $template = Template->new({});
+
+    my $xhtml = "";
+    $template->process(
+        \$template_text, 
+        { obj => $self, lect => $lecture, lang => $lang,},
+        \$xhtml,
+    )
+        or Carp::confess $template->error();
+
+    return {xhtml => $xhtml};
+}
+
+sub club_url
+{
+    return "http://tel.foss.org.il/";
+}
+
+sub club_name
+{
+    my ($self, $lang) = @_;
+
+    return (
+        ($lang eq "he")
+        ? "מועדון הקוד הפתוח התל-אביבי (תלוקס)"
+        : "The Tel Aviv Open Source Club (TelFOSS)"
+    );
+}
+
+sub _output_lecture_publicity
+{
+    my ($self, $lecture) = @_;
+
+    
 }
 
 sub process_all_lectures
