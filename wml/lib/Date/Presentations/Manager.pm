@@ -603,12 +603,12 @@ body { direction : rtl; text-align : right; }
 <p>
 <a href="[% obj.club_url() %]">[% obj.club_name(lang) %]</a>
 ייפגש שוב כדי לשמוע את
-<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_17_January_2010">הרצאתו של 
+<a href="[% lect_url %]">הרצאתו של
 ירון מאירי (Sawyer) אודות "Moose, מערכת תכנות מונחה העצמים לשפת פרל (למתחילים)"</a>. 
 ההרצאה תתקיים ביום ראשון, 17 בינואר 2010, בשעה 18:00 (שימו לב לשינוי בשעה משנה שעברה), 
 באולם הולצבלט, מס' 007 במסדרון הבניינים למדעים מדויקים (שימו לב לשינוי במיקום משנה שעברה) באוניברסיטת תל אביב. פרטים נוספים, מפות להגעה וכיוצא בזה, ניתן למצוא 
-<a href="http://www.cs.tau.ac.il/telux/">באתר</a>
-<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_17_January_2010">ובוויקי</a>.
+<a href="[% obj.club_url() %]">באתר</a>
+<a href="[% lect_url %]">ובוויקי</a>.
 הנוכחות בהרצאה היא חינמית ולא נדרשת הרשמה מראש.
 </p>
 
@@ -642,7 +642,12 @@ EOF
     my $xhtml = "";
     $template->process(
         \$template_text, 
-        { obj => $self, lect => $lecture, lang => $lang,},
+        {
+            obj => $self,
+            lect => $lecture,
+            lang => $lang,
+            lect_url => $self->get_lecture_url($lecture),
+        },
         \$xhtml,
     )
         or Carp::confess $template->error();

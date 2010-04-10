@@ -14,6 +14,10 @@ use Date::Presentations::Manager;
 
 use LecturesData;
 
+# So we can output the text from the tests as UTF-8
+binmode(STDOUT, ":encoding(utf-8)");
+binmode(STDERR, ":encoding(utf-8)");
+
 my @streams = 
 (
     {
