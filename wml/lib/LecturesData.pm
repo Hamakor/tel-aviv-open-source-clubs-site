@@ -1718,7 +1718,12 @@ EOF
             d => "21/04",
             s => "Version Control Systems - What, Why and How",
             t => ["util", "advocacy",],
-            url => $empty_url,
+            url => "http://www.slideshare.net/xSawyer/source-code-management-systems",
+            comments => <<"EOF",
+<p>
+<a href="lecture-notes/sawyer-vcs.odp">Copy of the Lecture Notes in OpenDocument Presentation Format</a> (OpenOffice.org, etc.)
+</p>
+EOF
         },
     ],
 );
