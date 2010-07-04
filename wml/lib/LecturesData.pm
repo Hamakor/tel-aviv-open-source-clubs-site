@@ -396,6 +396,13 @@ my %lecturers =
         'email' => "orrd\@vipe.technion.ac.il",
         'subject_render' => "series_idx",
     },
+    'ram_rachum' =>
+    {
+        'name' => "Ram Rachum (cool-RR)",
+        'name_render_type' => "homepage",
+        'homepage' => "http://garlicsim.org/",
+        'subject_render' => "explicit_url",
+    },
     'rami_addady' =>
     {
         'name' => "Rami Addady",
@@ -1723,6 +1730,15 @@ EOF
 <p>
 <a href="lecture-notes/sawyer-vcs.odp">Copy of the Lecture Notes in OpenDocument Presentation Format</a> (OpenOffice.org, etc.)
 </p>
+EOF
+        },
+        {
+            l => "ram_rachum",
+            d => "22/07",
+            s => "GarlicSim: an experimental tool for computer simulations",
+            t => ["util", "prog",],
+            url => "http://garlicsim.org/",
+            comments => <<"EOF",
 EOF
         },
     ],
