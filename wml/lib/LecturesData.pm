@@ -1737,8 +1737,11 @@ EOF
             d => "22/07",
             s => "GarlicSim: an experimental tool for computer simulations",
             t => ["util", "prog",],
-            url => "http://garlicsim.org/",
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_22_July_2010",
             comments => <<"EOF",
+<ul>
+<li><a href="http://garlicsim.org/">GarlicSim</a></li>
+</ul>
 EOF
         },
     ],
