@@ -31,3 +31,29 @@ During University breaks, it will be possible to enter it only through
 gates 4 and 8.
 </p>
 </define-tag>
+
+<define-tag room_information>
+<div dir="rtl">
+<h3>הכניסה חופשית</h3>
+
+<p>
+ההרצאות תערכנה <b>בחדר 300 בקמפוס של מכללת שנקר ברח' אנה פרנק 12
+ברמת-גן</b> (
+<a href="http://www.shenkar.ac.il/template/default.aspx?maincat=5&amp;catid=32">להלן מפה ודרכי הגעה</a>)
+ההרצאות מתחילות בשעה 19:00.
+</p>
+</div>
+
+<h3>The Attendance is Free</h3>
+
+<p>
+The presentations will take place in <b>Room 300 in the campus of Shenkar College in Ramat-Gan</b>
+(<a href="http://www.shenkar.ac.il/template/default.aspx?maincat=5&amp;catid=32">Here
+are map and arrival instructions</a>)
+</p>
+
+<p>
+The presentations start at 19:00.
+</p>
+
+</define-tag>
