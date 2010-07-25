@@ -1741,6 +1741,8 @@ EOF
             comments => <<"EOF",
 <ul>
 <li><a href="http://garlicsim.org/">GarlicSim</a></li>
+<li><a href="lecture-notes/GarlicSim-Presentation.ppt">Slides in PowerPoint Format (PPT)</a></li>
+<li><a href="lecture-notes/GarlicSim-Presentation.otp">Slides in OpenDocument Format (OTP)</a></li>
 </ul>
 EOF
         },
