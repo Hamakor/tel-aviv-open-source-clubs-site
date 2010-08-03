@@ -519,6 +519,12 @@ my %lecturers =
         'homepage' => "http://www.eng.tau.ac.il/~shavitt/",
         'subject_render' => "explicit_url",
     },
+    'zohar_babin' =>
+    {
+        'name' => "Zohar Babin",
+        'name_render_type' => "plain",
+        'subject_render' => "no_url",
+    },
     'zohar_snir' =>
     {
         'name' => "Zohar Snir",
@@ -1743,6 +1749,20 @@ EOF
 <li><a href="http://garlicsim.org/">GarlicSim</a></li>
 <li><a href="lecture-notes/GarlicSim-Presentation.ppt">Slides in PowerPoint Format (PPT)</a></li>
 <li><a href="lecture-notes/GarlicSim-Presentation.otp">Slides in OpenDocument Format (OTP)</a></li>
+</ul>
+EOF
+        },
+        {
+            l => "zohar_babin",
+            d => "12/08",
+            s => "Kaltura: The Open Source Video Platform",
+            t => ["prog", "advocacy",],
+            url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_12_August_2010",
+            comments => <<"EOF",
+<ul>
+<li>
+<a href="http://corp.kaltura.com/">Kaltura</a>
+</li>
 </ul>
 EOF
         },
