@@ -9,7 +9,7 @@ WML_FLAGS += --passoption=2,-X3074 --passoption=3,-I../lib/ \
 	--passoption=3,-w $(LATEMP_WML_INCLUDE_PATH) -I../ -DROOT~. \
 	-I../lib/ --passoption=7,"-S imgsize"
 
-RSYNC = rsync --progress --verbose --rsh=ssh 
+RSYNC = rsync --progress --verbose --rsh=ssh
 
 DOCS_COMMON_DEPS = template.wml
 
@@ -42,13 +42,16 @@ dest/rss.xml: lib/lectures_dest/rss.xml
 include include.mak
 include rules.mak
 
-upload: upload_telux
+upload: upload_hamakor
 
 upload_telux_new: all
 	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/New-Site/)
 
 upload_telux: all
 	(cd dest && $(RSYNC) -r * shlomif@penguin.cs.tau.ac.il:/vol/web/www-cs/telux/)
+
+upload_hamakor:
+	(cd dest && $(RSYNC) -a * gnu.hamakor.org.il:/home/www/tel.foss.org.il/)
 
 test:
 	prove -l t/*.t
