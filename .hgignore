@@ -1,0 +1,6 @@
+wml/dest
+wml/include.mak
+wml/rules.mak
+wml/lib/lectures_dest/[\w\-]+.html
+wml/lib/lectures_dest/rss.xml
+wml/lib/lectures_dest/style.css
