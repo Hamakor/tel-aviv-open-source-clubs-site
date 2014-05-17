@@ -53,6 +53,9 @@ upload_telux: all
 upload_hamakor:
 	(cd dest && $(RSYNC) -a * gnu.hamakor.org.il:/home/www/tel.foss.org.il/)
 
+upload_temp_location: all
+	(cd dest && $(RSYNC) -a * $$__HOMEPAGE_REMOTE_PATH/tel.foss.org.il-temp/)
+
 test:
 	prove -l t/*.t
 
