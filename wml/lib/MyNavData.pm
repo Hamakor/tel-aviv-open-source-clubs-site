@@ -2,7 +2,7 @@ package MyNavData;
 
 my $hosts =
 {
-    'telux' => 
+    'telux' =>
     {
         'base_url' => "http://www.cs.tau.ac.il/telux/",
     },
@@ -44,7 +44,7 @@ my $tree_contents =
                 {
                     'text' => "InstaParty November 2003",
                     'url' => "instaparty-2003.html",
-                    'title' => ("The Installation Party that took place at" . 
+                    'title' => ("The Installation Party that took place at" .
                         " November 2003"),
                     'subs' =>
                     [
@@ -61,7 +61,7 @@ my $tree_contents =
 
 sub get_params
 {
-    return 
+    return
         (
             'hosts' => $hosts,
             'tree_contents' => $tree_contents,

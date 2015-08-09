@@ -3,13 +3,13 @@ package LecturesData;
 use strict;
 use warnings;
 
-my %lecturer_aliases = 
+my %lecturer_aliases =
 (
     'conan' => "constantine_shulyupin",
     'dryice' => "meir_maor",
     'choo' => "guykeren",
     'kilmo' => "orrd",
-    'muli' => "mulix",    
+    'muli' => "mulix",
 );
 
 sub series_idx_subject_render
@@ -58,7 +58,7 @@ my %subject_render_callbacks =
         },
 );
 
-my %lecturers = 
+my %lecturers =
 (
     'alex_landsberg' =>
     {
@@ -118,7 +118,7 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
-    'dan_liberzon' => 
+    'dan_liberzon' =>
     {
         'name' => "Dan Liberzon",
         'name_render_type' => "email",
@@ -149,7 +149,7 @@ my %lecturers =
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
     },
-    'eddie' => 
+    'eddie' =>
     {
         'name' => "Eddie Aronovich",
         'name_render_type' => "email",
@@ -256,7 +256,7 @@ my %lecturers =
         'name' => "Mark Silberstein",
         'name_render_type' => "email",
         'email' => "msilbers\@yahoo.com",
-        'subject_render' => "no_url",       
+        'subject_render' => "no_url",
     },
     'meir_maor' =>
     {
@@ -307,7 +307,7 @@ my %lecturers =
     },
     'mulix_and_choo' =>
     {
-        'name' => "<a href=\"mailto:mulix\@actom.co.il\">Muli Ben-Yehuda</a> and " . 
+        'name' => "<a href=\"mailto:mulix\@actom.co.il\">Muli Ben-Yehuda</a> and " .
             "<a href=\"mailto:choo\@actcom.co.il\">Guy Keren</a>",
         'name_render_type' => "plain",
         'subject_render' => "series_idx",
@@ -330,7 +330,7 @@ my %lecturers =
         'name' => "Nir Simionovich",
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
-    },  
+    },
     'oded_koren' =>
     {
         'name' => "Oded Koren",
@@ -475,7 +475,7 @@ my %lecturers =
         'name' => "Tal Ko",
         'name_render_type' => "plain",
         'subject_render' => "explicit_url",
-    },    
+    },
     'telux_members' =>
     {
         'name' => "Telux Members",
@@ -545,7 +545,7 @@ sub w2l_lecture_num_template
     my %flags = (@_);
     if ($flags{'strict'})
     {
-        return 
+        return
             {
                 'td-params' => " class=\"c\"",
                 'text' => "<a href=\"http://welcome.linux.org.il/\">Welcome to Linux</a> - $lecture_num",
@@ -564,7 +564,7 @@ sub w2foss_lecture_num_template
     my %flags = (@_);
     if ($flags{'strict'})
     {
-        return 
+        return
             {
                 'td-params' => " class=\"c\"",
                 'text' => "<a href=\"http://welcome.foss.org.il/\">Welcome to FOSS</a> - $lecture_num",
@@ -578,15 +578,15 @@ sub w2foss_lecture_num_template
 
 my %series_map =
 (
-    'default' => 
+    'default' =>
     {
-        'lecture_num_template' => 
+        'lecture_num_template' =>
             sub {
                 my $lecture_num = shift;
                 my %flags = (@_);
                 if ($flags{'strict'})
                 {
-                    return 
+                    return
                         {
                             'td-params' => " class=\"c\"",
                             'text' => $lecture_num,
@@ -605,7 +605,7 @@ my %series_map =
                 my %flags = (@_);
                 if ($flags{'strict'})
                 {
-                    return 
+                    return
                         {
                             'td-params' => " class=\"c\"",
                             'text' => "$lecture_num SiL",
@@ -645,7 +645,7 @@ my %series_map =
             sub {
                 my $lecture_num = shift;
                 return "<a href=\"http://www.shlomifish.org/lecture/Perl/Newbies/\">Programming in Perl - $lecture_num</a>";
-            },        
+            },
     },
     'none' =>
     {
@@ -656,7 +656,7 @@ my %series_map =
     },
 );
 
-my %topics_map = 
+my %topics_map =
 (
     'advocacy' =>
     {
@@ -670,7 +670,7 @@ my %topics_map =
         'url' => "kernel",
         'title' => "Kernel Lectures",
     },
-    'network' => 
+    'network' =>
     {
         'name' => "Networking lectures",
         'url' => "network",
@@ -681,7 +681,7 @@ my %topics_map =
         'name' => "Programming related lectures",
         'url' => "programming",
         'title' => "Programming Related Lectures",
-    },    
+    },
     'security' =>
     {
         'name' => "Security lectures",
@@ -692,7 +692,7 @@ my %topics_map =
     {
         'name' => "Linux system lectures",
         'url' => "system",
-        'title' => "System Lectures", 
+        'title' => "System Lectures",
     },
     'utils' =>
     {
@@ -853,7 +853,7 @@ my %lectures =
             url => "lin-club_files/linux-webhosting.pdf",
             comments => q{<a href="lin-club_files/linux-webhosting.sxi">Lecture
             in SXI Format</a>},
-            t => [qw(system net)],            
+            t => [qw(system net)],
         },
         {
             l => "sforbes",
@@ -917,7 +917,7 @@ my %lectures =
         },
         {
             l => "omer_zak_and_ori_idan",
-            s => "Accessibility in Linux", 
+            s => "Accessibility in Linux",
             d => "6/2",
             url => "lecture-notes/Lecture112zak-A-2005jan09.pdf",
             t => ["system","util"],
@@ -1010,12 +1010,11 @@ my %lectures =
             'series' => "w2l-2005",
             'comments' => q{
                 <p>
-                Everything one needs to know to start with Linux - 
+                Everything one needs to know to start with Linux -
                 applications, interfaces, working in the command shell,
                 getting help, configuration tools, package installation
                 and a little on the philosophy of open-source.
-                </p>
-            },
+                </p>},
         },
         {
             l => "sagiv_barhoom",
@@ -1134,7 +1133,7 @@ my %lectures =
             'series' => "w2l-2006",
             'comments' => <<"EOF",
 <p>
-Everything one needs to know to start with Linux - 
+Everything one needs to know to start with Linux -
 applications, interfaces, working in the command shell,
 getting help, configuration tools, package installation
 and a little on the philosophy of open-source.
@@ -1183,9 +1182,8 @@ EOF
             'series' => "w2l-2006",
             'comments' => q{How to install Linux, and what one should be
                 aware of.
-                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
-                Notes in PDF Format</a>
-            },
+                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture
+                Notes in PDF Format</a>},
         },
     ],
     '2007' =>
@@ -1336,7 +1334,7 @@ EOF
             url => "lecture-notes/w2l-2007-how-to-ask-qs.odp",
             t => [],
             'series' => "w2l-2007",
-            'comments' => q{How to live in, and get help from the Linux 
+            'comments' => q{How to live in, and get help from the Linux
                 community. Terms, resources, and etiquette.},
         },
         {
@@ -1358,9 +1356,8 @@ EOF
             'series' => "w2l-2007",
             'comments' => q{How to install Linux, and what one should be
                 aware of.
-                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
-                Notes in PDF Format</a>
-            },
+                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture
+                Notes in PDF Format</a>},
         },
     ],
     '2008' =>
@@ -1414,7 +1411,7 @@ EOF
             t => ["prog", "util"],
             comments => <<"EOF"
 <p>
-We will meet to share Tips and Tricks of <a href="http://www.vim.org/">the 
+We will meet to share Tips and Tricks of <a href="http://www.vim.org/">the
 Vim editor</a>. Bring in your favourite tips and tricks, .vimrc customisations,
 etc.
 </p>
@@ -1440,7 +1437,7 @@ EOF
             comments => <<"EOF",
 <ul>
 <li>
-<a href="http://wiki.perl.org.il/index.php/Meeting_on_13_July_2008">Wiki 
+<a href="http://wiki.perl.org.il/index.php/Meeting_on_13_July_2008">Wiki
 Page about the Meeting</a>
 </li>
 </ul>
@@ -1455,7 +1452,7 @@ EOF
             comments => <<"EOF",
 <ul>
 <li><a href="http://ik.homelinux.org/index.rhtml/other/lectures/puts_ruby">slides on Ido's site</a></li>
-<li><b>Local</b>: <a href="lecture-notes/puts_ruby.odp">OpenDocument 
+<li><b>Local</b>: <a href="lecture-notes/puts_ruby.odp">OpenDocument
 Format</a>, <a href="lecture-notes/puts_ruby.pdf">PDF Format</a>.
 </li>
 </ul>
@@ -1517,9 +1514,8 @@ EOF
             'series' => "w2l-2008",
             'comments' => q{How to install Linux, and what one should be
                 aware of.
-                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture 
-                Notes in PDF Format</a>
-            },
+                <a href="lecture-notes/Linux-Installation-Process-2006.pdf">Lecture
+                Notes in PDF Format</a>},
         },
         {
             l => "sagiv_barhoom",
@@ -1538,7 +1534,7 @@ EOF
             url => "lecture-notes/w2l-2007-how-to-ask-qs.odp",
             t => [],
             'series' => "w2l-2008",
-            'comments' => q{How to live in, and get help from the Linux 
+            'comments' => q{How to live in, and get help from the Linux
                 community. Terms, resources, and etiquette.},
         },
         {
@@ -1581,14 +1577,14 @@ EOF
             s => "Private Satellite T.V. and Linux",
             t => ["prog", "util",],
             url => "http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_08_March_2009",
-            'comments' => q{
+            'comments' => <<'EOF',
                 <ul>
                 <li>
-                <a href="lecture-notes/Satellite-Television-and-Linux.pdf">Lecture 
+                <a href="lecture-notes/Satellite-Television-and-Linux.pdf">Lecture
                 Notes in PDF Format</a>
                 </li>
                 </ul>
-            },
+EOF
         },
         {
             l => "szabgab",
@@ -1617,10 +1613,10 @@ EOF
             s => "Programming Red Flags",
             t => ["prog"],
             url => "http://www.slideshare.net/xSawyer/red-flags-1683319",
-            comments => q{
+            comments => <<'EOF',
                 <ul>
                 <li>
-                <a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_June_2009">Meeting 
+                <a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_21_June_2009">Meeting
                 Page on the Wiki</a>
                 </li>
                 <li>
@@ -1628,7 +1624,7 @@ EOF
                 File</a>
                 </li>
                 </ul>
-            },
+EOF
         },
         {
             l => "david_khosid",

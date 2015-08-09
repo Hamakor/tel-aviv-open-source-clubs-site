@@ -1,4 +1,4 @@
-my @files = 
+my @files =
 (
     {
         'id' => "all",
@@ -14,12 +14,12 @@ my @files =
         'no_header' => 1,
         'future_only' => 1,
     },
-    $get_grouped_file->(),        
+    $get_grouped_file->(),
 );
 
 while (my ($id, $topic) = each(%topics_map))
 {
-    push @files, 
+    push @files,
         {
             'id' => $id,
             'url' => ($topic->{'url'}.".html"),
@@ -31,40 +31,40 @@ while (my ($id, $topic) = each(%topics_map))
 
 
 ######### Removing the headers mechanism - it is bloat.
-# A user can always add his own headers before and after the 
+# A user can always add his own headers before and after the
 # generated HTML .
 
-my $get_header = 
-    sub { 
-        my $file = shift; 
+my $get_header =
+    sub {
+        my $file = shift;
         if (! exists($file->{'<title>'}))
         {
             my $d = Data::Dumper->new([$file], ['$file']);
             print $d->Dump();
             die "Hello";
         }
-        
+
         my $strict = $strict_flag;
-        
+
         return (
             #qq{<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">\n},
-            ($strict ? 
+            ($strict ?
             qq{<!DOCTYPE html
      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n}
             :
-            qq{<!DOCTYPE html 
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+            qq{<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n}
             ),
             "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n",
-            "<head>\n", 
-            "<title>$file->{'<title>'}</title>\n", 
+            "<head>\n",
+            "<title>$file->{'<title>'}</title>\n",
             "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />\n",
             ($strict ? qq{<link rel="StyleSheet" href="./style.css" type="text/css" />\n} : ""),
             "</head>\n",
             ($strict ? "<body>" : "<body bgcolor=\"white\" text=\"black\" background=\"pics/backtux.gif\">\n"),
-            ($strict ? 
+            ($strict ?
                 "<h1>$file->{'h1_title'}</h1>\n" :
                 "<div align=\"center\"><h1>$file->{'h1_title'}</h1></div>\n"
             ),
@@ -84,20 +84,20 @@ sub print_headers
 
 &print_headers($get_header);
 
-my $table_headers =  
+my $table_headers =
     "<table border=\"1\">\n" .
     "<tr>\n" .
     join("", map { "<td>$_</td>\n" } ("Lecture Number", "Subject", "Lecturer", "Date", "Comments or Links")) .
     "</tr>\n";
 
-my $page_footer = "</table>\n<hr />\n" . 
+my $page_footer = "</table>\n<hr />\n" .
     "<h3><a href=\"all.html\">All the Lectures</a></h3>\n" .
     "<h3>Other Lectures Sorted by Number</h3>\n" .
-    "<ul>\n" . 
-        join("", 
-            (map 
-                { 
-                    my ($f, $l) = $date_pres_man->get_group_indexes($_); 
+    "<ul>\n" .
+        join("",
+            (map
+                {
+                    my ($f, $l) = $date_pres_man->get_group_indexes($_);
                     "<li><a href=\"lectures$_.html\">Lectures $f-$l</a></li>\n"
                 }
                 (1 .. POSIX::ceil($num_default_lectures/20))
@@ -105,16 +105,16 @@ my $page_footer = "</table>\n<hr />\n" .
         ) . "</ul>\n" .
     "<h3>Other Lectures Sorted by Topic</h3>\n" .
     "<ul>\n" .
-        join("", 
+        join("",
             (map
-                { 
+                {
                     if (!exists($topics_map{$_}))
                     {
                         die "Unknown Topic in \@topics_order : $_!\n";
                     }
                     my $url = (exists($topics_map{$_}{'url'}) ? $topics_map{$_}{'url'} : $_);
-                    "<li><a href=\"$url.html\">".($topics_map{$_}->{'name'})."</a></li>\n" 
-                } 
+                    "<li><a href=\"$url.html\">".($topics_map{$_}->{'name'})."</a></li>\n"
+                }
                 (@topics_order)
             )
         ) .
@@ -143,7 +143,7 @@ my $page_footer = "</table>\n<hr />\n" .
             $f->{'buffer'} .= join("", $get_header->($f));
             $f->{'buffer'} .= $table_headers;
         }
-                
+
 
 
 #####################################################################
