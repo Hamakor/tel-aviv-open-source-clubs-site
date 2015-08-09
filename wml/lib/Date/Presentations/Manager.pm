@@ -74,7 +74,7 @@ sub _initialize
 
     foreach my $s (@{$self->stream_specs()})
     {
-        $self->stream_results()->{$s->{'id'}} = 
+        $self->stream_results()->{$s->{'id'}} =
             Date::Presentations::Manager::Stream::Results->new();
     }
     $self->group_id(1);
@@ -83,7 +83,7 @@ sub _initialize
     $self->is_future(0);
     # TODO : make sure base_url is initialized from the arguments.
     $self->base_url("http://www.cs.tau.ac.il/telux/");
-    
+
     $self->webmaster_email("taux\@cs.tau.ac.il");
 
     my $rss_feed = XML::RSS->new('version' => "2.0");
@@ -103,7 +103,7 @@ sub _initialize
         'ttl' => "360",
         'generator' => "Perl and XML::RSS",
     );
-    
+
     $self->rss_feed($rss_feed);
 
     $self->_calendar([]);
@@ -132,13 +132,13 @@ sub get_lecture_struct
         {
             my $d = Data::Dumper->new([$lecture], ["\$lecture"]);
             my $lect_dump = $d->Dump();
-            
-            die "Field '${field}' is not present in lecture No. " . 
+
+            die "Field '${field}' is not present in lecture No. " .
                 "$lect_idx of the year $year. Dump Follows:\n$lect_dump";
 
         }
     }
-    
+
     my $topics = ((ref($lecture->{'t'}) eq "ARRAY") ? $lecture->{'t'} : [ $lecture->{'t'}]);
     my @processed_topics;
     foreach my $a_topic (@$topics)
@@ -152,22 +152,22 @@ sub get_lecture_struct
             }
             else
             {
-                die "Topic '${a_topic}' mentioned in lecture " . 
+                die "Topic '${a_topic}' mentioned in lecture " .
                     "$lecture->{'s'} is not registered.";
             }
         }
         if (!exists($self->topics_map()->{$real_topic}))
         {
-            die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " . 
+            die "Topic '${a_topic} -> ${real_topic}' mentioned in lecture " .
                 "$lecture->{'s'} is not registered.";
         }
         push @processed_topics, $real_topic;
     }
     $lecture_copy{'t'} = \@processed_topics;
-    $lecture_copy{'d'} .= "/$year" if ($lecture_copy{'d'} =~ /^\d+\/\d+$/); 
+    $lecture_copy{'d'} .= "/$year" if ($lecture_copy{'d'} =~ /^\d+\/\d+$/);
     if (!exists($lecture_copy{'comments'}))
     {
-        $lecture_copy{'comments'} = "";            
+        $lecture_copy{'comments'} = "";
     }
     if (!exists($lecture_copy{'series'}))
     {
@@ -184,13 +184,13 @@ sub calc_lectures_flat
     my @lectures_flat;
 
     $self->calc_this_time();
-    
+
     foreach my $year (sort { $a <=> $b } keys(%{$self->lectures()}))
     {
         my $lect_idx = 0;
         foreach my $lecture (@{$self->lectures()->{$year}})
         {
-            push @lectures_flat, 
+            push @lectures_flat,
                 $self->get_lecture_struct(
                     $lecture,
                     $lect_idx++,
@@ -207,11 +207,11 @@ sub print_files
     my $self = shift;
 
     my $spec = shift;
-    
+
     my $topics = $spec->{'topics'} || [ "all" ];
     my $is_header = $spec->{'header'};
     my $is_past = $spec->{'past'};
-    
+
     if (ref($topics) eq "")
     {
         $topics = [ $topics ];
@@ -277,7 +277,7 @@ sub get_lecturer_id
     my $lecturer_id = $lecture->{'l'};
 
     $lecturer_id =
-        (exists($self->lecturer_aliases()->{$lecturer_id}) ? 
+        (exists($self->lecturer_aliases()->{$lecturer_id}) ?
             $self->lecturer_aliases->{$lecturer_id} :
             $lecturer_id
         );
@@ -308,18 +308,18 @@ sub get_subject_field
     {
         my $d = Data::Dumper->new([$lecturer_record], ["\$lecturer_record"]);
         my $lecturer_dump = $d->Dump();
-        
+
         die "No subject_render for lecturer. Dump Follows:\n$lecturer_dump";
     }
 
-    my $subject_render_text = 
-        (exists($lecture->{'subject_render'}) ? 
+    my $subject_render_text =
+        (exists($lecture->{'subject_render'}) ?
             $lecture->{'subject_render'} :
             $lecturer_record->{'subject_render'}
         );
 
     my $subject_render;
-    
+
     # if (ref($subject_render_text) eq "CODE")
     if (0)
     {
@@ -333,7 +333,7 @@ sub get_subject_field
     {
         die "Unknown Subject Render '$subject_render_text'!\n";
     }
-        
+
     return
         $subject_render->(
             $lecture,
@@ -364,7 +364,7 @@ sub get_lecturer_field
         {
             die "Unknown email for lecturer '" . $self->get_lecturer_id($lecture) . "'";
         }
-        return "<a href=\"mailto:" . $lecturer_record->{'email'} . 
+        return "<a href=\"mailto:" . $lecturer_record->{'email'} .
         "\">$name</a>";
     }
     elsif ($name_render_type eq "plain")
@@ -377,7 +377,7 @@ sub get_lecturer_field
     }
     else
     {
-        die ("Unknown lecturer's name_render_type field for " . 
+        die ("Unknown lecturer's name_render_type field for " .
             "lecturer '" . $self->get_lecturer_id($lecture) . "'");
     }
 }
@@ -419,7 +419,7 @@ sub add_rss_item
     {
         $lecture_url = $self->base_url()."/$lecture_url";
     }
-    
+
     $self->rss_feed()->add_item(
         'title' => $lecture->{'s'},
         (map { $_ => $self->base_url() } (qw(permaLink link))),
@@ -499,12 +499,12 @@ sub update_is_future
 sub render_field
 {
     my ($self, $lecture, $field) = @_;
-    $field = 
-        (ref($field) eq "HASH") ? 
-            $field : 
+    $field =
+        (ref($field) eq "HASH") ?
+            $field :
             { 'text' => $field, 'td-params' => "", }
             ;
-    return "<td" . $field->{'td-params'} . ">\n" . 
+    return "<td" . $field->{'td-params'} . ">\n" .
         $field->{'text'} . "\n</td>\n";
 }
 
@@ -518,13 +518,13 @@ sub get_fields
     my $self = shift;
     my $lecture = shift;
 
-    return 
+    return
     [
-        map 
-        { 
-            $self->can("get_".$_."_field")->($self, $lecture) 
-        } 
-        @{$self->get_fields_list()} 
+        map
+        {
+            $self->can("get_".$_."_field")->($self, $lecture)
+        }
+        @{$self->get_fields_list()}
     ];
 }
 
@@ -571,7 +571,7 @@ sub gen_lecture_publicity
 
     my $lang = 'he';
 
-    return { 
+    return {
         $lang => $self->_gen_lecture_publicity_for_lang($lecture, $lang),
     };
 }
@@ -604,9 +604,9 @@ body { direction : rtl; text-align : right; }
 <a href="[% obj.club_url() %]">[% obj.club_name(lang) %]</a>
 ייפגש שוב כדי לשמוע את
 <a href="[% lect_url %]">הרצאתו של
-ירון מאירי (Sawyer) אודות "Moose, מערכת תכנות מונחה העצמים לשפת פרל (למתחילים)"</a>. 
-ההרצאה תתקיים ביום ראשון, 17 בינואר 2010, בשעה 18:00 (שימו לב לשינוי בשעה משנה שעברה), 
-באולם הולצבלט, מס' 007 במסדרון הבניינים למדעים מדויקים (שימו לב לשינוי במיקום משנה שעברה) באוניברסיטת תל אביב. פרטים נוספים, מפות להגעה וכיוצא בזה, ניתן למצוא 
+ירון מאירי (Sawyer) אודות "Moose, מערכת תכנות מונחה העצמים לשפת פרל (למתחילים)"</a>.
+ההרצאה תתקיים ביום ראשון, 17 בינואר 2010, בשעה 18:00 (שימו לב לשינוי בשעה משנה שעברה),
+באולם הולצבלט, מס' 007 במסדרון הבניינים למדעים מדויקים (שימו לב לשינוי במיקום משנה שעברה) באוניברסיטת תל אביב. פרטים נוספים, מפות להגעה וכיוצא בזה, ניתן למצוא
 <a href="[% obj.club_url() %]">באתר</a>
 <a href="[% lect_url %]">ובוויקי</a>.
 הנוכחות בהרצאה היא חינמית ולא נדרשת הרשמה מראש.
@@ -614,23 +614,23 @@ body { direction : rtl; text-align : right; }
 
 <p>
 <a href="http://moose.perl.org/">Moose</a>
-הינה מערכת תכנות מונחה-עצמים פוסט-מודרנית לשפה פרל 5. היא נכתבה 
-מכיוון שההוגה המקורי שלה (סטיבן ליטל) קינא במה שפרל 6 סיפקה 
+הינה מערכת תכנות מונחה-עצמים פוסט-מודרנית לשפה פרל 5. היא נכתבה
+מכיוון שההוגה המקורי שלה (סטיבן ליטל) קינא במה שפרל 6 סיפקה
 בנוגע לתכנות מונחה עצמים, ולכן במקום לעבור לרובי הוא שקד על פיתוח
-מערכת דומה לפרל 5. Moose שאבה השראה מיכולות ה-OOP של שפות רבות 
-כמו פרל 6, Smalltalk, ליספ, רובי, ג'אווה, OCaml ושפות אחרות כשהיא 
-נשארת נאמנה לשורשי ה-פרל 5 שלה. 
+מערכת דומה לפרל 5. Moose שאבה השראה מיכולות ה-OOP של שפות רבות
+כמו פרל 6, Smalltalk, ליספ, רובי, ג'אווה, OCaml ושפות אחרות כשהיא
+נשארת נאמנה לשורשי ה-פרל 5 שלה.
 </p>
 
 <p>
-ירון מאירי הינו מנהל מערכות ומפתח פרל. הוא מרצה על קוד פתוח, תוכנה חופשית, 
-אבטחה וסטנדרטים של תכנות. ירון העביר בעבר את 
-<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_28_June_2009">ההרצאה 
+ירון מאירי הינו מנהל מערכות ומפתח פרל. הוא מרצה על קוד פתוח, תוכנה חופשית,
+אבטחה וסטנדרטים של תכנות. ירון העביר בעבר את
+<a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_28_June_2009">ההרצאה
 על דגלים אדומים בתכנות עבור שפות עיליות ביותר</a> במועדון התל-אביבי.
 </p>
 
 <p>
-אנו תמיד מחפשים מרצים שיתנדבו לתת הרצאות בנושאים שונים הקשורים לקוד-פתוח ולמחשבים. במידה שאתם מעוניינים לתת הרצאה, או שיש לכם הצעה להרצאה שמעניינת אתכם, נשמח לשמוע ממכם. 
+אנו תמיד מחפשים מרצים שיתנדבו לתת הרצאות בנושאים שונים הקשורים לקוד-פתוח ולמחשבים. במידה שאתם מעוניינים לתת הרצאה, או שיש לכם הצעה להרצאה שמעניינת אתכם, נשמח לשמוע ממכם.
 </p>
 
 </body>
@@ -641,7 +641,7 @@ EOF
 
     my $xhtml = "";
     $template->process(
-        \$template_text, 
+        \$template_text,
         {
             obj => $self,
             lect => $lecture,
@@ -675,7 +675,7 @@ sub _output_lecture_publicity
 {
     my ($self, $lecture) = @_;
 
-    
+
 }
 
 sub process_all_lectures
@@ -715,9 +715,9 @@ sub syndicate_to_google_calendar
         my $day_start = DateTime->from_epoch( epoch => $event->{time});
         my $day_end = DateTime->from_epoch( epoch => $event->{time});
 
-        $day_start->set(hour => 0, minute => 0, second => 0);        
+        $day_start->set(hour => 0, minute => 0, second => 0);
         $day_end->set(hour => 23, minute => 59, second => 0);
-        
+
         if ($cal->get_events(
                 'start-min' => $day_start, 'start-max' => $day_end
             )
@@ -735,9 +735,9 @@ sub syndicate_to_google_calendar
             $entry->title($event->{'title'});
             $entry->content('OSDClub Tel Aviv Lecture');
             $entry->location($location);
-            $entry->status('confirmed'); 
+            $entry->status('confirmed');
             $entry->transparency('opaque');
-            $entry->visibility('public'); 
+            $entry->visibility('public');
             $entry->when($start, $end);
 
             $cal->add_entry(

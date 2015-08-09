@@ -7,7 +7,7 @@ use Date::Presentations::Manager;
 
 use LecturesData;
 
-my @streams = 
+my @streams =
 (
     {
         'id' => "future",
@@ -16,7 +16,7 @@ my @streams =
         'no_header' => 1,
         'future_only' => 1,
     },
-    (map { 
+    (map {
             my $year = $_;
             +{
                 'id' => "w2l-$year",
@@ -25,7 +25,7 @@ my @streams =
                 'no_header' => 1,
                 'series' => sub { my $s = shift; return ($s eq "w2l-$year") },
             }
-        } 
+        }
         (2005 .. 2008)
     ),
     (map {

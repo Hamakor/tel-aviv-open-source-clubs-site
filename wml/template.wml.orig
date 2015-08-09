@@ -33,7 +33,7 @@ $nav_html = $rendered_results->{html};
 
 # The Definition of the page itself
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html 
+<!DOCTYPE html
      PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
@@ -74,9 +74,9 @@ http://perl-begin.berlios.de/<get-var url />
 <define-tag wiki:link whitespace="delete">
 <preserve url />
 <set-var %attributes />
-<ifeq "<get-var url />" "" 
-    "<set-var url="/Main/HomePage" />" 
-    "<set-var url="/<get-var url />" />" 
+<ifeq "<get-var url />" ""
+    "<set-var url="/Main/HomePage" />"
+    "<set-var url="/<get-var url />" />"
     />
 <site:link url="Wiki/pmwiki/pmwiki.php" /><get-var url />
 <restore url />
@@ -95,28 +95,28 @@ http://developer.berlios.de/forum/forum.php?forum_id=2341
 nd the main page" border="0" width="99%">
 <tr>
 <td valign="top" class="navbar" style="width:20%">
-<:{ print join("\n", @$nav_html); }:>        
+<:{ print join("\n", @$nav_html); }:>
 <define-tag validhtml>
 <p>
-<a href="$(ROOT)/rss.xml" title="RSS Feed for Telux Events"><img 
+<a href="$(ROOT)/rss.xml" title="RSS Feed for Telux Events"><img
     src="$(ROOT)/images/rss.png" alt="RSS Feed" style="border:0;"
     /></a>
 </p>
 <p>
-<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=70"><img 
-   style="margin-top:1em; border:0;" alt="Get Firefox!" 
-   title="Get Firefox! A safer, faster, better web-browser." 
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=70"><img
+   style="margin-top:1em; border:0;" alt="Get Firefox!"
+   title="Get Firefox! A safer, faster, better web-browser."
    src="$(ROOT)/images/get-firefox.gif" /></a>
 </p>
 <p>
-<a href="http://validator.w3.org/check/referer"><img 
-    style="border:0" src="$(ROOT)/images/valid-xhtml10.png" 
+<a href="http://validator.w3.org/check/referer"><img
+    style="border:0" src="$(ROOT)/images/valid-xhtml10.png"
          alt="Valid XHTML 1.0!"
          /></a>
 </p>
 <p>
  <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%%3A//perl-begin.berlios.de/$(FILENAME)"><img style="border:0"
-       src="$(ROOT)/images/vcss.gif" 
+       src="$(ROOT)/images/vcss.gif"
        alt="Valid CSS!" /></a>
 </p>
 </define-tag>

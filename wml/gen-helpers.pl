@@ -5,7 +5,7 @@ use warnings;
 
 use HTML::Latemp::GenMakeHelpers;
 
-my $generator = 
+my $generator =
     HTML::Latemp::GenMakeHelpers->new(
         'hosts' =>
         [
@@ -21,7 +21,7 @@ my $generator =
             },
         ],
     );
-    
+
 $generator->process_all();
 
 1;
