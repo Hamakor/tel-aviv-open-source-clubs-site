@@ -1,0 +1,27 @@
+As in previous years, we will have a Welcome-to-Linux series this year
+in Tel Aviv University in the course of December, 2007:
+
+http://welcome.linux.org.il/2007/
+
+The purpose of the series is to introduce the Linux operating system
+(and other open-source operating systems and programs) to those who
+are not familiar with them.
+
+One can find the dates of the presentations in the schedule:
+
+http://welcome.linux.org.il/2007/timetable.html
+
+And it can be publicised using banners and referral to the appropriate
+news items:
+
+http://welcome.linux.org.il/2007/#help_us
+
+We also have a mailing list for coordinating and organising the series,
+and those who want to help, should better join:
+
+http://hamakor.org.il/cgi-bin/mailman/listinfo/w2l
+
+Please help us in publicising and advancing the series, and in case you're
+new to Linux, or know someone who is, then you are welcome to attend
+the presentations.
+
