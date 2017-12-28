@@ -73,8 +73,8 @@ my $result = $date_pres_man->gen_lecture_publicity($lecture);
 
 # TEST
 eq_or_diff(
-    $result->{'he'}->{'xhtml'},
-    <<"EOF",
+    [split //, $result->{'he'}->{'xhtml'}],
+    [split //, <<"EOF"],
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE
     html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
@@ -96,7 +96,7 @@ body { direction : rtl; text-align : right; }
 ירון מאירי (Sawyer) אודות "Moose, מערכת תכנות מונחה העצמים לשפת פרל (למתחילים)"</a>.
 ההרצאה תתקיים ביום ראשון, 17 בינואר 2010, בשעה 18:00 (שימו לב לשינוי בשעה משנה שעברה),
 באולם הולצבלט, מס' 007 במסדרון הבניינים למדעים מדויקים (שימו לב לשינוי במיקום משנה שעברה) באוניברסיטת תל אביב. פרטים נוספים, מפות להגעה וכיוצא בזה, ניתן למצוא
-<a href="http://www.cs.tau.ac.il/telux/">באתר</a>
+<a href="http://tel.foss.org.il/">באתר</a>
 <a href="http://wiki.osdc.org.il/index.php/Tel_Aviv_Meeting_on_17_January_2010">ובוויקי</a>.
 הנוכחות בהרצאה היא חינמית ולא נדרשת הרשמה מראש.
 </p>
