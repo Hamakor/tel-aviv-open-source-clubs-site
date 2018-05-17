@@ -1,4 +1,3 @@
-
 TARGET = dest
 
 WML_FLAGS += -DLATEMP_THEME=perl-begin-1 -DLATEMP_SERVER=berlios
@@ -61,4 +60,3 @@ test:
 
 runtest:
 	runprove -l t/*.t
-
