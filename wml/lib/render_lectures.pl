@@ -3,6 +3,8 @@
 use strict;
 use warnings;
 
+use lib '.';
+
 use Date::Presentations::Manager;
 
 use LecturesData;
