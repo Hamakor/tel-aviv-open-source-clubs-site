@@ -1,0 +1,7 @@
+Sources for the site of the Tel Aviv Open Source Club:
+
+* http://www.cs.tau.ac.il/telux/[Site]
+
+The build instructions are to cd to the "wml" directory and follow the
+rough http://better-scm.shlomifish.org/source/[build instructions] of
+the Better SCM site.
