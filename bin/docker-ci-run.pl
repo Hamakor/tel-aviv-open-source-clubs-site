@@ -384,7 +384,6 @@ pydeps="WebTest appdirs beautifulsoup4 bottle bs4 click cookiecutter cssselect l
 sudo -H bash -c "$setup_script_cmd ; `which python3` -m pip install $pip_options \$pydeps"
 cpanm --notest IO::Async
 cpanm --notest App::Deps::Verify Pod::Xhtml
-cpanm --notest HTML::T5
 # For wml
 cpanm --notest Bit::Vector Carp::Always Class::XSAccessor GD Getopt::Long IO::All Image::Size List::MoreUtils Path::Tiny Term::ReadKey
 # For quadp
