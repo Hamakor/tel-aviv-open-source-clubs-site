@@ -204,6 +204,7 @@ sub run_config
                 hostname
                 lynx
                 make
+                m4
                 nodejs
                 npm
                 optipng
