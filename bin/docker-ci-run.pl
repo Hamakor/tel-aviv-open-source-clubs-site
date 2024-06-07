@@ -256,8 +256,7 @@ sub run_config
 
     if (
         not(    -d "./.git"
-            and -d "./bin"
-            and -f "./Tests/gmake-unit.t" )
+            and -d "./bin" )
         )
     {
         die "Must be run as \"$^X bin/docker-ci-run.pl\"!";
@@ -412,7 +411,6 @@ cd ~/source
 pwd
 ls -l
 ls -l bin/ || true
-perl bin/my-cookiecutter.pl
 deps-app plinst --notest -i bin/common-required-deps.yml -i bin/required-modules.yml
 gem install asciidoctor compass compass-blueprint
 PATH="\$HOME/bin:\$PATH"
@@ -422,7 +420,6 @@ PATH="\$HOME/bin:\$PATH"
 bash bin/install-git-cmakey-program-system-wide.bash 'git' 'installer' 'https://github.com/shlomif/quad-pres'
 bash bin/install-git-cmakey-program-system-wide.bash 'git' 'src' 'https://github.com/thewml/website-meta-language.git'
 bash bin/install-git-cmakey-program-system-wide.bash 'git' 'installer' 'https://github.com/thewml/latemp.git'
-echo '{"amazon_sak":"invalid"}' > "\$HOME"/.shlomifish-amazon-sak.json
 ( cd "\$HOME" && git clone https://github.com/w3c/markup-validator.git )
 pwd
 echo "HOME=\$HOME"
