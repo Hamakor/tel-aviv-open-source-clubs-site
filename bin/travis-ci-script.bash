@@ -8,9 +8,9 @@ export PATH="$PWD/node_modules/.bin:$PATH:/usr/games"
 export SKIP_SPELL_CHECK=",en,"
 export MAKEFLAGS="-r"
 
-if ! cd "bin"
+if ! cd "wml"
 then
-    printf "Cannot cd to %s!" "bin"
+    printf "Cannot cd to '%s'!" "wml"
     exit -1
 fi
 
