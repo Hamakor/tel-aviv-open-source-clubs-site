@@ -9,8 +9,6 @@ required:
           url: "https://nodejs.org/en/"
         - exe: "npm"
           url: "https://nodejs.org/en/"
-        - exe: "xsltproc"
-          url: "http://xmlsoft.org/XSLT/"
     meta_data:
         keys:
             package_name: task-telfoss-homesite
@@ -18,8 +16,6 @@ required:
             url: 'http://www.shlomifish.org/'
             desc: 'This task package installs some of the packages that the Tel Aviv Open Source club website needs.'
     perl5_modules:
-        App::Docmake: '0.1003'
-        App::Gezer: 0
         CGI: 0
         Carp: 0
         Carp::Always: 0
@@ -39,14 +35,11 @@ required:
         File::Path: 0
         File::Spec: 0
         File::Spec::Functions: 0
-        File::Update: 0
         File::Which: 0
         Getopt::Long: 0
         HTML::Latemp::GenMakeHelpers: 0
         HTML::Latemp::NavLinks::GenHtml::ArrowImages: 0
-        HTML::Spelling::Site: 'v0.4.0'
         HTML::TokeParser::Simple: 0
-        HTML::TreeBuilder::LibXML: 0
         HTML::Widgets::NavMenu: 0
         HTML::Widgets::NavMenu::EscapeHtml: 0
         HTML::Widgets::NavMenu::ToJSON: 0
@@ -73,7 +66,6 @@ required:
         XML::LibXML: 0
         XML::LibXML::Reader: 0
         XML::LibXML::XPathContext: 0
-        XML::LibXSLT: 0
         XML::Writer: 0
         autodie: 0
         constant: 0

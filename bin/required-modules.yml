@@ -76,7 +76,6 @@ required:
         Parallel::Map: 0
         Parallel::Map::Segmented: 0
         Perl::Tidy: 20191203
-        Pod::Xhtml: 0
         QuadPres: 0
         SQ: 0
         SVG: 0

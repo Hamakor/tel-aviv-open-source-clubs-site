@@ -80,9 +80,6 @@ EOF
                 qw/
                     build-essential
                     cookiecutter
-                    docbook-xsl
-                    docbook-xsl-ns
-                    docbook5-xml
                     graphicsmagick
                     hspell
                     hunspell-en-gb
@@ -102,7 +99,6 @@ EOF
                     libpython3-dev
                     libxml2-dev
                     libxml2-utils
-                    libxslt1-dev
                     lynx
                     perl
                     pysassc
@@ -115,7 +111,6 @@ EOF
                     ruby-rspec
                     txt2html
                     vim
-                    xsltproc
                     xz-utils
                     zip
                     /,
@@ -136,17 +131,12 @@ EOF
             sys_deps              => [
                 qw/
                     GraphicsMagick
-                    docbook-dtds
-                    docbook-style-xsl
-                    docbook5-style-xsl
                     gd-devel
                     gdbm-devel
                     gmp-devel
                     hspell-devel
                     libdb-devel
                     libxml2-devel
-                    libxslt
-                    libxslt-devel
                     ncurses-devel
                     pcre-devel
                     perl-DBD-SQLite
@@ -399,7 +389,7 @@ $setup_script_cmd
 pydeps="WebTest appdirs beautifulsoup4 bottle bs4 click cookiecutter cssselect lxml numpy pycotap rebookmaker scour soupsieve vnu_validator weasyprint webtest zenfilter"
 sudo -H bash -c "$setup_script_cmd ; `which python3` -m pip install $pip_options \$pydeps"
 cpanm --notest IO::Async
-cpanm --notest App::Deps::Verify App::XML::DocBook::Builder Pod::Xhtml
+cpanm --notest App::Deps::Verify Pod::Xhtml
 cpanm --notest HTML::T5
 # For wml
 cpanm --notest Bit::Vector Carp::Always Class::XSAccessor GD Getopt::Long IO::All Image::Size List::MoreUtils Path::Tiny Term::ReadKey
