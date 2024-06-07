@@ -460,7 +460,7 @@ fi
 find / -name minify | perl -lpE '\$_ = "find-result=(\$_)"'
 PATH="\$PATH:\$HOME/go/bin"
 _needs_dbtoepub="false"
-if test "${_needs_dbtoepub}" = "true"
+if test "\${_needs_dbtoepub}" = "true"
 then
     _local_dbtoepubdir="`pwd`/lib/repos/xslt10-stylesheets/xsl/epub/bin"
     _local_dbtoepub="\${_local_dbtoepubdir}/dbtoepub"
