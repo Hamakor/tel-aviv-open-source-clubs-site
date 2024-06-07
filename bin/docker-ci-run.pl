@@ -201,6 +201,7 @@ sub run_config
                 gcc
                 git
                 golang
+                hostname
                 lynx
                 make
                 nodejs
