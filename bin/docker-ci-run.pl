@@ -193,10 +193,7 @@ sub run_config
                 cmake
                 cmake-data
                 cpanminus
-                cppcheck
                 expat
-                fortune-mod
-                hunspell
                 g++
                 gcc
                 git
@@ -205,11 +202,7 @@ sub run_config
                 lynx
                 make
                 m4
-                nodejs
-                npm
                 optipng
-                primesieve
-                pypy3
                 python3
                 python3-cookiecutter
                 python3-pip
@@ -242,7 +235,6 @@ sub run_config
             Test::File::IsSorted
             Test::PerlTidy
             Test::TrailingSpace
-            Tree::AVL
             /
     );
 
