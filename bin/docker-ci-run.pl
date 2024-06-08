@@ -462,7 +462,8 @@ TIDYALL_DATA_DIR="\$HOME/tidyall_d" bash -x bin/run-ci-build.bash
 EOSCRIPTTTTTTT
     $obj->exe_bash_code( { code => $script, } );
 
-    # $obj->clean_up();
+    $obj->clean_up();
+
     return;
 }
 
