@@ -75,14 +75,10 @@ EOF
             snapshot_names_base => "tel_aviv_foss/hpage_debian",
             sys_deps            => [
 
-                # libpython3-all
-                # myspell-hw
                 qw/
                     build-essential
                     cookiecutter
                     graphicsmagick
-                    hspell
-                    hunspell-en-gb
                     libdb5.3-dev
                     libdbd-sqlite3-perl
                     libexpat1-dev
@@ -90,12 +86,10 @@ EOF
                     libgdbm-compat-dev
                     libgdbm-dev
                     libgmp-dev
-                    libhunspell-dev
                     libncurses-dev
                     libpcre2-dev
                     libpcre3-dev
                     libperl-dev
-                    libprimesieve-dev
                     libpython3-dev
                     libxml2-dev
                     libxml2-utils
@@ -107,8 +101,6 @@ EOF
                     python3-dev
                     python3-venv
                     python3-virtualenv
-                    ruby-dev
-                    ruby-rspec
                     txt2html
                     vim
                     xz-utils
@@ -134,7 +126,6 @@ EOF
                     gd-devel
                     gdbm-devel
                     gmp-devel
-                    hspell-devel
                     libdb-devel
                     libxml2-devel
                     ncurses-devel
@@ -146,10 +137,6 @@ EOF
                     python3
                     python3-devel
                     python3-libsass
-                    ruby-devel
-                    rubygem-nokogiri
-                    rubygem-rexml
-                    rubygem-rspec
                     sgml-common
                     vim
                     virtualenv
@@ -208,7 +195,6 @@ sub run_config
                 python3-setuptools
                 python3-virtualenv
                 rsync
-                ruby
                 tidy
                 virtualenv
                 zip
@@ -384,7 +370,6 @@ pwd
 ls -l
 ls -l bin/ || true
 deps-app plinst --notest -i bin/common-required-deps.yml -i bin/required-modules.yml
-gem install asciidoctor compass compass-blueprint
 PATH="\$HOME/bin:\$PATH"
 ( cd .. && git clone https://github.com/thewml/wml-extended-apis.git && cd wml-extended-apis/xhtml/1.x && bash Install.bash )
 ( cd .. && git clone https://github.com/thewml/latemp.git && cd latemp/support-headers && perl install.pl )

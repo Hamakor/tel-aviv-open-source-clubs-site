@@ -3,7 +3,8 @@
 set -x
 set -o pipefail
 
-export XML_CATALOG_FILES="/etc/xml/catalog $HOME/markup-validator/htdocs/sgml-lib/catalog.xml"
+# export XML_CATALOG_FILES="/etc/xml/catalog $HOME/markup-validator/htdocs/sgml-lib/catalog.xml"
+export XML_CATALOG_FILES="/etc/xml/catalog"
 export PATH="$PWD/node_modules/.bin:$PATH:/usr/games"
 export SKIP_SPELL_CHECK=",en,"
 export MAKEFLAGS="-r"

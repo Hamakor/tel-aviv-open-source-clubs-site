@@ -3,8 +3,6 @@ required:
     executables:
         - exe: "ag"
           url: "https://github.com/ggreer/the_silver_searcher"
-        - exe: "asciidoctor"
-          url: "https://asciidoctor.org/"
         - exe: "docmake"
           url: "http://www.shlomifish.org/open-source/projects/docmake/"
         - exe: "gm"
@@ -67,7 +65,6 @@ required:
         Test::Differences: 0
         Test::File::IsSorted: v0.2.0
         Test::Trap: 0
-        Text::Hspell: 0
         URI::Escape::XS: 0
         URI::Find: 0
         XML::Feed: 0
