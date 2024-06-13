@@ -44,7 +44,6 @@ required:
         HTML::Widgets::NavMenu::EscapeHtml: 0
         HTML::Widgets::NavMenu::ToJSON: 0
         HTML::Widgets::NavMenu::ToJSON::Data_Persistence::YAML: 0
-        IO::All: 0
         IO::Handle: 0
         JSON::MaybeXS: 0
         List::MoreUtils: 0

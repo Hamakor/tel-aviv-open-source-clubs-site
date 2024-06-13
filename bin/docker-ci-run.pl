@@ -197,7 +197,6 @@ sub run_config
                 g++
                 gcc
                 git
-                golang
                 hostname
                 lynx
                 make
@@ -222,7 +221,6 @@ sub run_config
             App::Deps::Verify
             Carp::Always
             File::Which
-            IO::All
             List::MoreUtils
             Math::BigInt::GMP
             Math::GMP
@@ -302,14 +300,6 @@ sub run_config
                 ]
             }
         );
-        $obj->do_system(
-            {
-                cmd => [
-qq#find lib -name .git | xargs dirname | perl -lnE 'system(qq[d=../temp-git/\$_ ; if test -d \\\$d ; then exit 0 ; fi ; mkdir -p `dirname \\\$d` ;cp -a \$_/ ../temp-git/\$_]);'
-#,
-                ]
-            }
-        );
 
         $obj->docker(
             {
@@ -382,10 +372,9 @@ $locale
 $setup_script_cmd
 pydeps="WebTest appdirs beautifulsoup4 bottle bs4 click cookiecutter cssselect lxml numpy pycotap rebookmaker scour soupsieve vnu_validator weasyprint webtest zenfilter"
 sudo -H bash -c "$setup_script_cmd ; `which python3` -m pip install $pip_options \$pydeps"
-cpanm --notest IO::Async
 cpanm --notest App::Deps::Verify Pod::Xhtml
 # For wml
-cpanm --notest Bit::Vector Carp::Always Class::XSAccessor GD Getopt::Long IO::All Image::Size List::MoreUtils Path::Tiny Term::ReadKey
+cpanm --notest Bit::Vector Carp::Always Class::XSAccessor GD Getopt::Long Image::Size List::MoreUtils Path::Tiny Term::ReadKey
 # For quadp
 cpanm --notest Class::XSAccessor Config::IniFiles HTML::Links::Localize
 sudo bash -c "$setup_script_cmd ; cpanm --notest @cpan_deps"
@@ -422,26 +411,6 @@ if test "\$cmake_build_is_already_part_of_test_sh" != "true"
 then
     true # bash -c "mkdir b ; cd b ; make && cd .. && rm -fr b"
 fi
-if true
-then
-    a="`pwd`"
-    mkdir -p \$HOME/src
-    cd \$HOME/src
-    git clone https://github.com/tdewolff/minify.git
-    cd minify
-    make install
-    cd "\$a"
-else
-    gourl="github.com/tdewolff/minify/cmd/minify"
-    # go mod init
-    go mod init shlomifish.org/golang/m
-    if ! go get -u "\$gourl"
-    then
-        go install "\$gourl\@latest"
-    fi
-fi
-find / -name minify | perl -lpE '\$_ = "find-result=(\$_)"'
-PATH="\$PATH:\$HOME/go/bin"
 _needs_dbtoepub="false"
 if test "\${_needs_dbtoepub}" = "true"
 then

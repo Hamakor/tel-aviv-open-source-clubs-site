@@ -13,8 +13,6 @@ required:
           url: "https://inkscape.org/en/"
         - exe: "markdent-html"
           url: "https://metacpan.org/pod/distribution/Markdent/bin/markdent-html"
-        - exe: "minify"
-          url: "https://github.com/tdewolff/minify/tree/master/cmd/minify"
         - exe: "optipng"
           url: "http://optipng.sourceforge.net/"
         - exe: "pysassc"
