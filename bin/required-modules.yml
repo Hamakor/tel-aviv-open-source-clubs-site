@@ -29,8 +29,6 @@ required:
           url: "https://github.com/htacg/tidy-html5"
         - exe: "weasyprint"
           url: "https://weasyprint.org/"
-        - exe: "xz"
-          url: "http://tukaani.org/xz/"
         - exe: "zip"
           url: "Info-Zip"
     meta_data:

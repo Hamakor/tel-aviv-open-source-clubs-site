@@ -102,8 +102,6 @@ EOF
                     python3-venv
                     python3-virtualenv
                     txt2html
-                    vim
-                    xz-utils
                     zip
                     /,
             ],
@@ -138,10 +136,8 @@ EOF
                     python3-devel
                     python3-libsass
                     sgml-common
-                    vim
                     virtualenv
                     which
-                    xz
                     /,
             ],
         }
