@@ -70,6 +70,7 @@ printf "%s\n%s\n" "en_US.UTF-8 UTF-8" "C.UTF-8 UTF-8" > /etc/locale.gen
 sudo dpkg-reconfigure --frontend=noninteractive locales
 # sudo netselect-apt -c israel -t 3 -a amd64 # -n buster
 sudo apt-get update -qq
+sudo apt-get -y full-upgrade
 EOF
             setup_script_cmd    => "true",
             snapshot_names_base => "tel_aviv_foss/hpage_debian",
@@ -107,7 +108,7 @@ EOF
             ],
         }
     ),
-    'fedora:40' => Docker::CLI::Wrapper::Container::Config->new(
+    'fedora:41' => Docker::CLI::Wrapper::Container::Config->new(
         {
             container                   => "tel_aviv_foss_homesite_fedora",
             install_langpack            => "true",
@@ -115,10 +116,11 @@ EOF
 
             # pip_options                 => "--break-system-packages",
             pip_options           => "",
-            setup_package_manager => "sudo dnf -y install nosync ; $EN ;",
-            setup_script_cmd      => "$EN",
-            snapshot_names_base   => "tel_aviv_foss/hpage_fedora",
-            sys_deps              => [
+            setup_package_manager =>
+"sudo dnf -y install nosync ; $EN ; $NOSYNC sudo dnf -y upgrade --refresh ; ",
+            setup_script_cmd    => "$EN",
+            snapshot_names_base => "tel_aviv_foss/hpage_fedora",
+            sys_deps            => [
                 qw/
                     GraphicsMagick
                     gd-devel
@@ -131,6 +133,7 @@ EOF
                     perl-DBD-SQLite
                     perl-Inline-Python
                     perl-XML-Parser
+                    perl-LWP-Protocol-https
                     perl-generators
                     python3
                     python3-devel
@@ -204,10 +207,6 @@ sub run_config
             Carp::Always
             File::Which
             List::MoreUtils
-            Math::BigInt::GMP
-            Math::GMP
-            MooX
-            MooX::late
             Path::Tiny
             String::ShellQuote
             Test::Code::TidyAll
@@ -357,8 +356,6 @@ sudo -H bash -c "$setup_script_cmd ; `which python3` -m pip install $pip_options
 cpanm --notest App::Deps::Verify Pod::Xhtml
 # For wml
 cpanm --notest Bit::Vector Carp::Always Class::XSAccessor GD Getopt::Long Image::Size List::MoreUtils Path::Tiny Term::ReadKey
-# For quadp
-cpanm --notest Class::XSAccessor Config::IniFiles HTML::Links::Localize
 sudo bash -c "$setup_script_cmd ; cpanm --notest @cpan_deps"
 sudo cpanm --notest https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git
 cd ~/source

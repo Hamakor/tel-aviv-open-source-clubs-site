@@ -17,8 +17,6 @@ required:
           url: "https://sass.github.io/libsass-python/pysassc.html"
         - exe: "python3"
           url: "https://www.python.org/"
-        - exe: "quadp"
-          url: "http://www.shlomifish.org/quad-pres/"
         - exe: "rsync"
           url: "https://rsync.samba.org/"
         - exe: "strfile"
@@ -55,8 +53,6 @@ required:
         Module::Build: 0
         Module::Format::AsHTML: 0
         Moo: 0
-        MooX: 0
-        MooX::late: 0
         Perl::Tidy: 20191203
         Spork::Shlomify: 0
         String::ShellQuote: 0
